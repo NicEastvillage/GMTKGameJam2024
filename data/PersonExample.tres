@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Person" load_steps=2 format=3 uid="uid://bu8n1qgltx64i"]
+
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_i6kko"]
+
+[resource]
+script = ExtResource("1_i6kko")
+history = "N/A"
+gender = "N/A"
+religion = "N/A"
