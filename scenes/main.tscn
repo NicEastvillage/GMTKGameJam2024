@@ -6,10 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
 [ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main2D" type="Node2D"]
 
 [node name="Draggable" parent="." instance=ExtResource("1_kic6p")]
 position = Vector2(637, 413)
+
+[node name="Draggable2" parent="." instance=ExtResource("1_kic6p")]
+position = Vector2(390, 284)
+
+[node name="Sprite2D" parent="Draggable2" index="1"]
+modulate = Color(1, 0, 1, 1)
+
+[editable path="Draggable2"]
 
 [node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
 position = Vector2(276, 193)
