@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6xxkfcetn3m4"]
+
+[ext_resource type="Texture2D" uid="uid://uk2ldldnkli4" path="res://sprites/Tablet.svg" id="1_f7shs"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="2_m5en6"]
+[ext_resource type="Texture2D" uid="uid://chwttq1i1vrlh" path="res://sprites/Circle.svg" id="3_rj6vo"]
+[ext_resource type="Texture2D" uid="uid://du32xn0ocjv67" path="res://sprites/Diamond.svg" id="4_w0ntq"]
+[ext_resource type="Texture2D" uid="uid://bn7ots0bvv8il" path="res://sprites/Star.svg" id="5_4ls6b"]
+
+[node name="Tablet" type="Node2D"]
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-26, -54)
+scale = Vector2(0.652542, 0.652542)
+texture = ExtResource("1_f7shs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -213.0
+offset_top = -106.0
+offset_right = 169.0
+offset_bottom = 121.0
+theme = ExtResource("2_m5en6")
+text = "No kill
+
+Must make gather food for family
+
+Must honor the gods
+
+Should make funny artifacts to confuse archeologists"
+autowrap_mode = 3
+
+[node name="Circle" type="Sprite2D" parent="."]
+position = Vector2(-127, -97)
+scale = Vector2(0.293478, 0.293478)
+texture = ExtResource("3_rj6vo")
+
+[node name="Diamond" type="Sprite2D" parent="."]
+position = Vector2(26, -5)
+scale = Vector2(0.222973, 0.222973)
+texture = ExtResource("4_w0ntq")
+
+[node name="Diamond2" type="Sprite2D" parent="."]
+position = Vector2(49, 64)
+scale = Vector2(0.209459, 0.209459)
+texture = ExtResource("4_w0ntq")
+
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(169, -51)
+scale = Vector2(0.332192, 0.332192)
+texture = ExtResource("5_4ls6b")

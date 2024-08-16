@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7eyoh186ocaj"
-path="res://.godot/imported/Chain.svg-67b34aff1e2ad9cfd05141e04d7e5925.ctex"
+uid="uid://c2rpw7e5cfknq"
+path="res://.godot/imported/Diamond.png-5d4eac6ea1d93fe2b60973bed9cfcdac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Chain.svg"
-dest_files=["res://.godot/imported/Chain.svg-67b34aff1e2ad9cfd05141e04d7e5925.ctex"]
+source_file="res://sprites/Diamond.png"
+dest_files=["res://.godot/imported/Diamond.png-5d4eac6ea1d93fe2b60973bed9cfcdac.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=3.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

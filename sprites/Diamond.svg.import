@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7eyoh186ocaj"
-path="res://.godot/imported/Chain.svg-67b34aff1e2ad9cfd05141e04d7e5925.ctex"
+uid="uid://du32xn0ocjv67"
+path="res://.godot/imported/Diamond.svg-fe069d77e4a4a7e1d33594e68f74018a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Chain.svg"
-dest_files=["res://.godot/imported/Chain.svg-67b34aff1e2ad9cfd05141e04d7e5925.ctex"]
+source_file="res://sprites/Diamond.svg"
+dest_files=["res://.godot/imported/Diamond.svg-fe069d77e4a4a7e1d33594e68f74018a.ctex"]
 
 [params]
 

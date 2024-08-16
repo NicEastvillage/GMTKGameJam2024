@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvtcfbxposi53"]
+
+[ext_resource type="Texture2D" uid="uid://m7e37524dvl3" path="res://sprites/Weight Large.png" id="1_ki4hu"]
+[ext_resource type="Texture2D" uid="uid://da85vpvxh4ike" path="res://sprites/Circle.png" id="2_gtodt"]
+
+[node name="WeightLarge" type="Node2D"]
+position = Vector2(255, 524)
+scale = Vector2(0.247561, 0.247561)
+
+[node name="WeightLarge" type="Sprite2D" parent="."]
+texture = ExtResource("1_ki4hu")
+
+[node name="Circle" type="Sprite2D" parent="WeightLarge"]
+position = Vector2(-8.0788, 121.182)
+scale = Vector2(1.46957, 1.46957)
+texture = ExtResource("2_gtodt")

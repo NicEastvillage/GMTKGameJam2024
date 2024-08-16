@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqvt41b7jk6hr"]
+
+[ext_resource type="Texture2D" uid="uid://dl0etveit563a" path="res://sprites/Weight Medium.png" id="1_gk3hv"]
+[ext_resource type="Texture2D" uid="uid://cy8wv4aosvwu0" path="res://sprites/Star.png" id="2_2otvo"]
+
+[node name="WeightMedium" type="Node2D"]
+position = Vector2(255, 524)
+scale = Vector2(0.247561, 0.247561)
+
+[node name="WeightMedium" type="Sprite2D" parent="."]
+texture = ExtResource("1_gk3hv")
+
+[node name="Star" type="Sprite2D" parent="WeightMedium"]
+position = Vector2(-7.42755, 63.9674)
+scale = Vector2(1.14895, 1.14895)
+texture = ExtResource("2_2otvo")

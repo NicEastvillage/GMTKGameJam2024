@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxjv0nius6bv"]
+
+[ext_resource type="Texture2D" uid="uid://f1r5qdjt5l8d" path="res://sprites/Weight Small.png" id="1_37cr0"]
+[ext_resource type="Texture2D" uid="uid://c2rpw7e5cfknq" path="res://sprites/Diamond.png" id="2_w5tyv"]
+
+[node name="WeightSmall" type="Node2D"]
+position = Vector2(255, 524)
+scale = Vector2(0.247561, 0.247561)
+
+[node name="WeightSmall" type="Sprite2D" parent="."]
+texture = ExtResource("1_37cr0")
+
+[node name="Diamond" type="Sprite2D" parent="WeightSmall"]
+position = Vector2(-7.42755, 63.9674)
+scale = Vector2(0.783859, 0.783859)
+texture = ExtResource("2_w5tyv")
