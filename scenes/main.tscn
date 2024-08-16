@@ -2,7 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://b4msc77geuuvr" path="res://prefabs/draggable.tscn" id="1_kic6p"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main2D" type="Node2D"]
 
 [node name="Draggable" parent="." instance=ExtResource("1_kic6p")]
 position = Vector2(637, 413)
+
+[node name="Draggable2" parent="." instance=ExtResource("1_kic6p")]
+position = Vector2(390, 284)
+
+[node name="Sprite2D" parent="Draggable2" index="1"]
+modulate = Color(1, 0, 1, 1)
+
+[editable path="Draggable2"]
