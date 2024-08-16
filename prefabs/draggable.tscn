@@ -10,11 +10,12 @@ size = Vector2(128, 128)
 input_pickable = true
 script = ExtResource("1_jcb7h")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.333333, 0.333333)
+texture = ExtResource("1_p3o23")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2jh7o")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_p3o23")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
