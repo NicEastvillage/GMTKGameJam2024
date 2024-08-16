@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvtcfbxposi53"]
+[gd_scene load_steps=5 format=3 uid="uid://dvtcfbxposi53"]
 
 [ext_resource type="Texture2D" uid="uid://m7e37524dvl3" path="res://sprites/Weight Large.png" id="1_ki4hu"]
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_vgm5j"]
 [ext_resource type="Texture2D" uid="uid://da85vpvxh4ike" path="res://sprites/Circle.png" id="2_gtodt"]
 
-[node name="WeightLarge" type="Node2D"]
-position = Vector2(255, 524)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
+size = Vector2(638.227, 799.803)
+
+[node name="WeightLarge" type="CharacterBody2D"]
+position = Vector2(-2, -2)
 scale = Vector2(0.247561, 0.247561)
+input_pickable = true
+script = ExtResource("1_vgm5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.03943, -8.07886)
+shape = SubResource("RectangleShape2D_lhlkn")
 
 [node name="WeightLarge" type="Sprite2D" parent="."]
 texture = ExtResource("1_ki4hu")

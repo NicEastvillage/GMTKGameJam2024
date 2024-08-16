@@ -1,21 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=5 format=3 uid="uid://dsdchgqwhnrb1"]
 
-[ext_resource type="PackedScene" uid="uid://b4msc77geuuvr" path="res://prefabs/draggable.tscn" id="1_kic6p"]
-[ext_resource type="PackedScene" path="res://prefabs/tablet.tscn" id="2_mh35a"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
+[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/tablet.tscn" id="2_mh35a"]
+[ext_resource type="PackedScene" uid="uid://bqvt41b7jk6hr" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
+[ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
+[ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
 
 [node name="Main2D" type="Node2D"]
-
-[node name="Draggable" parent="." instance=ExtResource("1_kic6p")]
-position = Vector2(637, 413)
-
-[node name="Draggable2" parent="." instance=ExtResource("1_kic6p")]
-position = Vector2(390, 284)
-
-[node name="Sprite2D" parent="Draggable2" index="0"]
-modulate = Color(1, 0, 1, 1)
 
 [node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
 position = Vector2(276, 193)
@@ -32,5 +22,3 @@ scale = Vector2(0.113, 0.113)
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
 scale = Vector2(0.113, 0.113)
-
-[editable path="Draggable2"]
