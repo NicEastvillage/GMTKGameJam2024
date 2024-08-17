@@ -1,33 +1,25 @@
 extends CharacterBody2D
 
-static var greatest = null
 var hovered: bool = false
 var dragging: bool = false
 var mouse_offset: Vector2
 
-func _ready():
-	pass
-
-func _process(delta: float) -> void:
-	if dragging:
-		var mpos = get_viewport().get_mouse_position()
-		position = mpos + mouse_offset
-		greatest = null
-
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
+			# Clicked
+			print("CLICK ", name)
+			dragging = true
+			mouse_offset = position - get_viewport().get_mouse_position()
+			event.canceled = true
+		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
+			# Release anywhere
+			print("RELEASE ", name)
 			dragging = false
-
-func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if greatest == null or greatest.get_index() < get_index():
-				if greatest != null:
-					greatest.dragging = false
-				dragging = true
-				mouse_offset = position - get_viewport().get_mouse_position()
-				greatest = self
+	elif event is InputEventMouseMotion:
+		# Mouse moved
+		if dragging:
+			position = event.position + mouse_offset
 
 func _on_mouse_entered():
 	hovered = true;
