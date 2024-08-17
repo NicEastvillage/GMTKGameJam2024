@@ -14,7 +14,7 @@ func _input(event: InputEvent):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			# Clicked
 			dragging = true
-			mouse_offset = position - get_viewport().get_mouse_position()
+			mouse_offset = global_position - get_viewport().get_mouse_position()
 			event.canceled = true
 			if being_weighed:
 				being_weighed = false
@@ -29,6 +29,7 @@ func _input(event: InputEvent):
 		# Mouse moved
 		if dragging:
 			position = event.position + mouse_offset
+			print(event.position, " + ", mouse_offset)
 
 func _on_mouse_entered():
 	hovered = true
