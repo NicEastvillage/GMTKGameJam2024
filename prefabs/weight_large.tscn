@@ -11,7 +11,7 @@ size = Vector2(638.227, 799.803)
 input_pickable = true
 script = ExtResource("1_vgm5j")
 can_be_weighed = true
-weight = 8
+weight = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -60.125)

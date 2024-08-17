@@ -29,7 +29,6 @@ func _input(event: InputEvent):
 		# Mouse moved
 		if dragging:
 			position = event.position + mouse_offset
-			print(event.position, " + ", mouse_offset)
 
 func _on_mouse_entered():
 	hovered = true
