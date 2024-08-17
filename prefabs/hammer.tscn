@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl8j7527ueew7"]
+
+[ext_resource type="Texture2D" uid="uid://bn85g3adpyp0m" path="res://sprites/Gavel.png" id="1_pnfu2"]
+[ext_resource type="Script" path="res://scripts/hammer.gd" id="1_rt55x"]
+
+[node name="Hammer" type="Node2D"]
+
+[node name="hammer" type="RigidBody2D" parent="." groups=["rigid_dragable"]]
+input_pickable = true
+gravity_scale = 0.0
+script = ExtResource("1_rt55x")
+
+[node name="Sprite2D" type="Sprite2D" parent="hammer"]
+position = Vector2(0, -54)
+rotation = -1.5708
+texture = ExtResource("1_pnfu2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hammer"]
+polygon = PackedVector2Array(4, -79, 25, -79, 25, -109, -25, -109, -25, -79, -4, -80, -4, 0, 0, 3, 4, 0)
+
+[connection signal="mouse_entered" from="hammer" to="hammer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="hammer" to="hammer" method="_on_mouse_exited"]
