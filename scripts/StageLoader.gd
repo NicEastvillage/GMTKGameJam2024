@@ -8,6 +8,9 @@ extends Node2D
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
 
+@export var grabber : StaticBody2D
+@export var grabber_joint : PinJoint2D
+
 var current_stage: StageData:
 	get:
 		if current_stage_index >= len(stages):
@@ -21,6 +24,8 @@ var current_person: PersonData:
 		return current_stage.people[current_person_index]
 
 func _ready():
+	for node in get_tree().get_nodes_in_group("rigid_dragable"):
+		node.connect("clicked", _on_pickable_clicked)
 	if current_stage == null or current_person == null:
 		end_game()
 	else:
@@ -73,3 +78,22 @@ func give_verdict():
 	# TODO: Check if correct
 	
 	end_person()
+
+var held_object = null
+
+func _process(delta: float) -> void:
+	grabber_joint.global_position = get_viewport().get_mouse_position()
+
+func _on_pickable_clicked(object):
+	if !held_object:
+		held_object = object
+		held_object.pickup()
+		grabber_joint.node_a = held_object.get_path()
+		grabber_joint.node_b = grabber.get_path()
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if held_object and !event.pressed:
+			held_object.drop(Input.get_last_mouse_velocity())
+			held_object = null
+			grabber_joint.node_a = NodePath()
