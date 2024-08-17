@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://df4htt0fbo835"]
+
+[ext_resource type="Script" path="res://scripts/weight_spawner.gd" id="1_eo6r2"]
+[ext_resource type="Texture2D" uid="uid://c2rpw7e5cfknq" path="res://sprites/Diamond.png" id="3_hl1b8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xw1k"]
+size = Vector2(207, 206)
+
+[node name="weight_spawner" type="Area2D"]
+script = ExtResource("1_eo6r2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -3)
+shape = SubResource("RectangleShape2D_2xw1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.784, 0.784)
+texture = ExtResource("3_hl1b8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
