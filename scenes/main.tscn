@@ -119,12 +119,12 @@ scale = Vector2(0.64, 0.652594)
 
 [node name="WeightMedium" parent="." instance=ExtResource("3_888uj")]
 position = Vector2(153, 545)
-scale = Vector2(0.113, 0.113)
 
 [node name="WeightSmall" parent="." instance=ExtResource("4_2sg6v")]
 position = Vector2(60, 558)
-scale = Vector2(0.113, 0.113)
 
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
-scale = Vector2(0.113, 0.113)
+
+[node name="weight_spawner" parent="." instance=ExtResource("9_do6tm")]
+position = Vector2(321, 430)

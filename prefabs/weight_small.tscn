@@ -8,16 +8,15 @@
 size = Vector2(274.68, 565.517)
 
 [node name="WeightSmall" type="CharacterBody2D"]
-position = Vector2(0, -2)
-scale = Vector2(0.247561, 0.247561)
 input_pickable = true
 script = ExtResource("1_m0s5a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.03943, -8.07886)
+scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_qt260")
 
 [node name="WeightSmall" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_37cr0")
 
 [node name="Diamond" type="Sprite2D" parent="WeightSmall"]
