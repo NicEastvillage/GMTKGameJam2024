@@ -6,7 +6,20 @@ signal clicked
 
 var held = false
 var offset : Vector2
+var selected_sound: AudioStreamPlayer2D
+var dropped_sound: AudioStreamPlayer2D
+var rng = RandomNumberGenerator.new()
+var pitch_variance = 0.5
 
+func _ready():
+	selected_sound = get_node_or_null("SelectedSound")
+	dropped_sound = get_node_or_null("DroppedSound")
+
+func play_sfx(sound):
+	if sound != null:
+		print("alive")
+		sound.pitch_scale = rng.randf_range(1 - pitch_variance, 1 + pitch_variance)
+		sound.playing = true
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -20,6 +33,7 @@ func _physics_process(delta):
 		#global_transform.origin = get_global_mouse_position() + offset
 
 func pickup():
+	play_sfx(selected_sound)
 	if held:
 		return
 	#freeze = true
@@ -29,3 +43,4 @@ func drop(impulse=Vector2.ZERO):
 	if held:
 		#freeze = false
 		held = false
+		play_sfx(dropped_sound)

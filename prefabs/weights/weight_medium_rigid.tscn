@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://whoap6ax7f3a"]
+[gd_scene load_steps=5 format=3 uid="uid://whoap6ax7f3a"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_1yiro"]
 [ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="2_h2s7h"]
+[ext_resource type="AudioStream" uid="uid://b8c0dcgdcy2mw" path="res://sounds/weight_slide.wav" id="3_86bpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(133.333, 199.068)
@@ -21,6 +22,14 @@ shape = SubResource("RectangleShape2D_lhlkn")
 [node name="WeightLarge" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
 texture = ExtResource("2_h2s7h")
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_86bpc")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("3_86bpc")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
