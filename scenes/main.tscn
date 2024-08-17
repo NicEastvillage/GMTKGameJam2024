@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
-[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/tablet.tscn" id="2_mh35a"]
+[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/first_stage/sins_first.tscn" id="2_mh35a"]
 [ext_resource type="PackedScene" uid="uid://c2gbbd57rdulg" path="res://prefabs/scale.tscn" id="3_5jcsy"]
 [ext_resource type="PackedScene" uid="uid://bqvt41b7jk6hr" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
 [ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
@@ -20,28 +20,7 @@
 script = ExtResource("10_5p1cc")
 
 [node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
-position = Vector2(40, 2)
-energy = 0.1
-shadow_enabled = true
-texture = ExtResource("11_ikrsq")
-texture_scale = 2.44
-
-[node name="PointLight2D2" type="PointLight2D" parent="CursorLight"]
-position = Vector2(-67, 3)
-energy = 0.1
-shadow_enabled = true
-texture = ExtResource("11_ikrsq")
-texture_scale = 2.44
-
-[node name="PointLight2D3" type="PointLight2D" parent="CursorLight"]
-position = Vector2(0, -48)
-energy = 0.1
-shadow_enabled = true
-texture = ExtResource("11_ikrsq")
-texture_scale = 2.44
-
-[node name="PointLight2D4" type="PointLight2D" parent="CursorLight"]
-position = Vector2(-3, 69)
+color = Color(1, 1, 1, 0.282353)
 energy = 0.1
 shadow_enabled = true
 texture = ExtResource("11_ikrsq")
