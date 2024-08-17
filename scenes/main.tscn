@@ -72,7 +72,7 @@ custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("1_d2aud")
-expand_mode = 1
+stretch_mode = 2
 
 [node name="Label" type="Label" parent="UI/Panel/HBoxContainer/VBoxContainer"]
 layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnpsoi28uvduf"
-path="res://.godot/imported/PortraitDefault.png-aa0f6593d79cfdc108ea24c7bbc920b5.ctex"
+uid="uid://dqfasiu6rna8r"
+path="res://.godot/imported/PortraitNapoleon.png-a19741f39231c0a9372568c272ed3146.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/PortraitDefault.png"
-dest_files=["res://.godot/imported/PortraitDefault.png-aa0f6593d79cfdc108ea24c7bbc920b5.ctex"]
+source_file="res://sprites/Portraits/PortraitNapoleon.png"
+dest_files=["res://.godot/imported/PortraitNapoleon.png-a19741f39231c0a9372568c272ed3146.ctex"]
 
 [params]
 
