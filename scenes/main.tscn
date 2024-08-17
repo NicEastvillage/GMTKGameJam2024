@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=11 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
 [ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
-[ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
 [ext_resource type="PackedScene" uid="uid://dfxitsqbpgvks" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
 [ext_resource type="PackedScene" uid="uid://dl8j7527ueew7" path="res://prefabs/hammer.tscn" id="11_dpue7"]
@@ -23,10 +22,8 @@ grabber_joint = NodePath("grab_joint")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="CursorLight" type="Node2D" parent="."]
-script = ExtResource("10_5p1cc")
-
-[node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(321, 25)
 color = Color(1, 1, 1, 0.67451)
 energy = 0.15
 shadow_enabled = true
