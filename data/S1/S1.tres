@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=7 format=3 uid="uid://bbdnhmtor6i7r"]
+
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_v72ly"]
+[ext_resource type="Resource" uid="uid://c08nyaoa4l76x" path="res://data/S1/S1P1_Mambo/S1P1.tres" id="2_eprrh"]
+[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_mkqf4"]
+[ext_resource type="Resource" uid="uid://wjblpuhi1446" path="res://data/S1/S1P2_Grogon/S1P2.tres" id="3_vnw0s"]
+[ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="4_6b00c"]
+[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://data/S1/S1_doc_2.tscn" id="5_khbqx"]
+
+[resource]
+script = ExtResource("2_mkqf4")
+people = Array[ExtResource("1_v72ly")]([ExtResource("2_eprrh"), ExtResource("3_vnw0s")])
+rule_documents = Array[PackedScene]([ExtResource("4_6b00c"), ExtResource("5_khbqx")])

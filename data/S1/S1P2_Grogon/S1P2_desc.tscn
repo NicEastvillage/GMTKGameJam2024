@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkhtwiyj4amrx"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_4jsjp"]
+[ext_resource type="Texture2D" uid="uid://co8qbvw18sq2" path="res://sprites/Tablet2.png" id="2_rodxq"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_7nq0a"]
+[ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="4_0oey3"]
+[ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="5_8nebn"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-89, -93, -89, -67, -85, -52, -88, -33, -82, -9, -85, -1, -82, 3, -57, 2, -32, 8, -4, 8, 21, 4, 31, 6, 35, -17, 37, -46, 32, -61, 34, -105, 27, -111, -22, -110, -42, -103, -67, -110, -82, -107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(134.533, 128.533)
+
+[node name="S1P2_desc" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_4jsjp")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(25, 53)
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.266304, -0.266304)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-1.2663, 0.733696)
+texture = ExtResource("2_rodxq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -59.0
+offset_top = -53.0
+offset_right = 54.0
+offset_bottom = 50.0
+theme = ExtResource("3_7nq0a")
+text = "MOTHER DIED WHEN BABY
+
+QUITE AND CLEVER
+
+KNOW FOREST GOOD
+
+EAT ALL BERRIES
+
+SACRIFICED GOAT AND GOT TWO KIDS NEXT SUMMER
+
+ALWAYS GIVE BANANA TO FRIEND MOGU
+
+ALWAYS PEE ALONE"
+autowrap_mode = 3
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("4_0oey3")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("5_8nebn")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

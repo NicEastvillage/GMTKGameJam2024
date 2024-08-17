@@ -12,6 +12,8 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
 
+var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
+
 var current_stage: StageData:
 	get:
 		if current_stage_index >= len(stages):
@@ -33,26 +35,32 @@ func _ready():
 	else:
 		load_stage()
 
+func spawn_doc(doc):
+	var inst = doc.instantiate()
+	var spawn_pos = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
+	inst.position = spawn_pos
+	var effect = spawn_effect.instantiate()
+	inst.add_child(effect)
+	inst.move_child(effect, 0)
+	return inst
+
 func load_stage():
 	print("LOADING STAGE ", current_stage_index)
 	for doc in current_stage.rule_documents:
-		var inst = doc.instantiate()
+		var inst = spawn_doc(doc)
 		documents_node.add_child(inst)
-		inst.position = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
 	load_person()
 	
 func load_person():
 	print("LOADING PERSON ", current_stage_index, ".", current_person_index, " ", current_person.name)
 	# Create personal documents
 	for doc in current_person.person_documents:
-		var inst = doc.instantiate()
+		var inst = spawn_doc(doc)
 		documents_personal_node.add_child(inst)
-		inst.position = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
-	var pol = polaroid.instantiate()
+	var pol = spawn_doc(polaroid)
 	pol.find_child("Portrait").texture = current_person.portrait
 	pol.find_child("Name").text = current_person.name
 	documents_personal_node.add_child(pol)
-	pol.position = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
 
 func end_game():
 	print("GAME OVER")

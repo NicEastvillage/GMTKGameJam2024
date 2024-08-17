@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://eg7fjbpaityr"]
+
+[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://data/S1/S1_doc_2.tscn" id="1_juxc3"]
+[ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="2_g1r0t"]
+[ext_resource type="PackedScene" uid="uid://b7fk7g7dd3ug4" path="res://data/S1/S1P1_Mambo/S1P1_desc.tscn" id="3_qhrgx"]
+[ext_resource type="PackedScene" uid="uid://dkhtwiyj4amrx" path="res://data/S1/S1P2_Grogon/S1P2_desc.tscn" id="4_yael0"]
+
+[node name="ContentPreview" type="Node2D"]
+
+[node name="Stage_FirstHuman" type="Node2D" parent="."]
+
+[node name="S1_doc_1" parent="Stage_FirstHuman" instance=ExtResource("2_g1r0t")]
+position = Vector2(82, 45)
+
+[node name="S1_doc_2" parent="Stage_FirstHuman" instance=ExtResource("1_juxc3")]
+position = Vector2(82, 128)
+
+[node name="S1P1_desc" parent="Stage_FirstHuman" instance=ExtResource("3_qhrgx")]
+position = Vector2(79, 296)
+
+[node name="S1P2_desc" parent="Stage_FirstHuman" instance=ExtResource("4_yael0")]
+position = Vector2(78, 453)
