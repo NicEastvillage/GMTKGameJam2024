@@ -43,11 +43,6 @@ Must honor the gods
 Should make funny artifacts to confuse archeologists"
 autowrap_mode = 3
 
-[node name="Circle" type="Sprite2D" parent="."]
-position = Vector2(-127, -97)
-scale = Vector2(0.293478, 0.293478)
-texture = ExtResource("4_rhavm")
-
 [node name="Shield" type="Sprite2D" parent="."]
 position = Vector2(-79, -81)
 texture = ExtResource("6_34j6m")
