@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_52l57"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="1_cw5b1"]
-[ext_resource type="PackedScene" uid="uid://he3anwde356t" path="res://prefabs/weight_large_rigid.tscn" id="2_mnd3b"]
+[ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weight_large_rigid.tscn" id="2_mnd3b"]
 [ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="4_qfs20"]
 [ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weight_medium_rigid.tscn" id="6_jbgf5"]
 
