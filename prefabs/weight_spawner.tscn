@@ -1,14 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://2q7onxgifwhv"]
+[gd_scene load_steps=8 format=3 uid="uid://2q7onxgifwhv"]
 
 [ext_resource type="Script" path="res://scripts/weight_spawner.gd" id="1_eo6r2"]
-[ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="2_dspfo"]
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="2_ak6ym"]
+[ext_resource type="Texture2D" uid="uid://cplb81pril50d" path="res://sprites/Weight Large.png" id="3_acb8c"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dvejk"]
+polygon = PackedVector2Array(-6, -9.98027, -6, -4.98027, -9, -4.98027, -9, -3.98027, -11, -3.98027, -11, 16.0197, 12, 16.0197, 12, -3.98027, 10, -3.98027, 10, -4.98027, 7, -4.98027, 7, -9.98027, 12, -9.98027, 12, -12.9803, -11, -12.9803, -11, -9.98027)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
+size = Vector2(25, 32)
+
+[sub_resource type="PackedScene" id="PackedScene_ifp4p"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(0, 0, 14, 13, 2, 0, 0, 0, 0, 16, 15, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("WeightLarge", "input_pickable", "script", "can_be_weighed", "weight", "CharacterBody2D", "LightOccluder2D", "position", "occluder", "CollisionShape2D", "shape", "texture", "Sprite2D", "_on_mouse_entered", "mouse_entered", "_on_mouse_exited", "mouse_exited"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 0, 4, 2, 0, 0, 0, 6, 6, -1, 2, 7, 3, 8, 4, 0, 0, 0, 9, 9, -1, 2, 7, 5, 10, 6, 0, 0, 0, 12, 0, -1, 2, 7, 5, 11, 7, 0),
+"variants": [true, ExtResource("2_ak6ym"), 5, Vector2(0, -18), SubResource("OccluderPolygon2D_dvejk"), Vector2(0.5, -16), SubResource("RectangleShape2D_lhlkn"), ExtResource("3_acb8c")],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xw1k"]
 size = Vector2(21, 34)
 
 [node name="weight_spawner" type="Area2D"]
 script = ExtResource("1_eo6r2")
-weight = ExtResource("2_dspfo")
+weight = SubResource("PackedScene_ifp4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -11)

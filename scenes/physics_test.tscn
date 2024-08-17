@@ -1,14 +1,42 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1h3urjgd2app"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_52l57"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="1_cw5b1"]
-[ext_resource type="PackedScene" uid="uid://he3anwde356t" path="res://prefabs/weight_large_rigid.tscn" id="2_mnd3b"]
+[ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weights/weight_large_rigid.tscn" id="2_mnd3b"]
 [ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="4_qfs20"]
-[ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weight_medium_rigid.tscn" id="6_jbgf5"]
+[ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weights/weight_medium_rigid.tscn" id="6_jbgf5"]
+
+[sub_resource type="GDScript" id="GDScript_x41ej"]
+script/source = "extends Node2D
+
+var held_object = null
+@export var grabber : StaticBody2D
+@export var grabber_joint : PinJoint2D
+
+func _ready():
+	for node in get_tree().get_nodes_in_group(\"rigid_dragable\"):
+		node.connect(\"clicked\", _on_pickable_clicked)
+
+func _process(delta: float) -> void:
+	grabber_joint.global_position = get_viewport().get_mouse_position()
+
+func _on_pickable_clicked(object):
+	if !held_object:
+		held_object = object
+		held_object.pickup()
+		grabber_joint.node_a = held_object.get_path()
+		grabber_joint.node_b = grabber.get_path()
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if held_object and !event.pressed:
+			held_object.drop(Input.get_last_mouse_velocity())
+			held_object = null
+			grabber_joint.node_a = NodePath()
+"
 
 [node name="PhysicsTest" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 position = Vector2(-247, -1)
-script = ExtResource("1_52l57")
+script = SubResource("GDScript_x41ej")
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 

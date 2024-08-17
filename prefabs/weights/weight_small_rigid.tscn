@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gpbf43x6plu1"]
 
-[ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_5kcg7"]
-[ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="2_73k8n"]
+[ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_04ew7"]
+[ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="2_7dxxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(80, 139.068)
@@ -10,7 +10,7 @@ size = Vector2(80, 139.068)
 collision_layer = 2
 input_pickable = true
 freeze_mode = 1
-script = ExtResource("1_5kcg7")
+script = ExtResource("1_04ew7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10.5699)
@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_lhlkn")
 
 [node name="WeightSmall" type="Sprite2D" parent="."]
 position = Vector2(0, -10.5)
-texture = ExtResource("2_73k8n")
+texture = ExtResource("2_7dxxb")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

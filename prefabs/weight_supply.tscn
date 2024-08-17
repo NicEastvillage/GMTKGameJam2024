@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfxitsqbpgvks"]
 
 [ext_resource type="Texture2D" uid="uid://bsbf1cwc13oom" path="res://sprites/Box.png" id="1_p51hj"]
-[ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weight_large_rigid.tscn" id="2_crk7w"]
+[ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weights/weight_large_rigid.tscn" id="2_crk7w"]
 [ext_resource type="PackedScene" uid="uid://2q7onxgifwhv" path="res://prefabs/weight_spawner.tscn" id="2_ykqx5"]
 [ext_resource type="Texture2D" uid="uid://cplb81pril50d" path="res://sprites/Weight Large.png" id="3_xsfd5"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_medium_rigid.tscn" id="4_1ysiu"]
+[ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weights/weight_medium_rigid.tscn" id="4_1ysiu"]
 [ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="5_i1hov"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_small_rigid.tscn" id="6_aeobm"]
+[ext_resource type="PackedScene" uid="uid://gpbf43x6plu1" path="res://prefabs/weights/weight_small_rigid.tscn" id="6_aeobm"]
 [ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="7_jbt8p"]
 
 [node name="WeightSupply" type="Node2D"]
