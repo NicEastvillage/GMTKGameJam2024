@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://gpbf43x6plu1"]
+[gd_scene load_steps=6 format=3 uid="uid://gpbf43x6plu1"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_04ew7"]
 [ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="2_7dxxb"]
 [ext_resource type="AudioStream" uid="uid://b8c0dcgdcy2mw" path="res://sounds/weight_slide.wav" id="3_8pln8"]
+[ext_resource type="AudioStream" uid="uid://badqrtjykdx4a" path="res://sounds/weight2.wav" id="4_278q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(80, 139.068)
@@ -11,6 +12,8 @@ size = Vector2(80, 139.068)
 collision_layer = 2
 input_pickable = true
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_04ew7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,5 +33,10 @@ stream = ExtResource("3_8pln8")
 position = Vector2(-1, -2)
 stream = ExtResource("3_8pln8")
 
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-2, -4)
+stream = ExtResource("4_278q2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

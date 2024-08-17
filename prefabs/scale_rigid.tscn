@@ -31,6 +31,8 @@ texture = ExtResource("1_65p5n")
 position = Vector2(0, -270)
 collision_layer = 0
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
 position = Vector2(0, 1)
@@ -48,6 +50,8 @@ bias = 0.9
 [node name="cup_right" type="RigidBody2D" parent="."]
 position = Vector2(260, -163)
 collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_right"]
 texture = ExtResource("4_is4w7")
@@ -59,6 +63,8 @@ shape = SubResource("RectangleShape2D_vje0r")
 [node name="cup_left" type="RigidBody2D" parent="."]
 position = Vector2(-260, -163)
 collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_left"]
 texture = ExtResource("4_is4w7")
