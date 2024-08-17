@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
 [ext_resource type="Script" path="res://scripts/StageData.gd" id="2_dxvs8"]
-[ext_resource type="PackedScene" path="res://prefabs/scale.tscn" id="3_5jcsy"]
+[ext_resource type="PackedScene" uid="uid://c2gbbd57rdulg" path="res://prefabs/scale.tscn" id="3_5jcsy"]
 [ext_resource type="Resource" uid="uid://djl8vynlu5f3m" path="res://data/Stages/StageExample.tres" id="3_pcylv"]
 [ext_resource type="Texture2D" uid="uid://mue4uy60wanp" path="res://sprites/bg.png" id="6_mlcv5"]
 [ext_resource type="Script" path="res://scripts/BackgroundAnimator.gd" id="7_5f1i3"]
