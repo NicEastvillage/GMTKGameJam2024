@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=8 format=3 uid="uid://dsdchgqwhnrb1"]
 
-[ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/Portraits/PortraitDefault.png" id="1_d2aud"]
 [ext_resource type="PackedScene" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
 [ext_resource type="Script" path="res://scripts/StageData.gd" id="2_dxvs8"]
 [ext_resource type="PackedScene" path="res://prefabs/scale.tscn" id="3_5jcsy"]
 [ext_resource type="Resource" uid="uid://djl8vynlu5f3m" path="res://data/Stages/StageExample.tres" id="3_pcylv"]
-[ext_resource type="Texture2D" uid="uid://mue4uy60wanp" path="res://sprites/bg.png" id="6_mlcv5"]
-[ext_resource type="Script" path="res://scripts/BackgroundAnimator.gd" id="7_5f1i3"]
 [ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
@@ -31,70 +28,6 @@ texture_scale = 2.44
 
 [node name="Scale" parent="." instance=ExtResource("3_5jcsy")]
 position = Vector2(255, 295)
-
-[node name="UI" type="Control" parent="."]
-custom_minimum_size = Vector2(10.135, 11.78)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 524.0
-offset_top = 30.0
-offset_right = 1122.0
-offset_bottom = 635.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Panel" type="Panel" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Panel/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 150)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("1_d2aud")
-stretch_mode = 2
-
-[node name="Label" type="Label" parent="UI/Panel/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Unnamed Person"
-horizontal_alignment = 1
-
-[node name="Panel" type="Panel" parent="UI/Panel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-text = "This is my history"
 
 [node name="Documents" type="Node2D" parent="."]
 position = Vector2(314, 237)

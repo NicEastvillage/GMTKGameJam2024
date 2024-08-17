@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d84aka8i6ng1"]
+
+[ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/Portraits/PortraitDefault.png" id="1_gcir0"]
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_o5sci"]
+[ext_resource type="Texture2D" uid="uid://csim26ol0p43w" path="res://sprites/Portraits/PortraitBackground.png" id="1_yh554"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_v1oko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0qok"]
+size = Vector2(72, 90)
+
+[node name="Polaroid" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_o5sci")
+
+[node name="Frame" type="Sprite2D" parent="."]
+texture = ExtResource("1_yh554")
+
+[node name="Portrait" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_gcir0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m0qok")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 29.0
+offset_right = 32.0
+offset_bottom = 43.0
+theme = ExtResource("3_v1oko")
+text = "<Name>"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

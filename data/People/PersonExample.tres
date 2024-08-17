@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="PersonData" load_steps=3 format=3 uid="uid://bu8n1qgltx64i"]
+[gd_resource type="Resource" script_class="PersonData" load_steps=4 format=3 uid="uid://bu8n1qgltx64i"]
 
 [ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_i6kko"]
 [ext_resource type="PackedScene" uid="uid://b4msc77geuuvr" path="res://prefabs/draggable.tscn" id="1_q7svt"]
+[ext_resource type="Texture2D" uid="uid://d36mmhda7klo4" path="res://sprites/Portraits/PortraitDarwin.png" id="1_yj27r"]
 
 [resource]
 script = ExtResource("1_i6kko")
+name = "ExampleMan"
+portrait = ExtResource("1_yj27r")
 verdict_sinner = false
 person_documents = Array[PackedScene]([ExtResource("1_q7svt")])
