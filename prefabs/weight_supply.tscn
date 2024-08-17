@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfxitsqbpgvks"]
+
+[ext_resource type="Texture2D" uid="uid://bsbf1cwc13oom" path="res://sprites/Box.png" id="1_p51hj"]
+[ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weight_large_rigid.tscn" id="2_crk7w"]
+[ext_resource type="PackedScene" uid="uid://2q7onxgifwhv" path="res://prefabs/weight_spawner.tscn" id="2_ykqx5"]
+[ext_resource type="Texture2D" uid="uid://cplb81pril50d" path="res://sprites/Weight Large.png" id="3_xsfd5"]
+[ext_resource type="PackedScene" path="res://prefabs/weight_medium_rigid.tscn" id="4_1ysiu"]
+[ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="5_i1hov"]
+[ext_resource type="PackedScene" path="res://prefabs/weight_small_rigid.tscn" id="6_aeobm"]
+[ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="7_jbt8p"]
+
+[node name="WeightSupply" type="Node2D"]
+
+[node name="weight_spawner" parent="." instance=ExtResource("2_ykqx5")]
+position = Vector2(22, -11)
+scale = Vector2(1.297, 1)
+weight = ExtResource("2_crk7w")
+
+[node name="WeightLarge" type="Sprite2D" parent="weight_spawner"]
+position = Vector2(0.771004, -10)
+scale = Vector2(0.77101, 1)
+texture = ExtResource("3_xsfd5")
+
+[node name="weight_spawner2" parent="." instance=ExtResource("2_ykqx5")]
+position = Vector2(-2, -11)
+weight = ExtResource("4_1ysiu")
+
+[node name="WeightMedium" type="Sprite2D" parent="weight_spawner2"]
+position = Vector2(1, -9)
+texture = ExtResource("5_i1hov")
+
+[node name="weight_spawner3" parent="." instance=ExtResource("2_ykqx5")]
+position = Vector2(-23, -11)
+weight = ExtResource("6_aeobm")
+
+[node name="WeightSmall" type="Sprite2D" parent="weight_spawner3"]
+position = Vector2(0, -4.5)
+texture = ExtResource("7_jbt8p")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+texture = ExtResource("1_p51hj")
