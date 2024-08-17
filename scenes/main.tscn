@@ -48,7 +48,7 @@ texture = ExtResource("11_ikrsq")
 texture_scale = 2.44
 
 [node name="Scale" parent="." instance=ExtResource("3_5jcsy")]
-position = Vector2(213, 348)
+position = Vector2(255, 295)
 
 [node name="UI" type="Control" parent="."]
 custom_minimum_size = Vector2(10.135, 11.78)

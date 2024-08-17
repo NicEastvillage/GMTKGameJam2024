@@ -9,7 +9,7 @@
 size = Vector2(134, 152)
 
 [node name="Scale" type="Sprite2D"]
-position = Vector2(557, 282)
+position = Vector2(0, -138)
 texture = ExtResource("1_ra2ej")
 script = ExtResource("2_a04jp")
 max_angle = 0.41
@@ -17,7 +17,7 @@ weight_for_max = 16
 sigmoid_factor = 3.5
 
 [node name="Arms" type="Sprite2D" parent="."]
-position = Vector2(1, -91)
+position = Vector2(0, -143)
 texture = ExtResource("3_pjbcb")
 
 [node name="Right" type="Area2D" parent="Arms"]
