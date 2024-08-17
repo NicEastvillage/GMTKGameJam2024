@@ -28,5 +28,4 @@ func pickup():
 func drop(impulse=Vector2.ZERO):
 	if held:
 		#freeze = false
-		apply_central_impulse(impulse)
 		held = false

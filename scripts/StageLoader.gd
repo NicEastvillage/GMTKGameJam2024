@@ -103,3 +103,7 @@ func _unhandled_input(event):
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 			grabber_joint.node_a = NodePath()
+
+func _on_weight_spawned(event):
+	for node in get_tree().get_nodes_in_group("rigid_dragable"):
+		node.connect("clicked", _on_pickable_clicked)

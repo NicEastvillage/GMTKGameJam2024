@@ -10,17 +10,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(get_child_count())
 	pass
 
 func _input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			var new_weight = weight.instantiate()
-			new_weight.dragging = true
-			new_weight.hovered = true
-			new_weight.position = get_viewport().get_mouse_position()
-			get_parent().add_child(new_weight)
+			new_weight.global_position = global_position
+			new_weight.held = true
+			get_parent().get_parent().add_child(new_weight)
+			get_tree().root.get_child(0)._on_pickable_clicked(new_weight)
+			get_tree().root.get_child(0)._on_weight_spawned(null)
 
 func _on_mouse_entered():
 	hovered = true
