@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://whoap6ax7f3a"]
+
+[ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_ejqde"]
+[ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="2_2k7if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
+size = Vector2(133.333, 199.068)
+
+[node name="WeightLarge" type="RigidBody2D" groups=["rigid_dragable"]]
+collision_layer = 2
+input_pickable = true
+mass = 3.0
+freeze_mode = 1
+script = ExtResource("1_ejqde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, -15.0699)
+scale = Vector2(0.15, 0.15)
+shape = SubResource("RectangleShape2D_lhlkn")
+
+[node name="WeightLarge" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_2k7if")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
