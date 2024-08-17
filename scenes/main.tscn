@@ -17,6 +17,17 @@ size = Vector2(243, 229.41)
 
 [node name="Main2D" type="Node2D"]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(29, -8)
+
+[node name="CursorLight" type="Node2D" parent="."]
+script = ExtResource("10_5p1cc")
+
+[node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
+scale = Vector2(4.6875, 4.6875)
+shadow_enabled = true
+texture = ExtResource("11_ikrsq")
+
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(577, 325)
 texture = ExtResource("1_5i8vn")
@@ -133,16 +144,6 @@ position = Vector2(60, 558)
 
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
-
-[node name="CursorLight" type="Node2D" parent="."]
-script = ExtResource("10_5p1cc")
-
-[node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
-scale = Vector2(4.6875, 4.6875)
-texture = ExtResource("11_ikrsq")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(29, -8)
 
 [connection signal="mouse_entered" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_entered"]
 [connection signal="mouse_exited" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_exited"]
