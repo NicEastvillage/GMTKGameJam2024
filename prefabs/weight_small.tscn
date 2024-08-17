@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4u328y80mriw"]
+[gd_scene load_steps=5 format=3 uid="uid://dxjv0nius6bv"]
 
-[ext_resource type="Texture2D" uid="uid://f1r5qdjt5l8d" path="res://sprites/Weight Small.png" id="1_37cr0"]
+[ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="1_37cr0"]
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_m0s5a"]
-[ext_resource type="Texture2D" uid="uid://c2rpw7e5cfknq" path="res://sprites/Diamond.png" id="2_w5tyv"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2euf7"]
+polygon = PackedVector2Array(-4.03941, -8.07882, -4.03941, -4.03941, -4.03941, 12.1182, 4.03941, 12.1182, 4.03941, -8.07882)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt260"]
-size = Vector2(274.68, 565.517)
+size = Vector2(16.1576, 24.2365)
 
 [node name="WeightSmall" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_m0s5a")
 can_be_weighed = true
 weight = 2
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_2euf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -42.325)
@@ -22,11 +27,6 @@ shape = SubResource("RectangleShape2D_qt260")
 position = Vector2(0, -42.325)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_37cr0")
-
-[node name="Diamond" type="Sprite2D" parent="WeightSmall"]
-position = Vector2(-7.42755, 63.9674)
-scale = Vector2(0.783859, 0.783859)
-texture = ExtResource("2_w5tyv")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

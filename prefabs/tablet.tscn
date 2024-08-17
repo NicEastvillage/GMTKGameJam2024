@@ -1,33 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://6k4dtpfnyoaj"]
+[gd_scene load_steps=9 format=3 uid="uid://c6xxkfcetn3m4"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_24uc2"]
-[ext_resource type="Texture2D" uid="uid://uk2ldldnkli4" path="res://sprites/Tablet.svg" id="1_f7shs"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="2_m5en6"]
-[ext_resource type="Texture2D" uid="uid://chwttq1i1vrlh" path="res://sprites/Circle.svg" id="3_rj6vo"]
-[ext_resource type="Texture2D" uid="uid://du32xn0ocjv67" path="res://sprites/Diamond.svg" id="4_w0ntq"]
-[ext_resource type="Texture2D" uid="uid://bn7ots0bvv8il" path="res://sprites/Star.svg" id="5_4ls6b"]
+[ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_oojug"]
+[ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="4_rhavm"]
+[ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_f5v7k"]
+[ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="6_34j6m"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-97, -83, -97, -21, 51, -20, 47, -88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
-size = Vector2(456, 304)
+size = Vector2(152, 76)
 
 [node name="Tablet" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_24uc2")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-24, -50)
+position = Vector2(-25, -55)
 shape = SubResource("RectangleShape2D_fy7mq")
 
 [node name="Tablet" type="Sprite2D" parent="."]
 position = Vector2(-26, -54)
-scale = Vector2(0.652542, 0.652542)
-texture = ExtResource("1_f7shs")
+texture = ExtResource("2_oojug")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -213.0
-offset_top = -106.0
-offset_right = 169.0
-offset_bottom = 121.0
+offset_left = -74.0
+offset_top = -85.0
+offset_right = 52.0
+offset_bottom = -22.0
 theme = ExtResource("2_m5en6")
 text = "No kill
 
@@ -41,22 +46,23 @@ autowrap_mode = 3
 [node name="Circle" type="Sprite2D" parent="."]
 position = Vector2(-127, -97)
 scale = Vector2(0.293478, 0.293478)
-texture = ExtResource("3_rj6vo")
+texture = ExtResource("4_rhavm")
+
+[node name="Shield" type="Sprite2D" parent="."]
+position = Vector2(-79, -81)
+texture = ExtResource("6_34j6m")
 
 [node name="Diamond" type="Sprite2D" parent="."]
-position = Vector2(26, -5)
-scale = Vector2(0.222973, 0.222973)
-texture = ExtResource("4_w0ntq")
+position = Vector2(-79, -51)
+texture = ExtResource("5_f5v7k")
 
 [node name="Diamond2" type="Sprite2D" parent="."]
-position = Vector2(49, 64)
-scale = Vector2(0.209459, 0.209459)
-texture = ExtResource("4_w0ntq")
+position = Vector2(-79, -39)
+texture = ExtResource("5_f5v7k")
 
-[node name="Star" type="Sprite2D" parent="."]
-position = Vector2(169, -51)
-scale = Vector2(0.332192, 0.332192)
-texture = ExtResource("5_4ls6b")
+[node name="Circle2" type="Sprite2D" parent="."]
+position = Vector2(-79, -69)
+texture = ExtResource("4_rhavm")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
