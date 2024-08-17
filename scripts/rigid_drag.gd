@@ -11,6 +11,8 @@ var dropped_sound: AudioStreamPlayer2D
 var collision_sound: AudioStreamPlayer2D
 var rng = RandomNumberGenerator.new()
 var pitch_variance = 0.5
+var max_bongs = 3
+var bongs = 0
 
 func _ready():
 	selected_sound = get_node_or_null("SelectedSound")
@@ -34,6 +36,7 @@ func _physics_process(delta):
 		#global_transform.origin = get_global_mouse_position() + offset
 
 func pickup():
+	bongs = 0
 	play_sfx(selected_sound)
 	if held:
 		return
@@ -48,4 +51,7 @@ func drop(impulse=Vector2.ZERO):
 
 
 func _on_body_entered(body: Node) -> void:
-	play_sfx(collision_sound)
+	if bongs <= max_bongs:
+		play_sfx(collision_sound)
+		bongs = bongs + 1
+	
