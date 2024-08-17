@@ -19,13 +19,11 @@ weight = 2
 occluder = SubResource("OccluderPolygon2D_2euf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -42.325)
-scale = Vector2(0.15, 0.15)
+position = Vector2(-0.175, 0.575001)
 shape = SubResource("RectangleShape2D_qt260")
 
 [node name="WeightSmall" type="Sprite2D" parent="."]
-position = Vector2(0, -42.325)
-scale = Vector2(0.15, 0.15)
+position = Vector2(-0.175, 0.575001)
 texture = ExtResource("1_37cr0")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
