@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1h3urjgd2app"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_52l57"]
+[ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="1_cw5b1"]
+[ext_resource type="PackedScene" uid="uid://he3anwde356t" path="res://prefabs/rigid_weight.tscn" id="2_mnd3b"]
+[ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="4_qfs20"]
+
+[node name="PhysicsTest" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
+script = ExtResource("1_52l57")
+grabber = NodePath("Grabber")
+grabber_joint = NodePath("grab_joint")
+
+[node name="weight" parent="." instance=ExtResource("1_cw5b1")]
+position = Vector2(566, 310)
+
+[node name="WeightLarge" parent="." instance=ExtResource("2_mnd3b")]
+position = Vector2(51, 319)
+mass = 10.0
+angular_damp = 6.85
+default_mass = 5
+
+[node name="Grabber" parent="." instance=ExtResource("4_qfs20")]
+position = Vector2(264, -74)
+
+[node name="grab_joint" type="PinJoint2D" parent="."]
+bias = 0.9
