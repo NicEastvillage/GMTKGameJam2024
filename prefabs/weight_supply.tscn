@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfxitsqbpgvks"]
+[gd_scene load_steps=13 format=3 uid="uid://dfxitsqbpgvks"]
 
 [ext_resource type="Texture2D" uid="uid://bsbf1cwc13oom" path="res://sprites/Box.png" id="1_p51hj"]
 [ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weights/weight_large_rigid.tscn" id="2_crk7w"]
@@ -9,6 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://gpbf43x6plu1" path="res://prefabs/weights/weight_small_rigid.tscn" id="6_aeobm"]
 [ext_resource type="Texture2D" uid="uid://bgstsfi5um0c0" path="res://sprites/Weight Small.png" id="7_jbt8p"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8re7w"]
+polygon = PackedVector2Array(-10, -22, -10, -3, 11, -3, 11, -22, 7, -22, 7, -27, -6, -27, -6, -22)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d83ky"]
+polygon = PackedVector2Array(-7, -19, -7, -2, 8, -2, 8, -19, 3, -19, 3, -23, -2, -23, -2, -19)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ga3u0"]
+polygon = PackedVector2Array(-2, -17, -2, -13, -3, -13, -3, -1, 4, -1, 4, -13, 3, -13, 3, -17)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p7kxa"]
+polygon = PackedVector2Array(-37, -7, -37, 8, 36, 8, 36, -7)
+
 [node name="WeightSupply" type="Node2D"]
 
 [node name="weight_spawner" parent="." instance=ExtResource("2_ykqx5")]
@@ -17,26 +29,42 @@ scale = Vector2(1.297, 1)
 weight = ExtResource("2_crk7w")
 
 [node name="WeightLarge" type="Sprite2D" parent="weight_spawner"]
-position = Vector2(0.771004, -10)
+position = Vector2(0.5, -10)
 scale = Vector2(0.77101, 1)
 texture = ExtResource("3_xsfd5")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="weight_spawner"]
+position = Vector2(0, 6)
+scale = Vector2(0.77101, 1)
+occluder = SubResource("OccluderPolygon2D_8re7w")
 
 [node name="weight_spawner2" parent="." instance=ExtResource("2_ykqx5")]
 position = Vector2(-2, -11)
 weight = ExtResource("4_1ysiu")
 
 [node name="WeightMedium" type="Sprite2D" parent="weight_spawner2"]
-position = Vector2(1, -9)
+position = Vector2(0.5, -9)
 texture = ExtResource("5_i1hov")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="weight_spawner2"]
+position = Vector2(0, 6)
+occluder = SubResource("OccluderPolygon2D_d83ky")
 
 [node name="weight_spawner3" parent="." instance=ExtResource("2_ykqx5")]
 position = Vector2(-23, -11)
 weight = ExtResource("6_aeobm")
 
 [node name="WeightSmall" type="Sprite2D" parent="weight_spawner3"]
-position = Vector2(0, -4.5)
+position = Vector2(0.5, -4.5)
 texture = ExtResource("7_jbt8p")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="weight_spawner3/WeightSmall"]
+position = Vector2(-0.5, 11.5)
+occluder = SubResource("OccluderPolygon2D_ga3u0")
 
 [node name="Box" type="Sprite2D" parent="."]
 position = Vector2(2, -2)
 texture = ExtResource("1_p51hj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Box"]
+occluder = SubResource("OccluderPolygon2D_p7kxa")

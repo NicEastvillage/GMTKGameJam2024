@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4msc77geuuvr"]
+[gd_scene load_steps=7 format=3 uid="uid://b4msc77geuuvr"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_jcb7h"]
 [ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_yglt7"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
 size = Vector2(134, 178)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nsrf5"]
+polygon = PackedVector2Array(-56, -81, -22, -86, 25, -82, 47, -83, 61, -70, 58, -52, 57, -7, 53, 51, 59, 79, 41, 83, -14, 83, -32, 73, -54, 76, -53, 53, -49, 29, -56, -25)
 
 [node name="Draggable" type="CharacterBody2D"]
 collision_layer = 4
@@ -19,6 +22,9 @@ texture = ExtResource("2_yglt7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2jh7o")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CollisionShape2D"]
+occluder = SubResource("OccluderPolygon2D_nsrf5")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -20.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpgmhlobk5lhv"]
+[gd_scene load_steps=9 format=3 uid="uid://dpgmhlobk5lhv"]
 
 [ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/Portraits/PortraitDefault.png" id="1_gcir0"]
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_o5sci"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0qok"]
 size = Vector2(72, 90)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nfmus"]
+polygon = PackedVector2Array(-32, -38, -32, 26, 32, 26, 32, -38)
 
 [node name="Polaroid" type="CharacterBody2D"]
 collision_layer = 4
@@ -42,6 +45,9 @@ stream = ExtResource("5_txjry")
 [node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1, -2)
 stream = ExtResource("6_ml6yq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_nfmus")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

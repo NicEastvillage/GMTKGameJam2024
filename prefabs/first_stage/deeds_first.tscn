@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="8_baqbr"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+cull_mode = 1
 polygon = PackedVector2Array(-97, -83, -100, -73, -96, -50, -101, -39, -94, -23, -76, -20, -61, -23, -42, -20, -15, -22, 15, -18, 39, -22, 47, -29, 43, -42, 48, -64, 41, -82, 23, -88, -9, -84, -51, -85, -82, -90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]

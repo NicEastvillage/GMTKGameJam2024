@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://whoap6ax7f3a"]
+[gd_scene load_steps=7 format=3 uid="uid://whoap6ax7f3a"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_1yiro"]
 [ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="2_h2s7h"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(133.333, 199.068)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8pc4j"]
+polygon = PackedVector2Array(-7, -19, -7, -2, 8, -2, 8, -19, 3, -19, 3, -23, -2, -23, -2, -19)
 
 [node name="WeightLarge" type="RigidBody2D" groups=["rigid_dragable"]]
 collision_layer = 2
@@ -25,7 +28,7 @@ scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_lhlkn")
 
 [node name="WeightLarge" type="Sprite2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0.5, -15)
 texture = ExtResource("2_h2s7h")
 
 [node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
@@ -39,6 +42,9 @@ stream = ExtResource("3_86bpc")
 [node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-2, -4)
 stream = ExtResource("4_fmj0s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_8pc4j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
