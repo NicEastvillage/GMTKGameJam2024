@@ -34,7 +34,10 @@ func _on_dropped(draggable: Draggable):
 		draggable.position.y = 0
 
 func _on_pickup(draggable: Draggable):
-	sum -= side_hovered * draggable.weight   # BUG Small chance we are not hovering a side but still clicking the draggable
+	if draggable.get_parent() == leftNodeCupFoot:
+		sum += draggable.weight
+	elif draggable.get_parent() == rightNodeCupFoot:
+		sum -= draggable.weight
 	draggable.reparent(get_parent())
 
 func _on_left_mouse_entered() -> void:
