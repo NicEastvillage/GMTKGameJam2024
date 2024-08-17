@@ -1,19 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=8 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/Portraits/PortraitDefault.png" id="1_d2aud"]
-[ext_resource type="PackedScene" path="res://prefabs/background.tscn" id="1_fdc0o"]
+[ext_resource type="PackedScene" uid="uid://cx4drtxmt6kul" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
-[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_dxvs8"]
-[ext_resource type="PackedScene" path="res://prefabs/scale.tscn" id="3_5jcsy"]
+[ext_resource type="PackedScene" uid="uid://c2gbbd57rdulg" path="res://prefabs/scale.tscn" id="3_5jcsy"]
 [ext_resource type="Resource" uid="uid://djl8vynlu5f3m" path="res://data/Stages/StageExample.tres" id="3_pcylv"]
-[ext_resource type="Texture2D" uid="uid://mue4uy60wanp" path="res://sprites/bg.png" id="6_mlcv5"]
-[ext_resource type="Script" path="res://scripts/BackgroundAnimator.gd" id="7_5f1i3"]
 [ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
 [node name="Main2D" type="Node2D"]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_dxvs8")]([ExtResource("3_pcylv")])
+stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_pcylv")])
 
 [node name="Background" parent="." instance=ExtResource("1_fdc0o")]
 
