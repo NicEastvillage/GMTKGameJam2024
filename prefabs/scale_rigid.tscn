@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8jkuwbeqr6so"]
+
+[ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_65p5n"]
+[ext_resource type="Texture2D" path="res://sprites/ScaleArms.png" id="3_ghc82"]
+[ext_resource type="Texture2D" path="res://sprites/ScaleCup.png" id="4_is4w7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owe8w"]
+size = Vector2(96, 596)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r05ga"]
+size = Vector2(1120, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vje0r"]
+size = Vector2(271.5, 16)
+
+[node name="scale" type="Node2D"]
+
+[node name="body" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+position = Vector2(-2, 22)
+shape = SubResource("RectangleShape2D_owe8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="body"]
+texture = ExtResource("1_65p5n")
+
+[node name="arms" type="RigidBody2D" parent="."]
+position = Vector2(0, -270)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_r05ga")
+
+[node name="Sprite2D" type="Sprite2D" parent="arms"]
+texture = ExtResource("3_ghc82")
+
+[node name="middle_joint" type="PinJoint2D" parent="."]
+position = Vector2(0, -270)
+node_a = NodePath("../body")
+node_b = NodePath("../arms")
+bias = 0.9
+
+[node name="cup_right" type="RigidBody2D" parent="."]
+position = Vector2(550, -86)
+
+[node name="Sprite2D" type="Sprite2D" parent="cup_right"]
+texture = ExtResource("4_is4w7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cup_right"]
+position = Vector2(-1, 186)
+shape = SubResource("RectangleShape2D_vje0r")
+
+[node name="cup_left" type="RigidBody2D" parent="."]
+position = Vector2(-541, -86)
+
+[node name="Sprite2D" type="Sprite2D" parent="cup_left"]
+texture = ExtResource("4_is4w7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cup_left"]
+position = Vector2(-1, 186)
+shape = SubResource("RectangleShape2D_vje0r")
+
+[node name="right_joint" type="PinJoint2D" parent="."]
+position = Vector2(545, -270)
+node_a = NodePath("../arms")
+node_b = NodePath("../cup_right")
+bias = 0.9
+
+[node name="left_joint" type="PinJoint2D" parent="."]
+position = Vector2(-545, -270)
+node_a = NodePath("../arms")
+node_b = NodePath("../cup_left")
+bias = 0.9
+
+[node name="spring_left" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-545, -271)
+node_a = NodePath("../body")
+node_b = NodePath("../arms")
+stiffness = 40.0
+
+[node name="spring_right" type="DampedSpringJoint2D" parent="."]
+position = Vector2(544, -269)
+node_a = NodePath("../body")
+node_b = NodePath("../arms")
+stiffness = 40.0
