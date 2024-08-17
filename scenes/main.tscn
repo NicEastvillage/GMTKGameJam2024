@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=11 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="Texture2D" uid="uid://bunpjk4qtxbg8" path="res://sprites/ScaleFoot.png" id="1_5i8vn"]
 [ext_resource type="Texture2D" uid="uid://y4jkgytdaoy2" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
+[ext_resource type="Script" path="res://scenes/Scale.gd" id="2_5uiv4"]
 [ext_resource type="Texture2D" uid="uid://ccpfow1bx53ld" path="res://sprites/ScaleArms.png" id="2_7jiv5"]
 [ext_resource type="PackedScene" uid="uid://6k4dtpfnyoaj" path="res://prefabs/tablet.tscn" id="2_mh35a"]
 [ext_resource type="PackedScene" uid="uid://c4gj5u6u8sbim" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
@@ -9,22 +10,43 @@
 [ext_resource type="PackedScene" uid="uid://b4u328y80mriw" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
 [ext_resource type="PackedScene" uid="uid://dq6q6c5qrxx0u" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbdvb"]
+size = Vector2(243, 229.41)
+
 [node name="Main2D" type="Node2D"]
 
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(577, 325)
 texture = ExtResource("1_5i8vn")
+script = ExtResource("2_5uiv4")
+max_angle = 0.41
+weight_for_max = 16
+sigmoid_factor = 3.5
 
 [node name="Arms" type="Sprite2D" parent="Scale"]
 position = Vector2(0, -243)
 texture = ExtResource("2_7jiv5")
 
-[node name="Left" type="Sprite2D" parent="Scale/Arms"]
-position = Vector2(-453, 185)
+[node name="Right" type="Area2D" parent="Scale/Arms"]
+position = Vector2(442, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Arms/Right"]
+position = Vector2(0.5, 261)
+shape = SubResource("RectangleShape2D_lbdvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Scale/Arms/Right"]
+position = Vector2(5, 183)
 texture = ExtResource("3_c2fbq")
 
-[node name="Right" type="Sprite2D" parent="Scale/Arms"]
-position = Vector2(447, 185)
+[node name="Left" type="Area2D" parent="Scale/Arms"]
+position = Vector2(-458, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Arms/Left"]
+position = Vector2(0.5, 261)
+shape = SubResource("RectangleShape2D_lbdvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Scale/Arms/Left"]
+position = Vector2(5, 184)
 texture = ExtResource("3_c2fbq")
 
 [node name="UI" type="Control" parent="."]
