@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_m0s5a"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2euf7"]
-polygon = PackedVector2Array(-4.03941, -8.07882, -4.03941, -4.03941, -4.03941, 12.1182, 4.03941, 12.1182, 4.03941, -8.07882)
+polygon = PackedVector2Array(-3, -7, -3, -5, -2, -5, -2, 0, -4, 0, -4, 10, 5, 10, 5, 0, 3, 0, 3, -5, 4, -5, 4, -7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt260"]
-size = Vector2(16.1576, 24.2365)
+size = Vector2(9.65, 18.85)
 
 [node name="WeightSmall" type="CharacterBody2D"]
 input_pickable = true
@@ -16,14 +16,15 @@ can_be_weighed = true
 weight = 2
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -12)
 occluder = SubResource("OccluderPolygon2D_2euf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.175, 0.575001)
+position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_qt260")
 
 [node name="WeightSmall" type="Sprite2D" parent="."]
-position = Vector2(-0.175, 0.575001)
+position = Vector2(0.5, -10.5)
 texture = ExtResource("1_37cr0")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

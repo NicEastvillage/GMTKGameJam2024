@@ -1,72 +1,54 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=10 format=3 uid="uid://dsdchgqwhnrb1"]
 
-[ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_5i8vn"]
 [ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
-[ext_resource type="Script" path="res://scripts/Scale.gd" id="2_5uiv4"]
+[ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/tablet.tscn" id="2_mh35a"]
-[ext_resource type="Texture2D" uid="uid://cf2tbgnhybxim" path="res://sprites/Arms.png" id="3_26twe"]
+[ext_resource type="PackedScene" uid="uid://c2gbbd57rdulg" path="res://prefabs/scale.tscn" id="3_5jcsy"]
 [ext_resource type="PackedScene" uid="uid://bqvt41b7jk6hr" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
 [ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
-[ext_resource type="Texture2D" uid="uid://dex8i88hv020d" path="res://sprites/Cup.png" id="4_pvcmh"]
 [ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
 [ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbdvb"]
-size = Vector2(243, 229.41)
-
 [node name="Main2D" type="Node2D"]
 
+[node name="Background" parent="." instance=ExtResource("1_fdc0o")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(29, -8)
 
 [node name="CursorLight" type="Node2D" parent="."]
 script = ExtResource("10_5p1cc")
 
 [node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
-scale = Vector2(4.6875, 4.6875)
+position = Vector2(40, 2)
+energy = 0.1
 shadow_enabled = true
 texture = ExtResource("11_ikrsq")
+texture_scale = 2.44
 
-[node name="Scale" type="Sprite2D" parent="."]
-position = Vector2(577, 325)
-texture = ExtResource("1_5i8vn")
-script = ExtResource("2_5uiv4")
-max_angle = 0.41
-weight_for_max = 16
-sigmoid_factor = 3.5
+[node name="PointLight2D2" type="PointLight2D" parent="CursorLight"]
+position = Vector2(-67, 3)
+energy = 0.1
+shadow_enabled = true
+texture = ExtResource("11_ikrsq")
+texture_scale = 2.44
 
-[node name="Arms" type="Sprite2D" parent="Scale"]
-position = Vector2(0, -243)
-texture = ExtResource("3_26twe")
+[node name="PointLight2D3" type="PointLight2D" parent="CursorLight"]
+position = Vector2(0, -48)
+energy = 0.1
+shadow_enabled = true
+texture = ExtResource("11_ikrsq")
+texture_scale = 2.44
 
-[node name="Right" type="Area2D" parent="Scale/Arms"]
-position = Vector2(442, 2)
+[node name="PointLight2D4" type="PointLight2D" parent="CursorLight"]
+position = Vector2(-3, 69)
+energy = 0.1
+shadow_enabled = true
+texture = ExtResource("11_ikrsq")
+texture_scale = 2.44
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Arms/Right"]
-position = Vector2(0.5, 261)
-shape = SubResource("RectangleShape2D_lbdvb")
-
-[node name="Sprite2D" type="Sprite2D" parent="Scale/Arms/Right"]
-position = Vector2(5, 183)
-texture = ExtResource("4_pvcmh")
-
-[node name="CupFoot" type="Node2D" parent="Scale/Arms/Right"]
-position = Vector2(0, 363)
-
-[node name="Left" type="Area2D" parent="Scale/Arms"]
-position = Vector2(-458, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Arms/Left"]
-position = Vector2(0.5, 261)
-shape = SubResource("RectangleShape2D_lbdvb")
-
-[node name="Sprite2D" type="Sprite2D" parent="Scale/Arms/Left"]
-position = Vector2(5, 184)
-texture = ExtResource("4_pvcmh")
-
-[node name="CupFoot" type="Node2D" parent="Scale/Arms/Left"]
-position = Vector2(0, 363)
+[node name="Scale" parent="." instance=ExtResource("3_5jcsy")]
+position = Vector2(213, 348)
 
 [node name="UI" type="Control" parent="."]
 custom_minimum_size = Vector2(10.135, 11.78)
@@ -74,9 +56,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 215.0
-offset_top = 81.0
-offset_right = 935.0
+offset_left = 524.0
+offset_top = 30.0
+offset_right = 1122.0
 offset_bottom = 635.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -133,7 +115,7 @@ mouse_filter = 2
 text = "This is my history"
 
 [node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
-position = Vector2(926, 560)
+position = Vector2(123, 103)
 scale = Vector2(0.64, 0.652594)
 
 [node name="WeightMedium" parent="." instance=ExtResource("3_888uj")]
@@ -144,8 +126,3 @@ position = Vector2(60, 558)
 
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
-
-[connection signal="mouse_entered" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_entered"]
-[connection signal="mouse_exited" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_exited"]
-[connection signal="mouse_entered" from="Scale/Arms/Left" to="Scale" method="_on_left_mouse_entered"]
-[connection signal="mouse_exited" from="Scale/Arms/Left" to="Scale" method="_on_left_mouse_exited"]

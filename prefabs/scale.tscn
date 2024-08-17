@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2gbbd57rdulg"]
+
+[ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_ra2ej"]
+[ext_resource type="Script" path="res://scripts/Scale.gd" id="2_a04jp"]
+[ext_resource type="Texture2D" uid="uid://cf2tbgnhybxim" path="res://sprites/Arms.png" id="3_pjbcb"]
+[ext_resource type="Texture2D" uid="uid://dex8i88hv020d" path="res://sprites/Cup.png" id="4_mwv3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbdvb"]
+size = Vector2(134, 152)
+
+[node name="Scale" type="Sprite2D"]
+position = Vector2(557, 282)
+texture = ExtResource("1_ra2ej")
+script = ExtResource("2_a04jp")
+max_angle = 0.41
+weight_for_max = 16
+sigmoid_factor = 3.5
+
+[node name="Arms" type="Sprite2D" parent="."]
+position = Vector2(1, -91)
+texture = ExtResource("3_pjbcb")
+
+[node name="Right" type="Area2D" parent="Arms"]
+position = Vector2(157, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Right"]
+position = Vector2(-8.5, 112.5)
+shape = SubResource("RectangleShape2D_lbdvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arms/Right"]
+position = Vector2(-1.5, 90.5)
+texture = ExtResource("4_mwv3m")
+
+[node name="CupFoot" type="Node2D" parent="Arms/Right"]
+position = Vector2(-1.5, 171.5)
+
+[node name="Left" type="Area2D" parent="Arms"]
+position = Vector2(-157, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Left"]
+position = Vector2(5, 127)
+shape = SubResource("RectangleShape2D_lbdvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arms/Left"]
+position = Vector2(0, 92)
+texture = ExtResource("4_mwv3m")
+
+[node name="CupFoot" type="Node2D" parent="Arms/Left"]
+position = Vector2(-5, 174)
+
+[connection signal="mouse_entered" from="Arms/Right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="Arms/Right" to="." method="_on_right_mouse_exited"]
+[connection signal="mouse_entered" from="Arms/Left" to="." method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="Arms/Left" to="." method="_on_left_mouse_exited"]

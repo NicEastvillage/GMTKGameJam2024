@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckoty6tqe6fqk"]
+
+[ext_resource type="Texture2D" uid="uid://b45gatxkm2lix" path="res://sprites/Wood.png" id="1_dev37"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Wood" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(128, 128)
+texture = ExtResource("1_dev37")
+
+[node name="Wood2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(384, 128)
+texture = ExtResource("1_dev37")
+
+[node name="Wood3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(640, 128)
+texture = ExtResource("1_dev37")
+
+[node name="Wood4" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(896, 128)
+texture = ExtResource("1_dev37")
+
+[node name="Wood5" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1152, 128)
+texture = ExtResource("1_dev37")
+
+[node name="Wood6" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(128, 384)
+texture = ExtResource("1_dev37")
+
+[node name="Wood7" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(384, 384)
+texture = ExtResource("1_dev37")
+
+[node name="Wood8" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(640, 384)
+texture = ExtResource("1_dev37")
+
+[node name="Wood9" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(896, 384)
+texture = ExtResource("1_dev37")
+
+[node name="Wood10" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1152, 384)
+texture = ExtResource("1_dev37")
+
+[node name="Wood11" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(128, 640)
+texture = ExtResource("1_dev37")
+
+[node name="Wood12" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(384, 640)
+texture = ExtResource("1_dev37")
+
+[node name="Wood13" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(640, 640)
+texture = ExtResource("1_dev37")
+
+[node name="Wood14" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(896, 640)
+texture = ExtResource("1_dev37")
+
+[node name="Wood15" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(1152, 640)
+texture = ExtResource("1_dev37")
