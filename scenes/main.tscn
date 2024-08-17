@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=13 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://cx4drtxmt6kul" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
 [ext_resource type="PackedScene" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
+[ext_resource type="PackedScene" path="res://prefabs/hammer.tscn" id="11_dpue7"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
@@ -58,5 +59,8 @@ script = ExtResource("10_eq26k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 803)
 shape = SubResource("WorldBoundaryShape2D_g2q2f")
+
+[node name="Hammer" parent="." instance=ExtResource("11_dpue7")]
+position = Vector2(440, 215)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

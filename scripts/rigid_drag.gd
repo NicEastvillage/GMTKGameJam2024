@@ -2,10 +2,7 @@ extends RigidBody2D
 
 signal clicked
 
-@export var default_mass = 1
-
 var held = false
-var offset : Vector2
 var selected_sound: AudioStreamPlayer2D
 var dropped_sound: AudioStreamPlayer2D
 var collision_sound: AudioStreamPlayer2D
@@ -27,13 +24,10 @@ func play_sfx(sound):
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			offset = global_position - get_viewport().get_mouse_position()
 			emit_signal("clicked", self)
 
 func _physics_process(delta):
-	if held:
 		pass
-		#global_transform.origin = get_global_mouse_position() + offset
 
 func pickup():
 	bongs = 0
