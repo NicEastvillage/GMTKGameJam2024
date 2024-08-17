@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl8j7527ueew7"]
+[gd_scene load_steps=3 format=3 uid="uid://dkx2s7k7in8rk"]
 
-[ext_resource type="Texture2D" uid="uid://bn85g3adpyp0m" path="res://sprites/Gavel.png" id="1_pnfu2"]
-[ext_resource type="Script" path="res://scripts/hammer.gd" id="1_rt55x"]
+[ext_resource type="Script" path="res://scripts/hammer.gd" id="1_ncye0"]
+[ext_resource type="Texture2D" uid="uid://bn85g3adpyp0m" path="res://sprites/Gavel.png" id="2_5le1d"]
 
-[node name="Hammer" type="Node2D"]
-
-[node name="hammer" type="RigidBody2D" parent="." groups=["rigid_dragable"]]
+[node name="hammer" type="RigidBody2D" groups=["rigid_dragable"]]
+collision_layer = 17
+collision_mask = 17
 input_pickable = true
 gravity_scale = 0.0
-script = ExtResource("1_rt55x")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ncye0")
 
-[node name="Sprite2D" type="Sprite2D" parent="hammer"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -54)
 rotation = -1.5708
-texture = ExtResource("1_pnfu2")
+texture = ExtResource("2_5le1d")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hammer"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(4, -79, 25, -79, 25, -109, -25, -109, -25, -79, -4, -80, -4, 0, 0, 3, 4, 0)
 
-[connection signal="mouse_entered" from="hammer" to="hammer" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="hammer" to="hammer" method="_on_mouse_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

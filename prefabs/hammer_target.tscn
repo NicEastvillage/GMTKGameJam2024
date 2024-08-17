@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm4og6vj4fttt"]
+
+[ext_resource type="Texture2D" uid="uid://bo1y3y3woraei" path="res://sprites/SoundBlock.png" id="1_8ujhu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swlqd"]
+size = Vector2(78, 20)
+
+[node name="HammerTarget" type="Node2D"]
+
+[node name="secret_hammer_target_name" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="secret_hammer_target_name"]
+shape = SubResource("RectangleShape2D_swlqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="secret_hammer_target_name"]
+texture = ExtResource("1_8ujhu")

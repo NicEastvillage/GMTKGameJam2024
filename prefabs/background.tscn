@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/BackgroundAnimator.gd" id="2_oq1ma"]
 
 [node name="Background" type="TextureRect"]
+z_index = -100
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_be1ii")

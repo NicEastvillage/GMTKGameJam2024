@@ -16,7 +16,8 @@ func _input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			var new_weight = weight.instantiate()
-			new_weight.global_position = global_position
+			new_weight.global_position.x = global_position.x
+			new_weight.global_position.y = global_position.y + 11
 			new_weight.held = true
 			get_parent().get_parent().add_child(new_weight)
 			get_tree().root.get_child(0)._on_pickable_clicked(new_weight)

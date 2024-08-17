@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal clicked
+signal hammer
 
 var held = false
 
@@ -23,9 +24,7 @@ func _process(delta: float) -> void:
 	var direction = Vector2(x_diff, y_diff)
 	direction = direction.normalized()
 	linear_velocity = direction * (lerp(dist, 0.0, 0.5) * max_vel)
-	angular_velocity = lerp(-global_rotation, 0.0, 0.5) * max_vel
-		
-	pass
+	angular_velocity = lerp(default_angle - global_rotation, 0.0, 0.5) * max_vel
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -40,3 +39,11 @@ func pickup():
 
 func drop(impulse=Vector2.ZERO):
 	held = false
+
+
+func _on_body_entered(body: Node) -> void:
+	print(body.name)
+	print(linear_velocity)
+	if body.name == "secret_hammer_target_name":
+		emit_signal("hammer", self)
+	pass # Replace with function body.

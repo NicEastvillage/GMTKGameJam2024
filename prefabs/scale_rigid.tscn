@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8jkuwbeqr6so"]
+[gd_scene load_steps=10 format=3 uid="uid://c8jkuwbeqr6so"]
 
 [ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_65p5n"]
+[ext_resource type="Script" path="res://scripts/cup.gd" id="3_e4oe1"]
 [ext_resource type="Texture2D" uid="uid://cf2tbgnhybxim" path="res://sprites/Arms.png" id="3_ghc82"]
 [ext_resource type="Texture2D" uid="uid://dex8i88hv020d" path="res://sprites/Cup.png" id="4_is4w7"]
 
@@ -31,6 +32,7 @@ position = Vector2(-2, -3.5)
 shape = SubResource("RectangleShape2D_owe8w")
 
 [node name="Sprite2D" type="Sprite2D" parent="body"]
+z_index = -1
 texture = ExtResource("1_65p5n")
 
 [node name="arms" type="RigidBody2D" parent="."]
@@ -43,9 +45,11 @@ linear_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
 position = Vector2(0, 1)
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_r05ga")
 
 [node name="Sprite2D" type="Sprite2D" parent="arms"]
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_ghc82")
 
 [node name="middle_joint" type="PinJoint2D" parent="."]
@@ -53,13 +57,15 @@ position = Vector2(0, -270)
 node_a = NodePath("../body")
 node_b = NodePath("../arms")
 bias = 0.9
+softness = 1.0
 
 [node name="cup_right" type="RigidBody2D" parent="."]
-position = Vector2(260, -163)
+position = Vector2(232, -165)
 collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 10
 linear_damp = 10.0
+script = ExtResource("3_e4oe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_right"]
 texture = ExtResource("4_is4w7")
@@ -72,11 +78,11 @@ shape = SubResource("RectangleShape2D_vje0r")
 occluder = SubResource("OccluderPolygon2D_aplju")
 
 [node name="cup_left" type="RigidBody2D" parent="."]
-position = Vector2(-260, -163)
+position = Vector2(-233, -165)
 collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 10
-linear_damp = 10.0
+script = ExtResource("3_e4oe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_left"]
 texture = ExtResource("4_is4w7")
@@ -89,25 +95,27 @@ shape = SubResource("RectangleShape2D_vje0r")
 occluder = SubResource("OccluderPolygon2D_u5o6j")
 
 [node name="right_joint" type="PinJoint2D" parent="."]
-position = Vector2(259, -253)
+position = Vector2(232, -255)
 node_a = NodePath("../arms")
 node_b = NodePath("../cup_right")
 bias = 0.9
+softness = 1.0
 
 [node name="left_joint" type="PinJoint2D" parent="."]
-position = Vector2(-259, -253)
+position = Vector2(-233, -255)
 node_a = NodePath("../arms")
 node_b = NodePath("../cup_left")
 bias = 0.9
+softness = 1.0
 
 [node name="spring_left" type="DampedSpringJoint2D" parent="."]
-position = Vector2(-259, -253)
+position = Vector2(-233, -255)
 node_a = NodePath("../body")
 node_b = NodePath("../arms")
 stiffness = 40.0
 
 [node name="spring_right" type="DampedSpringJoint2D" parent="."]
-position = Vector2(259, -253)
+position = Vector2(232, -255)
 node_a = NodePath("../body")
 node_b = NodePath("../arms")
 stiffness = 40.0

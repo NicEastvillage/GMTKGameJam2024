@@ -18,7 +18,7 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 2
 linear_damp = 2.0
-angular_damp = 10.0
+angular_damp = 1.0
 script = ExtResource("1_04ew7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
