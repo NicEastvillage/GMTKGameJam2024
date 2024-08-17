@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4msc77geuuvr"]
+[gd_scene load_steps=6 format=3 uid="uid://b4msc77geuuvr"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_jcb7h"]
 [ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_yglt7"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="3_cfpsp"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="4_6fj0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
 size = Vector2(134, 178)
@@ -24,6 +26,14 @@ offset_top = -12.0
 offset_right = 20.0
 offset_bottom = 11.0
 text = "TEST"
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_cfpsp")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("4_6fj0r")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
