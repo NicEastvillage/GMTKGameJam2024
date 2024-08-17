@@ -33,6 +33,7 @@ collision_layer = 0
 collision_mask = 0
 contact_monitor = true
 max_contacts_reported = 10
+linear_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
 position = Vector2(0, 1)
@@ -52,6 +53,7 @@ position = Vector2(260, -163)
 collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 10
+linear_damp = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_right"]
 texture = ExtResource("4_is4w7")
@@ -65,6 +67,7 @@ position = Vector2(-260, -163)
 collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 10
+linear_damp = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_left"]
 texture = ExtResource("4_is4w7")
