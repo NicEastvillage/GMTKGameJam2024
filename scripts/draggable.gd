@@ -8,13 +8,11 @@ func _input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			# Clicked
-			print("CLICK ", name)
 			dragging = true
 			mouse_offset = position - get_viewport().get_mouse_position()
 			event.canceled = true
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			# Release anywhere
-			print("RELEASE ", name)
 			dragging = false
 	elif event is InputEventMouseMotion:
 		# Mouse moved
@@ -22,7 +20,7 @@ func _input(event: InputEvent):
 			position = event.position + mouse_offset
 
 func _on_mouse_entered():
-	hovered = true;
+	hovered = true
 
 func _on_mouse_exited():
-	hovered = false;
+	hovered = false

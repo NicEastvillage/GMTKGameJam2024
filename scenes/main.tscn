@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=6 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="Texture2D" uid="uid://y4jkgytdaoy2" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
-[ext_resource type="PackedScene" uid="uid://b4msc77geuuvr" path="res://prefabs/draggable.tscn" id="1_kic6p"]
-[ext_resource type="PackedScene" path="res://prefabs/tablet.tscn" id="2_mh35a"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
+[ext_resource type="PackedScene" uid="uid://6k4dtpfnyoaj" path="res://prefabs/tablet.tscn" id="2_mh35a"]
+[ext_resource type="PackedScene" uid="uid://c4gj5u6u8sbim" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
+[ext_resource type="PackedScene" uid="uid://b4u328y80mriw" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
+[ext_resource type="PackedScene" uid="uid://dq6q6c5qrxx0u" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
 
 [node name="Main2D" type="Node2D"]
 
@@ -73,15 +72,6 @@ grow_vertical = 2
 mouse_filter = 2
 text = "This is my history"
 
-[node name="Draggable" parent="." instance=ExtResource("1_kic6p")]
-position = Vector2(105, 170)
-
-[node name="Draggable2" parent="." instance=ExtResource("1_kic6p")]
-position = Vector2(92, 356)
-
-[node name="Sprite2D" parent="Draggable2" index="0"]
-modulate = Color(1, 0, 1, 1)
-
 [node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
 position = Vector2(926, 560)
 scale = Vector2(0.64, 0.652594)
@@ -97,5 +87,3 @@ scale = Vector2(0.113, 0.113)
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
 scale = Vector2(0.113, 0.113)
-
-[editable path="Draggable2"]

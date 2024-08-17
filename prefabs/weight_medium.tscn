@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqvt41b7jk6hr"]
+[gd_scene load_steps=5 format=3 uid="uid://c4gj5u6u8sbim"]
 
 [ext_resource type="Texture2D" uid="uid://dl0etveit563a" path="res://sprites/Weight Medium.png" id="1_gk3hv"]
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_wxklp"]
 [ext_resource type="Texture2D" uid="uid://cy8wv4aosvwu0" path="res://sprites/Star.png" id="2_2otvo"]
 
-[node name="WeightMedium" type="Node2D"]
-position = Vector2(255, 524)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjpq"]
+size = Vector2(420.099, 686.7)
+
+[node name="WeightMedium" type="CharacterBody2D"]
+position = Vector2(-2, 0)
 scale = Vector2(0.247561, 0.247561)
+input_pickable = true
+script = ExtResource("1_wxklp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.03943, -8.07886)
+shape = SubResource("RectangleShape2D_mxjpq")
 
 [node name="WeightMedium" type="Sprite2D" parent="."]
 texture = ExtResource("1_gk3hv")
@@ -14,3 +24,6 @@ texture = ExtResource("1_gk3hv")
 position = Vector2(-7.42755, 63.9674)
 scale = Vector2(1.14895, 1.14895)
 texture = ExtResource("2_2otvo")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
