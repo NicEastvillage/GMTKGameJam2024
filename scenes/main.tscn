@@ -28,8 +28,8 @@ grabber_joint = NodePath("grab_joint")
 script = ExtResource("10_5p1cc")
 
 [node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
-color = Color(1, 1, 1, 0.282353)
-energy = 0.1
+color = Color(1, 1, 1, 0.67451)
+energy = 0.15
 shadow_enabled = true
 texture = ExtResource("11_ikrsq")
 texture_scale = 2.44
