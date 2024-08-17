@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bunpjk4qtxbg8" path="res://sprites/ScaleFoot.png" id="1_5i8vn"]
 [ext_resource type="Texture2D" uid="uid://y4jkgytdaoy2" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
-[ext_resource type="Script" path="res://scenes/Scale.gd" id="2_5uiv4"]
+[ext_resource type="Script" path="res://scripts/Scale.gd" id="2_5uiv4"]
 [ext_resource type="Texture2D" uid="uid://ccpfow1bx53ld" path="res://sprites/ScaleArms.png" id="2_7jiv5"]
 [ext_resource type="PackedScene" uid="uid://6k4dtpfnyoaj" path="res://prefabs/tablet.tscn" id="2_mh35a"]
 [ext_resource type="PackedScene" uid="uid://c4gj5u6u8sbim" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
@@ -38,6 +38,9 @@ shape = SubResource("RectangleShape2D_lbdvb")
 position = Vector2(5, 183)
 texture = ExtResource("3_c2fbq")
 
+[node name="CupFoot" type="Node2D" parent="Scale/Arms/Right"]
+position = Vector2(0, 363)
+
 [node name="Left" type="Area2D" parent="Scale/Arms"]
 position = Vector2(-458, 1)
 
@@ -48,6 +51,9 @@ shape = SubResource("RectangleShape2D_lbdvb")
 [node name="Sprite2D" type="Sprite2D" parent="Scale/Arms/Left"]
 position = Vector2(5, 184)
 texture = ExtResource("3_c2fbq")
+
+[node name="CupFoot" type="Node2D" parent="Scale/Arms/Left"]
+position = Vector2(0, 363)
 
 [node name="UI" type="Control" parent="."]
 custom_minimum_size = Vector2(10.135, 11.78)
@@ -126,5 +132,7 @@ position = Vector2(60, 558)
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
 
-[node name="weight_spawner" parent="." instance=ExtResource("9_do6tm")]
-position = Vector2(321, 430)
+[connection signal="mouse_entered" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_exited"]
+[connection signal="mouse_entered" from="Scale/Arms/Left" to="Scale" method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="Scale/Arms/Left" to="Scale" method="_on_left_mouse_exited"]
