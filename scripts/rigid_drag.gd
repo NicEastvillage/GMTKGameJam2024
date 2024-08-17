@@ -11,7 +11,7 @@ var offset : Vector2
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			offset = position - get_viewport().get_mouse_position()
+			offset = global_position - get_viewport().get_mouse_position()
 			emit_signal("clicked", self)
 
 func _physics_process(delta):

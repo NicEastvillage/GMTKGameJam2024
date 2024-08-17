@@ -9,7 +9,7 @@ func _ready():
 		node.connect("clicked", _on_pickable_clicked)
 
 func _process(delta: float) -> void:
-	grabber_joint.position = get_viewport().get_mouse_position()
+	grabber_joint.global_position = get_viewport().get_mouse_position()
 
 func _on_pickable_clicked(object):
 	if !held_object:

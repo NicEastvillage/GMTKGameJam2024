@@ -9,6 +9,8 @@
 size = Vector2(72, 90)
 
 [node name="Polaroid" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 input_pickable = true
 script = ExtResource("1_o5sci")
 
