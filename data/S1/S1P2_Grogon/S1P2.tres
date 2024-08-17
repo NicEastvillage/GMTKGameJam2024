@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=4 format=3 uid="uid://wjblpuhi1446"]
+
+[ext_resource type="PackedScene" uid="uid://dkhtwiyj4amrx" path="res://data/S1/S1P2_Grogon/S1P2_desc.tscn" id="1_cumhf"]
+[ext_resource type="Texture2D" uid="uid://b68jj6s82xy8g" path="res://sprites/Portraits/PortraitAristotle2.png" id="2_w8ntn"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="3_dpbff"]
+
+[resource]
+script = ExtResource("3_dpbff")
+name = "Grogon"
+portrait = ExtResource("2_w8ntn")
+verdict_sinner = true
+person_documents = Array[PackedScene]([ExtResource("1_cumhf")])

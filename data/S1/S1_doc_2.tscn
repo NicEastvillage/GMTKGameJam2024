@@ -15,7 +15,7 @@ polygon = PackedVector2Array(-97, -83, -100, -73, -96, -50, -101, -39, -94, -23,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
 size = Vector2(152, 76)
 
-[node name="Tablet" type="CharacterBody2D"]
+[node name="S1_doc_sins" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
 input_pickable = true
@@ -39,14 +39,14 @@ offset_top = -30.0
 offset_right = 64.0
 offset_bottom = 19.0
 theme = ExtResource("2_m5en6")
-text = "        | SINS |
+text = "    BAD
 
 
-No kill other apes
+Kill man
 
-No stealin'
+Take thing from friend
 
-Don't eat yellow snow"
+Eat yellow snow"
 autowrap_mode = 3
 
 [node name="Shield" type="Sprite2D" parent="."]

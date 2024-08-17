@@ -1,22 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://d33wmdbfkyvso"]
+[gd_scene load_steps=10 format=3 uid="uid://d33wmdbfkyvso"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_6poeg"]
 [ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_luvm4"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_d26b8"]
-[ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="4_55dxj"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_d1qma"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="6_lptn7"]
 [ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="7_v5g4n"]
 [ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="8_baqbr"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
-cull_mode = 1
 polygon = PackedVector2Array(-97, -83, -100, -73, -96, -50, -101, -39, -94, -23, -76, -20, -61, -23, -42, -20, -15, -22, 15, -18, 39, -22, 47, -29, 43, -42, 48, -64, 41, -82, 23, -88, -9, -84, -51, -85, -82, -90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
 size = Vector2(152, 76)
 
-[node name="Tablet" type="CharacterBody2D"]
+[node name="S1_doc_1" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
 input_pickable = true
@@ -41,18 +39,14 @@ offset_top = -30.2663
 offset_right = 71.7337
 offset_bottom = 32.7337
 theme = ExtResource("3_d26b8")
-text = "Good Deeds
+text = "    Good
 
-Have 4 kids or more
+Have kids
 
-Sacrifice animals on holy days
+Sacrifice animal on holy day
 
-Eat all your vegetables"
+Eat vegetables"
 autowrap_mode = 3
-
-[node name="Shield" type="Sprite2D" parent="."]
-position = Vector2(-60.2663, -13.2663)
-texture = ExtResource("4_55dxj")
 
 [node name="Diamond" type="Sprite2D" parent="."]
 position = Vector2(-60, 16)
@@ -60,6 +54,10 @@ texture = ExtResource("5_d1qma")
 
 [node name="Circle2" type="Sprite2D" parent="."]
 position = Vector2(-60, 1)
+texture = ExtResource("6_lptn7")
+
+[node name="Circle3" type="Sprite2D" parent="."]
+position = Vector2(-60, -14)
 texture = ExtResource("6_lptn7")
 
 [node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
