@@ -1,17 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://dsdchgqwhnrb1"]
 
-[ext_resource type="Texture2D" uid="uid://bunpjk4qtxbg8" path="res://sprites/ScaleFoot.png" id="1_5i8vn"]
-[ext_resource type="Texture2D" uid="uid://y4jkgytdaoy2" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
+[ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_5i8vn"]
+[ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="2_5uiv4"]
-[ext_resource type="Texture2D" uid="uid://ccpfow1bx53ld" path="res://sprites/ScaleArms.png" id="2_7jiv5"]
-[ext_resource type="PackedScene" uid="uid://6k4dtpfnyoaj" path="res://prefabs/tablet.tscn" id="2_mh35a"]
-[ext_resource type="PackedScene" uid="uid://c4gj5u6u8sbim" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
-[ext_resource type="Texture2D" uid="uid://bayx7u07j5auf" path="res://sprites/ScaleCup.png" id="3_c2fbq"]
-[ext_resource type="PackedScene" uid="uid://b4u328y80mriw" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
-[ext_resource type="PackedScene" uid="uid://dq6q6c5qrxx0u" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3ufbi"]
-polygon = PackedVector2Array(-158, 13, -134, -3, -113, -5, -87, -3, -72, 4, -47, 10, 0, 7, 64, 6, 93, -6, 125, -4, 136, -2, 147, 4, 157, 14, 159, 11, 137, -6, 120, -11, 101, -12, 74, -3, 58, 0, 30, 4, 14, 2, 6, -3, -5, -4, -12, 1, -24, 3, -45, 3, -75, -3, -87, -10, -103, -13, -121, -10, -139, -4, -151, 4)
+[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/tablet.tscn" id="2_mh35a"]
+[ext_resource type="Texture2D" uid="uid://cf2tbgnhybxim" path="res://sprites/Arms.png" id="3_26twe"]
+[ext_resource type="PackedScene" uid="uid://bqvt41b7jk6hr" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
+[ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
+[ext_resource type="Texture2D" uid="uid://dex8i88hv020d" path="res://sprites/Cup.png" id="4_pvcmh"]
+[ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
+[ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
+[ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbdvb"]
 size = Vector2(243, 229.41)
@@ -25,10 +24,6 @@ script = ExtResource("2_5uiv4")
 max_angle = 0.41
 weight_for_max = 16
 sigmoid_factor = 3.5
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Scale"]
-position = Vector2(0, -243)
-occluder = SubResource("OccluderPolygon2D_3ufbi")
 
 [node name="Arms" type="Sprite2D" parent="Scale"]
 position = Vector2(0, -243)
@@ -127,7 +122,8 @@ mouse_filter = 2
 text = "This is my history"
 
 [node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
-position = Vector2(626, 472)
+position = Vector2(926, 560)
+scale = Vector2(0.64, 0.652594)
 
 [node name="WeightMedium" parent="." instance=ExtResource("3_888uj")]
 position = Vector2(153, 545)
@@ -137,6 +133,16 @@ position = Vector2(60, 558)
 
 [node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
 position = Vector2(288, 536)
+
+[node name="CursorLight" type="Node2D" parent="."]
+script = ExtResource("10_5p1cc")
+
+[node name="PointLight2D" type="PointLight2D" parent="CursorLight"]
+scale = Vector2(4.6875, 4.6875)
+texture = ExtResource("11_ikrsq")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(29, -8)
 
 [connection signal="mouse_entered" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_entered"]
 [connection signal="mouse_exited" from="Scale/Arms/Right" to="Scale" method="_on_right_mouse_exited"]
