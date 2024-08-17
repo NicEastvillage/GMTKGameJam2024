@@ -3,6 +3,7 @@ extends Node2D
 @export var stages: Array[StageData] = []
 @export var current_stage_index: int = 0
 @export var current_person_index: int = 0
+@export var document_spawn_radius: float = 120
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
@@ -30,6 +31,7 @@ func load_stage():
 	for doc in current_stage.rule_documents:
 		var inst = doc.instantiate()
 		documents_node.add_child(inst)
+		inst.position = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
 	load_person()
 	
 func load_person():
@@ -38,6 +40,7 @@ func load_person():
 	for doc in current_person.person_documents:
 		var inst = doc.instantiate()
 		documents_personal_node.add_child(inst)
+		inst.position = Vector2(randf() * document_spawn_radius, 0).rotated(randf() * TAU)
 
 func end_game():
 	print("GAME OVER")

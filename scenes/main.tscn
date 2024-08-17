@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsdchgqwhnrb1"]
 
-[ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
+[ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/Portraits/PortraitDefault.png" id="1_d2aud"]
 [ext_resource type="PackedScene" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
 [ext_resource type="Script" path="res://scripts/StageData.gd" id="2_dxvs8"]
@@ -95,5 +95,6 @@ mouse_filter = 2
 text = "This is my history"
 
 [node name="Documents" type="Node2D" parent="."]
+position = Vector2(314, 237)
 
 [node name="Personal" type="Node2D" parent="Documents"]
