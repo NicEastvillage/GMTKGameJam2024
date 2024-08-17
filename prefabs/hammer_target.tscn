@@ -1,18 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm4og6vj4fttt"]
+[gd_scene load_steps=7 format=3 uid="uid://bm4og6vj4fttt"]
 
+[ext_resource type="Script" path="res://scripts/hammer_target.gd" id="1_8rp7w"]
 [ext_resource type="Texture2D" uid="uid://bo1y3y3woraei" path="res://sprites/SoundBlock.png" id="1_8ujhu"]
+[ext_resource type="AudioStream" uid="uid://botcsoq5l8gdl" path="res://sounds/hammer.wav" id="3_qaekd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swlqd"]
 size = Vector2(78, 20)
 
-[node name="HammerTarget" type="Node2D"]
+[sub_resource type="Curve" id="Curve_2vluq"]
+min_value = 1.95
+max_value = 12.3
+_data = [Vector2(0.0337079, 12.0725), 0.0, 14.49, 0, 0, Vector2(1, 1.95), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[node name="secret_hammer_target_name" type="StaticBody2D" parent="."]
-collision_layer = 17
-collision_mask = 17
+[sub_resource type="Gradient" id="Gradient_kva0b"]
+colors = PackedColorArray(1, 1, 1, 0.533333, 1, 1, 1, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="secret_hammer_target_name"]
+[node name="HammerTarget" type="Area2D"]
+script = ExtResource("1_8rp7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_swlqd")
 
-[node name="Sprite2D" type="Sprite2D" parent="secret_hammer_target_name"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8ujhu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qaekd")
+volume_db = 19.676
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -10)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(0, 0, 0, 0)
+emission_normals = PackedVector2Array(1, 0, -1, 0)
+emission_colors = PackedColorArray()
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 158.99
+angular_velocity_min = -72.73
+angular_velocity_max = 43.64
+damping_min = 152.815
+damping_max = 303.22
+scale_amount_curve = SubResource("Curve_2vluq")
+color_ramp = SubResource("Gradient_kva0b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

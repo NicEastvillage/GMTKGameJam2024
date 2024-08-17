@@ -39,11 +39,3 @@ func pickup():
 
 func drop(impulse=Vector2.ZERO):
 	held = false
-
-
-func _on_body_entered(body: Node) -> void:
-	print(body.name)
-	print(linear_velocity)
-	if body.name == "secret_hammer_target_name":
-		emit_signal("hammer", self)
-	pass # Replace with function body.
