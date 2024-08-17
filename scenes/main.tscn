@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=9 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="Texture2D" uid="uid://cnpsoi28uvduf" path="res://sprites/PortraitDefault.png" id="1_d2aud"]
-[ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
-[ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://prefabs/first_stage/sins_first.tscn" id="2_mh35a"]
-[ext_resource type="PackedScene" uid="uid://c2gbbd57rdulg" path="res://prefabs/scale.tscn" id="3_5jcsy"]
-[ext_resource type="PackedScene" uid="uid://bqvt41b7jk6hr" path="res://prefabs/weight_medium.tscn" id="3_888uj"]
-[ext_resource type="PackedScene" uid="uid://dxjv0nius6bv" path="res://prefabs/weight_small.tscn" id="4_2sg6v"]
-[ext_resource type="PackedScene" uid="uid://dvtcfbxposi53" path="res://prefabs/weight_large.tscn" id="5_8obdd"]
+[ext_resource type="PackedScene" path="res://prefabs/background.tscn" id="1_fdc0o"]
+[ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
+[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_dxvs8"]
+[ext_resource type="PackedScene" path="res://prefabs/scale.tscn" id="3_5jcsy"]
+[ext_resource type="Resource" uid="uid://djl8vynlu5f3m" path="res://data/Stages/StageExample.tres" id="3_pcylv"]
 [ext_resource type="Script" path="res://scripts/follow_mouse.gd" id="10_5p1cc"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 
 [node name="Main2D" type="Node2D"]
+script = ExtResource("1_j62sn")
+stages = Array[ExtResource("2_dxvs8")]([ExtResource("3_pcylv")])
 
 [node name="Background" parent="." instance=ExtResource("1_fdc0o")]
 
@@ -93,15 +94,6 @@ grow_vertical = 2
 mouse_filter = 2
 text = "This is my history"
 
-[node name="Tablet" parent="." instance=ExtResource("2_mh35a")]
-position = Vector2(123, 103)
-scale = Vector2(0.64, 0.652594)
+[node name="Documents" type="Node2D" parent="."]
 
-[node name="WeightMedium" parent="." instance=ExtResource("3_888uj")]
-position = Vector2(153, 545)
-
-[node name="WeightSmall" parent="." instance=ExtResource("4_2sg6v")]
-position = Vector2(60, 558)
-
-[node name="WeightLarge" parent="." instance=ExtResource("5_8obdd")]
-position = Vector2(288, 536)
+[node name="Personal" type="Node2D" parent="Documents"]

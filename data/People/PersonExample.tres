@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=3 format=3 uid="uid://bu8n1qgltx64i"]
+
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_i6kko"]
+[ext_resource type="PackedScene" uid="uid://b4msc77geuuvr" path="res://prefabs/draggable.tscn" id="1_q7svt"]
+
+[resource]
+script = ExtResource("1_i6kko")
+verdict_sinner = false
+person_documents = Array[PackedScene]([ExtResource("1_q7svt")])
