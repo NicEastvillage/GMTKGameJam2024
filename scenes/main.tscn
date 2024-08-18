@@ -50,7 +50,7 @@ texture = ExtResource("11_ikrsq")
 texture_scale = 2.44
 
 [node name="Documents" type="Node2D" parent="."]
-position = Vector2(314, 237)
+position = Vector2(321, 158)
 
 [node name="Personal" type="Node2D" parent="Documents"]
 
