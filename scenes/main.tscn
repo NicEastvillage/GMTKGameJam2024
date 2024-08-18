@@ -1,32 +1,41 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=21 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
-[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_jtdm5"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
-[ext_resource type="Resource" uid="uid://dlw3atx42ecxt" path="res://data/S2/S2.tres" id="4_ikmm5"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
-[ext_resource type="PackedScene" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
+[ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
-[ext_resource type="PackedScene" uid="uid://dkx2s7k7in8rk" path="res://prefabs/hammer.tscn" id="11_dpue7"]
+[ext_resource type="PackedScene" uid="uid://dfxitsqbpgvks" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
+[ext_resource type="PackedScene" uid="uid://c01tdpda04fu6" path="res://prefabs/hammer.tscn" id="11_dpue7"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
-[ext_resource type="PackedScene" uid="uid://bm4og6vj4fttt" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
+[ext_resource type="PackedScene" uid="uid://c0h654ovo1bp5" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
 [ext_resource type="Texture2D" uid="uid://cdcdu3kijw8b6" path="res://sprites/Table.png" id="13_6j3kh"]
 [ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weights/weight_large_rigid.tscn" id="13_gqy1f"]
 [ext_resource type="Script" path="res://scripts/RemoveTimer.gd" id="13_pbv4f"]
+[ext_resource type="Script" path="res://scripts/StageTimer.gd" id="14_orrtv"]
+[ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
+[ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
+[sub_resource type="Curve" id="Curve_14h0v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.662921, 0.483516), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), -8.58487, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_1ry5y"]
+offsets = PackedFloat32Array(0, 0.24, 1)
+colors = PackedColorArray(0.86, 0.530333, 0, 0.701961, 0.717647, 0.368627, 0, 0.709804, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ft0c1"]
+offsets = PackedFloat32Array(0, 0.246667, 0.766667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1, 1, 0)
+
 [node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_jtdm5")]([ExtResource("3_mct4a"), ExtResource("4_ikmm5")])
+stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
-
-[node name="SpawnPersonTimer" type="Timer" parent="."]
-wait_time = 1.7
-one_shot = true
 
 [node name="Background" parent="." instance=ExtResource("1_fdc0o")]
 
@@ -41,7 +50,7 @@ texture = ExtResource("11_ikrsq")
 texture_scale = 2.44
 
 [node name="Documents" type="Node2D" parent="."]
-position = Vector2(314, 237)
+position = Vector2(321, 158)
 
 [node name="Personal" type="Node2D" parent="Documents"]
 
@@ -59,7 +68,7 @@ position = Vector2(314, 400)
 texture = ExtResource("13_6j3kh")
 
 [node name="WeightSupply" parent="." instance=ExtResource("10_k81j6")]
-position = Vector2(211, 340)
+position = Vector2(298, 335)
 
 [node name="Killzone" type="Area2D" parent="."]
 collision_layer = 0
@@ -71,11 +80,11 @@ position = Vector2(0, 803)
 shape = SubResource("WorldBoundaryShape2D_g2q2f")
 
 [node name="HammerTarget" parent="." instance=ExtResource("12_ysws8")]
-position = Vector2(318, 340)
+position = Vector2(212, 336)
 
 [node name="hammer" parent="." instance=ExtResource("11_dpue7")]
-position = Vector2(494, 326)
-rotation = -1.57079
+position = Vector2(457, 341)
+rotation = -1.30824
 
 [node name="WeightLarge" parent="." instance=ExtResource("13_gqy1f")]
 position = Vector2(70, 178)
@@ -84,7 +93,52 @@ position = Vector2(70, 178)
 one_shot = true
 script = ExtResource("13_pbv4f")
 
-[connection signal="timeout" from="SpawnPersonTimer" to="." method="_spawn_person"]
+[node name="StageTimer" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("14_orrtv")
+
+[node name="HellSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 8)
+stream = ExtResource("15_yx1tn")
+
+[node name="HeavenSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(5, -1)
+stream = ExtResource("16_0o8dg")
+
+[node name="ParticlesFire" type="CPUParticles2D" parent="."]
+position = Vector2(0, 189)
+amount = 180
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 180)
+gravity = Vector2(0, -10)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 19.62
+scale_amount_curve = SubResource("Curve_14h0v")
+color_ramp = SubResource("Gradient_1ry5y")
+hue_variation_min = -0.34
+hue_variation_max = 0.32
+
+[node name="ParticlesClouds" type="CPUParticles2D" parent="."]
+position = Vector2(640, 180)
+amount = 100
+lifetime = 10.0
+lifetime_randomness = 0.3
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(5, 180)
+gravity = Vector2(0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+color_ramp = SubResource("Gradient_ft0c1")
+
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="hammer" from="HammerTarget" to="." method="_on_hammer"]
 [connection signal="timeout" from="RemoveTimer" to="RemoveTimer" method="_on_timeout"]
+[connection signal="timeout" from="StageTimer" to="StageTimer" method="_on_timeout"]
