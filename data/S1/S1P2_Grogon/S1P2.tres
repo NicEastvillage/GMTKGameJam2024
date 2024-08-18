@@ -9,7 +9,8 @@ script = ExtResource("3_dpbff")
 name = "Grogon"
 correct_verdict = "A true saint! You're right!
 Grogon sacrificed an animal to the gods and had children."
-wrong_verdict = "So close! Actually a sinner."
+wrong_verdict = "Wrong!
+Grogon sacrificed an animal to the gods and had children."
 portrait = ExtResource("2_inm6l")
 verdict_sinner = true
 person_documents = Array[PackedScene]([ExtResource("1_cumhf")])
