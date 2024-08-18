@@ -21,8 +21,8 @@ collision_layer = 2
 input_pickable = true
 mass = 5.0
 freeze_mode = 1
-contact_monitor = true
 max_contacts_reported = 2
+contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_e2o25")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=21 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
@@ -18,6 +18,18 @@
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
+
+[sub_resource type="Curve" id="Curve_14h0v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.662921, 0.483516), 0.0, 0.0, 0, 0, Vector2(1, 0.505494), -8.58487, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_1ry5y"]
+offsets = PackedFloat32Array(0, 0.24, 1)
+colors = PackedColorArray(0.86, 0.530333, 0, 0.701961, 0.717647, 0.368627, 0, 0.709804, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ft0c1"]
+offsets = PackedFloat32Array(0, 0.246667, 0.766667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1, 1, 0)
 
 [node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
@@ -56,7 +68,7 @@ position = Vector2(314, 400)
 texture = ExtResource("13_6j3kh")
 
 [node name="WeightSupply" parent="." instance=ExtResource("10_k81j6")]
-position = Vector2(211, 340)
+position = Vector2(298, 335)
 
 [node name="Killzone" type="Area2D" parent="."]
 collision_layer = 0
@@ -68,11 +80,11 @@ position = Vector2(0, 803)
 shape = SubResource("WorldBoundaryShape2D_g2q2f")
 
 [node name="HammerTarget" parent="." instance=ExtResource("12_ysws8")]
-position = Vector2(318, 340)
+position = Vector2(212, 336)
 
 [node name="hammer" parent="." instance=ExtResource("11_dpue7")]
-position = Vector2(494, 326)
-rotation = -1.57079
+position = Vector2(457, 341)
+rotation = -1.30824
 
 [node name="WeightLarge" parent="." instance=ExtResource("13_gqy1f")]
 position = Vector2(70, 178)
@@ -92,6 +104,39 @@ stream = ExtResource("15_yx1tn")
 [node name="HeavenSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(5, -1)
 stream = ExtResource("16_0o8dg")
+
+[node name="ParticlesFire" type="CPUParticles2D" parent="."]
+position = Vector2(0, 189)
+amount = 180
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 180)
+gravity = Vector2(0, -10)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 19.62
+scale_amount_curve = SubResource("Curve_14h0v")
+color_ramp = SubResource("Gradient_1ry5y")
+hue_variation_min = -0.34
+hue_variation_max = 0.32
+
+[node name="ParticlesClouds" type="CPUParticles2D" parent="."]
+position = Vector2(640, 180)
+amount = 100
+lifetime = 10.0
+lifetime_randomness = 0.3
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(5, 180)
+gravity = Vector2(0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+color_ramp = SubResource("Gradient_ft0c1")
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="hammer" from="HammerTarget" to="." method="_on_hammer"]
