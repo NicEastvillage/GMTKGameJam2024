@@ -44,7 +44,6 @@ shape = SubResource("RectangleShape2D_yj6eq")
 disabled = true
 
 [node name="sprite_open" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("5_6cwbb")
 
 [node name="Label2" type="Label" parent="sprite_open"]
