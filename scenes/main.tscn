@@ -2,23 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
-[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_jtdm5"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
-[ext_resource type="PackedScene" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
+[ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
 [ext_resource type="PackedScene" uid="uid://dfxitsqbpgvks" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
-[ext_resource type="PackedScene" path="res://prefabs/hammer.tscn" id="11_dpue7"]
+[ext_resource type="PackedScene" uid="uid://dkx2s7k7in8rk" path="res://prefabs/hammer.tscn" id="11_dpue7"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
-[ext_resource type="PackedScene" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
+[ext_resource type="PackedScene" uid="uid://bm4og6vj4fttt" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
 [ext_resource type="Texture2D" uid="uid://cdcdu3kijw8b6" path="res://sprites/Table.png" id="13_6j3kh"]
 [ext_resource type="PackedScene" uid="uid://3j4avagguf1f" path="res://prefabs/weights/weight_large_rigid.tscn" id="13_gqy1f"]
+[ext_resource type="Script" path="res://scripts/RemoveTimer.gd" id="13_pbv4f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
 [node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_jtdm5")]([ExtResource("3_mct4a")])
+stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
@@ -78,6 +78,11 @@ rotation = -1.57079
 [node name="WeightLarge" parent="." instance=ExtResource("13_gqy1f")]
 position = Vector2(70, 178)
 
+[node name="RemoveTimer" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("13_pbv4f")
+
 [connection signal="timeout" from="SpawnPersonTimer" to="." method="_spawn_person"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="hammer" from="HammerTarget" to="." method="_on_hammer"]
+[connection signal="timeout" from="RemoveTimer" to="RemoveTimer" method="_on_timeout"]

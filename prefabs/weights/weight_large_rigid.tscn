@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3j4avagguf1f"]
+[gd_scene load_steps=8 format=3 uid="uid://3j4avagguf1f"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_e2o25"]
 [ext_resource type="Texture2D" uid="uid://cplb81pril50d" path="res://sprites/Weight Large.png" id="2_dqlnd"]
@@ -11,13 +11,17 @@ polygon = PackedVector2Array(-10, -22, -10, -3, 11, -3, 11, -22, 7, -22, 7, -27,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(186.667, 212.402)
 
+[sub_resource type="Curve" id="Curve_tekbr"]
+_data = [Vector2(0, 1), 0.0, 2.32511, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="WeightLarge" type="RigidBody2D" groups=["remove_on_verdict", "rigid_dragable"]]
 collision_layer = 2
 input_pickable = true
 mass = 5.0
 freeze_mode = 1
-contact_monitor = true
 max_contacts_reported = 2
+contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_e2o25")
 
@@ -45,6 +49,20 @@ stream = ExtResource("3_c32ew")
 position = Vector2(-2, -4)
 stream = ExtResource("4_85x7j")
 
+[node name="AwayParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -15)
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(10, 16)
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 10.4
+scale_amount_curve = SubResource("Curve_tekbr")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="finished" from="AwayParticles" to="AwayParticles" method="queue_free"]

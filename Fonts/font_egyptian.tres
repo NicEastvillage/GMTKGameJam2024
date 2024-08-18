@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://68yv14anvw22"]
+
+[ext_resource type="FontFile" uid="uid://dsxutw8wvagrh" path="res://Fonts/slkscr.ttf" id="1_kvvng"]
+
+[resource]
+line_spacing = -3.0
+font = ExtResource("1_kvvng")
+font_size = 8
+font_color = Color(0.333333, 0.231373, 0, 1)

@@ -86,7 +86,8 @@ func end_stage():
 func end_person(sinner: bool):
 	# Clean up personal documents
 	for node in get_tree().get_nodes_in_group("remove_on_verdict"):
-		node.remove()
+		var timer = find_child("RemoveTimer")
+		timer.remove_queue.append(node)
 	for child in documents_personal_node.get_children():
 		var effect = despawn_effect.instantiate()
 		child.add_child(effect)
@@ -102,14 +103,14 @@ func end_person(sinner: bool):
 		load_person()
 
 func give_verdict():
-	var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
-	# TODO: Check if correct
-	if current_person.verdict_sinner == sinner:
-		print("VERDICT: sinner=", sinner, " (CORRECT)")
-	else:
-		print("VERDICT: sinner=", sinner, " (INCORRECT)")
-	
-	end_person(sinner)
+	if abs(scale_arms.rotation_degrees) > 2.0:
+		var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
+		# TODO: Check if correct
+		if current_person.verdict_sinner == sinner:
+			print("VERDICT: sinner=", sinner, " (CORRECT)")
+		else:
+			print("VERDICT: sinner=", sinner, " (INCORRECT)")
+		end_person(sinner)
 
 var held_object = null
 

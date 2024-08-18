@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgivppnhhmvv8"]
+[gd_scene load_steps=12 format=3 uid="uid://cgivppnhhmvv8"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_rkhfu"]
 [ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_nnrgs"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_k55i8"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="4_j1lbm"]
+[ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="4_ntkv8"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="5_4vkfg"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="6_7mlkf"]
 [ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="6_ev75u"]
@@ -35,9 +36,9 @@ rotation = 3.14159
 texture = ExtResource("2_nnrgs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -54.0
+offset_left = -53.0
 offset_top = -81.0
-offset_right = 55.0
+offset_right = 56.0
 offset_bottom = 82.0
 theme = ExtResource("3_k55i8")
 text = "Treat others kindly
@@ -52,7 +53,10 @@ Do not kill your equals or LEADERS
 
 Do not lie
 
-Murder to protect family is not a sin"
+Murder to protect family is not a sin
+
+Do not question or challenge the Gods"
+label_settings = ExtResource("4_ntkv8")
 autowrap_mode = 3
 
 [node name="Diamond" type="Sprite2D" parent="."]
@@ -75,8 +79,12 @@ texture = ExtResource("5_4vkfg")
 position = Vector2(-60, -2)
 texture = ExtResource("6_7mlkf")
 
-[node name="Shield" type="Sprite2D" parent="Shield"]
-position = Vector2(37, -14)
+[node name="Shield2" type="Sprite2D" parent="."]
+position = Vector2(-23, -16)
+texture = ExtResource("6_7mlkf")
+
+[node name="Shield3" type="Sprite2D" parent="."]
+position = Vector2(-59, 44)
 texture = ExtResource("6_7mlkf")
 
 [node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
