@@ -69,7 +69,7 @@ func start_game():
 	stagetimer.start_stage()
 	stagetimer.spawn_godly_message(
 		"I'm Limfjordsporter by the way, the (lesser) god of strong beer. Nice to meet you.\n\n" +
-		"I sent you the gods lists of deeds and sins. Read the material about the apes that come through, and put their weights on the right side of the scale.\n\n" +
+		"I sent you the gods lists of deeds and sins. Read the material about the apes that come through, and put their weights on the correct side of the scale.\n\n" +
 		"Honestly pretty easy. I'm sure even the apes could do it lol\n\n" +
 		""
 		, "Let's go")
@@ -133,8 +133,6 @@ func end_stage():
 	# Clean up rule documents
 	for child in documents_node.get_children():
 		child.queue_free()  # TODO Timer
-
-	
 	# Next?
 	current_person_index = 0
 	current_stage_index += 1
@@ -171,10 +169,10 @@ func give_verdict():
 		else:
 			play_sfx(heaven_sound)
 		# TODO: Check if correct
-		if current_person.verdict_sinner == sinner:
-			print("VERDICT: sinner=", sinner, " (CORRECT)")
+		if current_person.verdict_sinner == sinner: 
+			stagetimer.spawn_godly_message(current_person.correct_verdict, "Next!")
 		else:
-			print("VERDICT: sinner=", sinner, " (INCORRECT)")
+			stagetimer.spawn_godly_message(current_person.wrong_verdict, "Next!")
 		end_person(sinner)
 
 var held_object = null

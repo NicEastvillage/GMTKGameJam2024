@@ -7,6 +7,10 @@
 [resource]
 script = ExtResource("1_kelug")
 name = "Mambo"
+correct_verdict = "Correct! 
+Mambo had kids and ate vegetables. Good Mambo!"
+wrong_verdict = "So close! Actually a sinner.
+Mambo had kids and ate vegetable. Nothing Mambo did was a sin."
 portrait = ExtResource("2_um4k3")
-verdict_sinner = false
+verdict_sinner = null
 person_documents = Array[PackedScene]([ExtResource("1_ynt7a")])
