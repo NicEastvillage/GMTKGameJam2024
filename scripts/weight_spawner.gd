@@ -22,6 +22,7 @@ func _input(event: InputEvent):
 			get_parent().get_parent().add_child(new_weight)
 			get_tree().root.get_child(0)._on_pickable_clicked(new_weight)
 			get_tree().root.get_child(0)._on_weight_spawned(null)
+			event.canceled = true
 
 func _on_mouse_entered():
 	hovered = true

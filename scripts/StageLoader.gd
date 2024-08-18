@@ -133,7 +133,8 @@ func _on_hammer(object):
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if held_object and !event.pressed:
+		if held_object and !event.pressed and !event.is_canceled():
+			print_debug("Unhandle event: unpressed: ", event.as_text(), event.is_canceled())
 			if held_object != null:
 				held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null

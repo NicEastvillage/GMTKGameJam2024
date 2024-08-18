@@ -12,6 +12,8 @@ var selected_sound: AudioStreamPlayer2D
 var dropped_sound: AudioStreamPlayer2D
 var pitch_variance = 0.5
 var rng = RandomNumberGenerator.new()
+var xmargin = 50
+var ymargin = 35
 
 func _ready():
 	selected_sound = get_node_or_null("SelectedSound")
@@ -38,14 +40,24 @@ func _input(event: InputEvent):
 			# Release anywhere
 			if dragging:
 				dragging = false
-				if can_be_weighed:
-					get_tree().root.get_child(0).find_child("Scale")._on_dropped(self)
+				adjust_pos()
+				#if can_be_weighed:
+				#	get_tree().root.get_child(0).find_child("Scale")._on_dropped(self)
 				play_sfx(dropped_sound)
 	elif event is InputEventMouseMotion:
 		# Mouse moved
 		if dragging:
 			global_position = event.position + mouse_offset
 
+func adjust_pos():
+	if global_position.x < xmargin:
+		global_position.x = xmargin
+	if global_position.y < ymargin:
+		global_position.y = ymargin
+	if global_position.x > 640 - xmargin:
+		global_position.x = 640 - xmargin
+	if global_position.y > 360 - ymargin:
+		global_position.y = 360 - ymargin
 func _on_mouse_entered():
 	hovered = true
 

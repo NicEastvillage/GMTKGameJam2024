@@ -10,6 +10,7 @@ var rng = RandomNumberGenerator.new()
 var pitch_variance = 0.5
 var max_bongs = 3
 var bongs = 0
+var hover = false
 
 func _ready():
 	selected_sound = get_node_or_null("SelectedSound")
@@ -21,10 +22,17 @@ func play_sfx(sound):
 		sound.pitch_scale = rng.randf_range(1 - pitch_variance, 1 + pitch_variance)
 		sound.playing = true
 
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
+func _input(event):
+	if event is InputEventMouseButton and hover:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			emit_signal("clicked", self)
+			event.canceled = true
+
+func _on_mouse_entered():
+	hover = true
+
+func _on_mouse_exited():
+	hover = false
 
 func _physics_process(delta):
 		pass
