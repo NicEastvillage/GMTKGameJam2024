@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="StageData" load_steps=10 format=3 uid="uid://dlw3atx42ecxt"]
 
-[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_5qw5g"]
 [ext_resource type="Script" path="res://scripts/StageIntroData.gd" id="1_anuqn"]
 [ext_resource type="PackedScene" uid="uid://cgivppnhhmvv8" path="res://data/S2/S2_doc_1.tscn" id="2_gcen3"]
 [ext_resource type="Resource" uid="uid://chagbty05oiqk" path="res://data/S2/S2P1_Eman/S2P1.tres" id="2_p2kqa"]
@@ -10,8 +9,17 @@
 [ext_resource type="Resource" uid="uid://dpblm70h7wjsx" path="res://data/S2/S2P3_Teti/S2P3.tres" id="4_0kaqj"]
 [ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="4_5i24x"]
 
+[sub_resource type="Resource" id="Resource_mik5l"]
+script = ExtResource("1_anuqn")
+narrator = "The gods have finished up the smart apes now. They are calling them Humans!
+
+Anyway, they got smarter, so now they are making villages and cities. Whole infestations of them. Wild.
+
+The rules are also updated to match their new lifestyle."
+reponse = "More rules?!?"
+
 [resource]
 script = ExtResource("2_rwdhk")
-people = Array[ExtResource("1_5qw5g")]([ExtResource("2_p2kqa"), ExtResource("3_j1khh"), ExtResource("4_0kaqj")])
+people = Array[Resource("res://scripts/PersonData.gd")]([ExtResource("2_p2kqa"), ExtResource("3_j1khh"), ExtResource("4_0kaqj")])
 rule_documents = Array[PackedScene]([ExtResource("2_gcen3"), ExtResource("3_qxfmv"), ExtResource("4_5i24x")])
-intro_dialog = Array[ExtResource("1_anuqn")]([])
+intro_dialog = Array[ExtResource("1_anuqn")]([SubResource("Resource_mik5l")])

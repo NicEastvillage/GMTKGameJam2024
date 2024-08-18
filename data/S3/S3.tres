@@ -1,18 +1,24 @@
 [gd_resource type="Resource" script_class="StageData" load_steps=11 format=3 uid="uid://ctx88lx8er72e"]
 
 [ext_resource type="Script" path="res://scripts/StageIntroData.gd" id="1_3l11p"]
-[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_ran7w"]
 [ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="2_1cqx6"]
 [ext_resource type="Script" path="res://scripts/StageData.gd" id="2_f34lr"]
+[ext_resource type="Resource" uid="uid://cxwxuan1xamf8" path="res://data/S3/S3P1_Charles_Darwy/S3P1.tres" id="2_gfqkl"]
 [ext_resource type="PackedScene" uid="uid://cxn5b86fiunw8" path="res://data/S2/S2_doc_mod_S1_2.tscn" id="3_1o0m7"]
-[ext_resource type="Resource" uid="uid://cxwxuan1xamf8" path="res://data/S3/S3P1_Charles_Darwy/S3P1.tres" id="3_r4ir5"]
-[ext_resource type="Resource" uid="uid://cmyo1qv3522ut" path="res://data/S3/S3P2_Kim_Christy/S3P2.tres" id="4_0aqe8"]
+[ext_resource type="Resource" uid="uid://cmyo1qv3522ut" path="res://data/S3/S3P2_Kim_Christy/S3P2.tres" id="3_mbt10"]
 [ext_resource type="PackedScene" uid="uid://cgivppnhhmvv8" path="res://data/S2/S2_doc_1.tscn" id="4_ubeu2"]
 [ext_resource type="PackedScene" uid="uid://dhgbdbaodso6l" path="res://data/S3/S3_doc_restrictalism.tscn" id="5_78wji"]
 [ext_resource type="PackedScene" uid="uid://bsoexd6xmlnte" path="res://data/S3/S3_doc_virtuology.tscn" id="6_4daji"]
 
+[sub_resource type="Resource" id="Resource_821pn"]
+script = ExtResource("1_3l11p")
+narrator = "The Humans started making up so many rules of their own. They even have so many different religions that the gods have some rules for each.
+
+Glad it's not me doing all this sorting. If you ask me, lesser gods should also get to have fun! Why don't we get to name an ant or something?"
+reponse = "Okay man"
+
 [resource]
 script = ExtResource("2_f34lr")
-people = Array[ExtResource("1_ran7w")]([ExtResource("3_r4ir5"), ExtResource("4_0aqe8")])
+people = Array[Resource("res://scripts/PersonData.gd")]([ExtResource("2_gfqkl"), ExtResource("3_mbt10")])
 rule_documents = Array[PackedScene]([ExtResource("2_1cqx6"), ExtResource("3_1o0m7"), ExtResource("4_ubeu2"), ExtResource("5_78wji"), ExtResource("6_4daji")])
-intro_dialog = Array[ExtResource("1_3l11p")]([])
+intro_dialog = Array[ExtResource("1_3l11p")]([SubResource("Resource_821pn")])
