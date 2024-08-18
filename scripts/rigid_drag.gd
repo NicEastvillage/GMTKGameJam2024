@@ -6,6 +6,7 @@ var held = false
 var selected_sound: AudioStreamPlayer2D
 var dropped_sound: AudioStreamPlayer2D
 var collision_sound: AudioStreamPlayer2D
+var pop_sound: AudioStreamPlayer2D
 var rng = RandomNumberGenerator.new()
 var pitch_variance = 0.5
 var max_bongs = 3
@@ -16,6 +17,7 @@ func _ready():
 	selected_sound = get_node_or_null("SelectedSound")
 	dropped_sound = get_node_or_null("DroppedSound")
 	collision_sound = get_node_or_null("CollisionSound")
+	pop_sound = get_node_or_null("AwayParticles/PopSound")
 
 func play_sfx(sound):
 	if sound != null:
@@ -59,6 +61,7 @@ func _on_body_entered(body: Node) -> void:
 	
 func remove():
 	var particles = find_child("AwayParticles")
+	play_sfx(pop_sound)
 	particles.reparent(get_parent())
 	particles.emitting = true
 	

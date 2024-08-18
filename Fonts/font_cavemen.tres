@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://buk3oum4ur8ys"]
+
+[ext_resource type="FontFile" uid="uid://dsxutw8wvagrh" path="res://Fonts/slkscr.ttf" id="1_w18q8"]
+
+[resource]
+line_spacing = -2.0
+font = ExtResource("1_w18q8")
+font_size = 8
+font_color = Color(0, 0, 0, 1)

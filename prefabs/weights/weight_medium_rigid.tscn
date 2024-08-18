@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://whoap6ax7f3a"]
+[gd_scene load_steps=9 format=3 uid="uid://whoap6ax7f3a"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_1yiro"]
 [ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="2_h2s7h"]
 [ext_resource type="AudioStream" uid="uid://b8c0dcgdcy2mw" path="res://sounds/weight_slide.wav" id="3_86bpc"]
 [ext_resource type="AudioStream" uid="uid://badqrtjykdx4a" path="res://sounds/weight2.wav" id="4_fmj0s"]
+[ext_resource type="AudioStream" uid="uid://ny64t70dl5p4" path="res://sounds/pop.wav" id="5_02v7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(133.333, 199.068)
@@ -61,6 +62,10 @@ gravity = Vector2(0, 0)
 scale_amount_min = 2.0
 scale_amount_max = 10.4
 scale_amount_curve = SubResource("Curve_xy05f")
+
+[node name="PopSound" type="AudioStreamPlayer2D" parent="AwayParticles"]
+position = Vector2(-2, -4)
+stream = ExtResource("5_02v7f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

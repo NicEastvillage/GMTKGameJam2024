@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm4og6vj4fttt"]
+[gd_scene load_steps=8 format=3 uid="uid://c0h654ovo1bp5"]
 
 [ext_resource type="Script" path="res://scripts/hammer_target.gd" id="1_8rp7w"]
 [ext_resource type="Texture2D" uid="uid://bo1y3y3woraei" path="res://sprites/SoundBlock.png" id="1_8ujhu"]
 [ext_resource type="AudioStream" uid="uid://botcsoq5l8gdl" path="res://sounds/hammer.wav" id="3_qaekd"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="4_h67kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swlqd"]
 size = Vector2(78, 20)
@@ -48,5 +49,15 @@ damping_min = 152.815
 damping_max = 303.22
 scale_amount_curve = SubResource("Curve_2vluq")
 color_ramp = SubResource("Gradient_kva0b")
+
+[node name="VerdictLabel" type="Label" parent="."]
+offset_left = -38.0
+offset_right = 40.0
+offset_bottom = 9.0
+theme = ExtResource("4_h67kp")
+text = "SINNER"
+horizontal_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

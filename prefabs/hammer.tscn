@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkx2s7k7in8rk"]
+[gd_scene load_steps=3 format=3 uid="uid://c01tdpda04fu6"]
 
 [ext_resource type="Script" path="res://scripts/hammer.gd" id="1_ncye0"]
 [ext_resource type="Texture2D" uid="uid://bn85g3adpyp0m" path="res://sprites/Gavel.png" id="2_5le1d"]

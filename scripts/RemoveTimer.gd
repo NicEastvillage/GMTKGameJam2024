@@ -10,4 +10,5 @@ func _process(delta):
 
 func _on_timeout():
 	var item = remove_queue.pop_front()
-	item.remove()
+	if item != null:
+		item.remove()

@@ -6,12 +6,17 @@ class_name StageLoader
 @export var current_stage_index: int = 0
 @export var current_person_index: int = 0
 @export var document_spawn_radius: float = 120
+@export var scream_pitch_variance = 0.4
 var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
 @onready var spawn_person_timer = $SpawnPersonTimer
 @onready var scale_arms = $scale/arms
+@onready var hammer_target = $HammerTarget
+@onready var hell_sound = $HellSound
+@onready var heaven_sound = $HeavenSound
+@onready var rng = RandomNumberGenerator.new()
 
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
@@ -20,6 +25,11 @@ var stagetimer : StageTimer
 
 var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
 var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
+
+func play_sfx(sound):
+	if sound != null:
+		sound.pitch_scale = rng.randf_range(1 - scream_pitch_variance, 1 + scream_pitch_variance)
+		sound.playing = true
 
 var current_stage: StageData:
 	get:
@@ -90,13 +100,16 @@ func end_game():
 func end_stage():
 	# Clean up rule documents
 	for child in documents_node.get_children():
-		child.queue_free()
+		if child != documents_personal_node:
+			child.queue_free()
 	
 	# Next?
 	current_person_index = 0
 	current_stage_index += 1
-	if current_stage == null or current_person:
+	if current_stage == null or current_person == null:
 		end_game()
+	else:
+		stagetimer.start_stage()
 
 func end_person(sinner: bool):
 	# Clean up personal documents
@@ -120,6 +133,10 @@ func end_person(sinner: bool):
 func give_verdict():
 	if abs(scale_arms.rotation_degrees) > 2.0:
 		var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
+		if sinner:
+			play_sfx(hell_sound)
+		else:
+			play_sfx(heaven_sound)
 		# TODO: Check if correct
 		if current_person.verdict_sinner == sinner:
 			print("VERDICT: sinner=", sinner, " (CORRECT)")
@@ -131,6 +148,9 @@ var held_object = null
 
 func _process(delta: float) -> void:
 	grabber_joint.global_position = get_viewport().get_mouse_position()
+	var verdict = get_verdict()
+	verdict = "" if verdict == Verdict.no_verdict else "SINNER" if verdict == Verdict.sinner else "SAINT"
+	hammer_target.set_text(verdict)
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -160,3 +180,14 @@ func _unhandled_input(event):
 func _on_weight_spawned(event):
 	for node in get_tree().get_nodes_in_group("rigid_dragable"):
 		node.connect("clicked", _on_pickable_clicked)
+
+enum Verdict { sinner, do_gooder, no_verdict }
+
+func get_verdict() ->  Verdict:
+	if abs(scale_arms.rotation_degrees) > 2.0: 
+		if scale_arms.rotation_degrees < 0:
+			return Verdict.sinner
+		else:
+			return Verdict.do_gooder
+	else:
+		return Verdict.no_verdict

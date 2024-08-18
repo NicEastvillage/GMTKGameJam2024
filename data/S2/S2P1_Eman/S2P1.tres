@@ -9,5 +9,5 @@
 script = ExtResource("1_cb5gh")
 name = "Eman"
 portrait = ExtResource("3_7j8gy")
-verdict_sinner = false
+verdict_sinner = true
 person_documents = Array[PackedScene]([ExtResource("1_sh7ss"), ExtResource("2_304n8")])
