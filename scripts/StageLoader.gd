@@ -82,7 +82,7 @@ func end_stage():
 	if current_stage == null or current_person:
 		end_game()
 
-func end_person(sinner):
+func end_person(sinner: bool):
 	# Clean up personal documents
 	for child in documents_personal_node.get_children():
 		var effect = despawn_effect.instantiate()
@@ -99,9 +99,10 @@ func end_person(sinner):
 		load_person()
 
 func give_verdict():
+	var sinner = randi() % 2 == 0  # TODO: Read scale
 	# TODO: Check if correct
 	
-	end_person(true)
+	end_person(sinner)
 
 var held_object = null
 
