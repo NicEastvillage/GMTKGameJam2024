@@ -24,7 +24,7 @@ func play_sfx(sound):
 		sound.pitch_scale = rng.randf_range(1 - pitch_variance, 1 + pitch_variance)
 		sound.playing = true
 	
-var timestamp
+var timestamp = 0
 var click_limit = 200
 var waiting_unpress = false
 
