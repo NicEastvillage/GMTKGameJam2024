@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8jkuwbeqr6so"]
+[gd_scene load_steps=13 format=3 uid="uid://c8jkuwbeqr6so"]
 
 [ext_resource type="Texture2D" uid="uid://doiqwjs2kvy6x" path="res://sprites/ScaleFoot.png" id="1_65p5n"]
 [ext_resource type="Script" path="res://scripts/cup.gd" id="3_e4oe1"]
@@ -17,8 +17,20 @@ size = Vector2(110, 7)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aplju"]
 polygon = PackedVector2Array(-53, 80, 53, 80, 54, 83, 49, 86, 27, 89, -35, 89, -52, 86)
 
+[sub_resource type="Gradient" id="Gradient_30q8x"]
+offsets = PackedFloat32Array(0, 0.246667, 0.766667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1, 1, 0)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u5o6j"]
 polygon = PackedVector2Array(-54, 81, 51, 81, 55, 84, 50, 87, 26, 90, -29, 90, -50, 87)
+
+[sub_resource type="Curve" id="Curve_sae25"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.662921, 0.483516), 0.0, 0.0, 0, 0, Vector2(0.994382, 0.791209), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_3l71n"]
+offsets = PackedFloat32Array(0, 0.24, 1)
+colors = PackedColorArray(0.86, 0.530333, 0, 0.701961, 0.717647, 0.368627, 0, 0.709804, 0, 0, 0, 0.341176)
 
 [node name="scale" type="Node2D"]
 
@@ -40,8 +52,8 @@ texture = ExtResource("1_65p5n")
 position = Vector2(0, -270)
 collision_layer = 0
 collision_mask = 0
-contact_monitor = true
 max_contacts_reported = 10
+contact_monitor = true
 linear_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
@@ -63,8 +75,8 @@ softness = 1.0
 [node name="cup_right" type="RigidBody2D" parent="."]
 position = Vector2(232, -165)
 collision_mask = 3
-contact_monitor = true
 max_contacts_reported = 10
+contact_monitor = true
 linear_damp = 10.0
 script = ExtResource("3_e4oe1")
 
@@ -78,11 +90,26 @@ shape = SubResource("RectangleShape2D_vje0r")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="cup_right"]
 occluder = SubResource("OccluderPolygon2D_aplju")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="cup_right"]
+position = Vector2(0, 84)
+amount = 40
+lifetime = 2.0
+lifetime_randomness = 0.3
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(60, 5)
+gravity = Vector2(0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 5.0
+scale_amount_max = 15.0
+color_ramp = SubResource("Gradient_30q8x")
+
 [node name="cup_left" type="RigidBody2D" parent="."]
 position = Vector2(-233, -165)
 collision_mask = 3
-contact_monitor = true
 max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("3_e4oe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_left"]
@@ -94,6 +121,21 @@ shape = SubResource("RectangleShape2D_vje0r")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="cup_left"]
 occluder = SubResource("OccluderPolygon2D_u5o6j")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="cup_left"]
+position = Vector2(0, 84)
+amount = 60
+emission_shape = 3
+emission_rect_extents = Vector2(55, 5)
+gravity = Vector2(0, -20)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.9
+scale_amount_max = 12.42
+scale_amount_curve = SubResource("Curve_sae25")
+color_ramp = SubResource("Gradient_3l71n")
+hue_variation_min = -0.34
+hue_variation_max = 0.32
 
 [node name="right_joint" type="PinJoint2D" parent="."]
 position = Vector2(232, -255)
