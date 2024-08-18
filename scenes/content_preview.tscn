@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://eg7fjbpaityr"]
+[gd_scene load_steps=13 format=3 uid="uid://eg7fjbpaityr"]
 
 [ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://data/S1/S1_doc_2.tscn" id="1_juxc3"]
 [ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="2_g1r0t"]
@@ -9,34 +9,51 @@
 [ext_resource type="PackedScene" uid="uid://dqema0uu6t4bq" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag3.tscn" id="7_6qjck"]
 [ext_resource type="PackedScene" uid="uid://chai53wwo7lb3" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag4.tscn" id="8_i2j1j"]
 [ext_resource type="PackedScene" uid="uid://cgivppnhhmvv8" path="res://data/S2/S2_doc_1.tscn" id="9_u3c8l"]
+[ext_resource type="PackedScene" uid="uid://cxn5b86fiunw8" path="res://data/S2/S2_doc_mod_S1_2.tscn" id="10_ap2pa"]
+[ext_resource type="PackedScene" uid="uid://deli4xte8d53o" path="res://data/S2/S2P1_Eman/S2P1_cert.tscn" id="11_1swsh"]
+[ext_resource type="PackedScene" uid="uid://nhh0dl7w5jiu" path="res://data/S2/S2P1_Eman/S2P1_life.tscn" id="12_pxbqb"]
 
 [node name="ContentPreview" type="Node2D"]
 
-[node name="Stage_Cavemen" type="Node2D" parent="."]
+[node name="Stage1_Cavemen" type="Node2D" parent="."]
 
-[node name="S1_doc_1" parent="Stage_Cavemen" instance=ExtResource("2_g1r0t")]
+[node name="S1_doc_1" parent="Stage1_Cavemen" instance=ExtResource("2_g1r0t")]
 position = Vector2(82, 45)
 
-[node name="S1_doc_2" parent="Stage_Cavemen" instance=ExtResource("1_juxc3")]
+[node name="S1_doc_2" parent="Stage1_Cavemen" instance=ExtResource("1_juxc3")]
 position = Vector2(82, 128)
 
-[node name="S1P1_desc" parent="Stage_Cavemen" instance=ExtResource("3_qhrgx")]
-position = Vector2(79, 296)
+[node name="S1P1_desc" parent="Stage1_Cavemen" instance=ExtResource("3_qhrgx")]
+position = Vector2(79, 369)
 
-[node name="S1P2_desc" parent="Stage_Cavemen" instance=ExtResource("4_yael0")]
-position = Vector2(78, 453)
+[node name="S1P2_desc" parent="Stage1_Cavemen" instance=ExtResource("4_yael0")]
+position = Vector2(78, 526)
 
-[node name="S1P3_desc_frag1" parent="Stage_Cavemen" instance=ExtResource("5_nhkd1")]
-position = Vector2(39, 590)
+[node name="S1P3_desc_frag1" parent="Stage1_Cavemen" instance=ExtResource("5_nhkd1")]
+position = Vector2(39, 663)
 
-[node name="S1P3_desc_frag2" parent="Stage_Cavemen" instance=ExtResource("6_ktd1j")]
-position = Vector2(108, 586)
+[node name="S1P3_desc_frag2" parent="Stage1_Cavemen" instance=ExtResource("6_ktd1j")]
+position = Vector2(108, 659)
 
-[node name="S1P3_desc_frag3" parent="Stage_Cavemen" instance=ExtResource("7_6qjck")]
-position = Vector2(40, 655)
+[node name="S1P3_desc_frag3" parent="Stage1_Cavemen" instance=ExtResource("7_6qjck")]
+position = Vector2(40, 728)
 
-[node name="S1P3_desc_frag4" parent="Stage_Cavemen" instance=ExtResource("8_i2j1j")]
-position = Vector2(107, 655)
+[node name="S1P3_desc_frag4" parent="Stage1_Cavemen" instance=ExtResource("8_i2j1j")]
+position = Vector2(107, 728)
 
-[node name="S2_doc_1" parent="." instance=ExtResource("9_u3c8l")]
-position = Vector2(314, 86)
+[node name="Stage2_Egyptian" type="Node2D" parent="."]
+
+[node name="S2_doc_1" parent="Stage2_Egyptian" instance=ExtResource("9_u3c8l")]
+position = Vector2(352, 273)
+
+[node name="S1_doc_1" parent="Stage2_Egyptian" instance=ExtResource("2_g1r0t")]
+position = Vector2(346, 46)
+
+[node name="S2_doc_mod_S1_2" parent="Stage2_Egyptian" instance=ExtResource("10_ap2pa")]
+position = Vector2(347, 131)
+
+[node name="S2P1_life" parent="Stage2_Egyptian" instance=ExtResource("12_pxbqb")]
+position = Vector2(429, 479)
+
+[node name="S2P1_cert" parent="Stage2_Egyptian" instance=ExtResource("11_1swsh")]
+position = Vector2(282, 478)

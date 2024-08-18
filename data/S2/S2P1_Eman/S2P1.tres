@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=5 format=3 uid="uid://chagbty05oiqk"]
+
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_cb5gh"]
+[ext_resource type="PackedScene" uid="uid://deli4xte8d53o" path="res://data/S2/S2P1_Eman/S2P1_cert.tscn" id="1_sh7ss"]
+[ext_resource type="PackedScene" uid="uid://nhh0dl7w5jiu" path="res://data/S2/S2P1_Eman/S2P1_life.tscn" id="2_304n8"]
+[ext_resource type="Texture2D" uid="uid://523kvi2qo7n0" path="res://sprites/Portraits/PortraitCurie2.png" id="3_7j8gy"]
+
+[resource]
+script = ExtResource("1_cb5gh")
+name = "Eman"
+portrait = ExtResource("3_7j8gy")
+verdict_sinner = false
+person_documents = Array[PackedScene]([ExtResource("1_sh7ss"), ExtResource("2_304n8")])
