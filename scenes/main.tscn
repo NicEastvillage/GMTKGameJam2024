@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=17 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
