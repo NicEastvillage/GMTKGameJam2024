@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Draggable
+
 
 @export var can_be_weighed: bool = false
 @export var weight: int = 1
@@ -33,7 +33,7 @@ func _input(event: InputEvent):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			timestamp = Time.get_ticks_msec();
 			waiting_unpress = true
-			dragging = true
+			dragging = true	
 			# Clicked
 			mouse_offset = global_position - get_viewport().get_mouse_position()
 			event.canceled = true
