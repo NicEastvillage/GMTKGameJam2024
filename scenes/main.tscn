@@ -31,7 +31,7 @@ colors = PackedColorArray(0.86, 0.530333, 0, 0.701961, 0.717647, 0.368627, 0, 0.
 offsets = PackedFloat32Array(0, 0.246667, 0.766667, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1, 1, 0)
 
-[node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
 stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a")])
 grabber = NodePath("Grabber")

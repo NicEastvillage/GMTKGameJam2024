@@ -20,8 +20,8 @@ func _input(event: InputEvent):
 			new_weight.global_position.y = global_position.y + 11
 			new_weight.held = true
 			get_parent().get_parent().add_child(new_weight)
-			get_tree().root.get_child(0)._on_pickable_clicked(new_weight)
-			get_tree().root.get_child(0)._on_weight_spawned(null)
+			get_parent()._on_pickable_clicked(new_weight)
+			get_parent()._on_weight_spawned(null)
 			event.canceled = true
 
 func _on_mouse_entered():

@@ -11,7 +11,6 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
-@onready var spawn_person_timer = $SpawnPersonTimer
 @onready var scale_arms = $scale/arms
 @onready var hammer_target = $HammerTarget
 @onready var hell_sound = $HellSound

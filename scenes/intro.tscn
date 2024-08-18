@@ -19,10 +19,12 @@ z_index = 101
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("1_lbqq4")
+volume_db = -8.0
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iagib")
+volume_db = -8.0
 autoplay = true
 
 [connection signal="loaded" from="." to="Fader" method="_on_fade_start"]

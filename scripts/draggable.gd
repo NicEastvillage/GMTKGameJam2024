@@ -32,17 +32,12 @@ func _input(event: InputEvent):
 			dragging = true
 			mouse_offset = global_position - get_viewport().get_mouse_position()
 			event.canceled = true
-			if being_weighed:
-				being_weighed = false
-				get_tree().root.get_child(0).find_child("Scale")._on_pickup(self)
 			play_sfx(selected_sound)
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			# Release anywhere
 			if dragging:
 				dragging = false
 				adjust_pos()
-				#if can_be_weighed:
-				#	get_tree().root.get_child(0).find_child("Scale")._on_dropped(self)
 				play_sfx(dropped_sound)
 	elif event is InputEventMouseMotion:
 		# Mouse moved
