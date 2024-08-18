@@ -33,8 +33,9 @@ func _input(event: InputEvent):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			timestamp = Time.get_ticks_msec();
 			waiting_unpress = true
-			dragging = true	
+			dragging = true
 			# Clicked
+			get_parent().move_child(self, len(get_parent().get_children()) - 1)
 			mouse_offset = global_position - get_viewport().get_mouse_position()
 			event.canceled = true
 			play_sfx(selected_sound)
