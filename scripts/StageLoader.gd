@@ -8,11 +8,13 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
+@onready var spawn_person_timer = $SpawnPersonTimer
 
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
 
 var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
+var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
 
 var current_stage: StageData:
 	get:
@@ -53,6 +55,9 @@ func load_stage():
 	
 func load_person():
 	print("LOADING PERSON ", current_stage_index, ".", current_person_index, " ", current_person.name)
+	spawn_person_timer.start()  # Calls _spawn_person() after some time
+
+func _spawn_person():
 	# Create personal documents
 	for doc in current_person.person_documents:
 		var inst = spawn_doc(doc)
@@ -77,10 +82,14 @@ func end_stage():
 	if current_stage == null or current_person:
 		end_game()
 
-func end_person():
+func end_person(sinner):
 	# Clean up personal documents
 	for child in documents_personal_node.get_children():
-		child.queue_free()
+		var effect = despawn_effect.instantiate()
+		child.add_child(effect)
+		effect.direction = 1
+		if sinner:
+			effect.direction = -1
 	
 	# Next?
 	current_person_index += 1
@@ -92,7 +101,7 @@ func end_person():
 func give_verdict():
 	# TODO: Check if correct
 	
-	end_person()
+	end_person(true)
 
 var held_object = null
 
@@ -113,6 +122,8 @@ func _on_hammer(object):
 		held_object.drop(Input.get_last_mouse_velocity())
 	held_object = null
 	grabber_joint.node_a = NodePath()
+	if spawn_person_timer.is_stopped():
+		give_verdict()
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
