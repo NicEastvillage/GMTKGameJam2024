@@ -4,18 +4,27 @@ extends Node2D
 @export var current_stage_index: int = 0
 @export var current_person_index: int = 0
 @export var document_spawn_radius: float = 120
+@export var scream_pitch_variance = 0.4
 var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
 @onready var spawn_person_timer = $SpawnPersonTimer
 @onready var scale_arms = $scale/arms
+@onready var hell_sound = $HellSound
+@onready var heaven_sound = $HeavenSound
+@onready var rng = RandomNumberGenerator.new()
 
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
 
 var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
 var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
+
+func play_sfx(sound):
+	if sound != null:
+		sound.pitch_scale = rng.randf_range(1 - scream_pitch_variance, 1 + scream_pitch_variance)
+		sound.playing = true
 
 var current_stage: StageData:
 	get:
@@ -108,6 +117,10 @@ func end_person(sinner: bool):
 func give_verdict():
 	if abs(scale_arms.rotation_degrees) > 2.0:
 		var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
+		if sinner:
+			play_sfx(hell_sound)
+		else:
+			play_sfx(heaven_sound)
 		# TODO: Check if correct
 		if current_person.verdict_sinner == sinner:
 			print("VERDICT: sinner=", sinner, " (CORRECT)")

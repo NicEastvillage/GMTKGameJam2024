@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm4og6vj4fttt"]
+[gd_scene load_steps=7 format=3 uid="uid://c0h654ovo1bp5"]
 
 [ext_resource type="Script" path="res://scripts/hammer_target.gd" id="1_8rp7w"]
 [ext_resource type="Texture2D" uid="uid://bo1y3y3woraei" path="res://sprites/SoundBlock.png" id="1_8ujhu"]
