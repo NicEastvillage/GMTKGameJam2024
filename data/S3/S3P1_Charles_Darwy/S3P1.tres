@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("4_xwgy7")
-name = "Charles Darwy"
+name = "Kim Christy"
 correct_verdict = "Correct! Followers of restrictalism are not allowed to grow beards."
 wrong_verdict = "Alas no. Mr. Darwy gave gifts to his family, but as a follower of restrictalism it was a sin for Mr. Darwy to grow a beard and be a man."
 portrait = ExtResource("3_p18s6")

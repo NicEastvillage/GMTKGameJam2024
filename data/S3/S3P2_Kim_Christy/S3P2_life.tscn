@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://cilw8utg3lnqs"]
+
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_fs1n1"]
+[ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="2_plupt"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="3_6hnxf"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="4_8rd4g"]
+[ext_resource type="Texture2D" uid="uid://blbdgyvj8ix44" path="res://sprites/ScrollOpen.png" id="5_2owc1"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="6_21jv7"]
+[ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="7_16pjw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
+size = Vector2(140, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj6eq"]
+size = Vector2(140, 160)
+
+[node name="Draggable" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_fs1n1")
+
+[node name="sprite_closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_plupt")
+
+[node name="shape_closed" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_2jh7o")
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_6hnxf")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("4_8rd4g")
+
+[node name="shape_open" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_yj6eq")
+disabled = true
+
+[node name="sprite_open" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_2owc1")
+
+[node name="Label2" type="Label" parent="sprite_open"]
+offset_left = -52.0
+offset_top = -59.0
+offset_right = 56.0
+offset_bottom = 64.0
+theme = ExtResource("6_21jv7")
+text = "         Memoir
+
+Became a single mom after an emotional breakup that ended in a lot of crying
+
+Ate bacon and drank wine every friday
+
+Always snuck in good words about virtuology when doing stales pitches
+
+Always chose dare in Truth or Dare"
+label_settings = ExtResource("7_16pjw")
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
