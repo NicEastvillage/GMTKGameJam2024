@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgivppnhhmvv8"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_rkhfu"]
+[ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_nnrgs"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_k55i8"]
+[ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="4_j1lbm"]
+[ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="5_4vkfg"]
+[ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="6_7mlkf"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="6_ev75u"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="6_jqpqg"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-84, -72, -85, -27, -81, 1, -83, 26, -35, 30, 29, 30, 30, -30, 28, -77, 32, -134, 8, -135, -35, -135, -63, -132, -84, -135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(131.467, 178.533)
+
+[node name="S2_doc_1" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_rkhfu")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(25, 53)
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.266304, -0.266304)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-1.2663, 0.733696)
+rotation = 3.14159
+texture = ExtResource("2_nnrgs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -81.0
+offset_right = 55.0
+offset_bottom = 82.0
+theme = ExtResource("3_k55i8")
+text = "Treat others kindly
+
+Offer gifts to your God, Pharao, and your family
+
+Do not disobey your pharao's order
+
+Pharaos cannot make    sins
+
+Do not kill your equals or LEADERS
+
+Do not lie
+
+Murder to protect family is not a sin"
+autowrap_mode = 3
+
+[node name="Diamond" type="Sprite2D" parent="."]
+position = Vector2(-60, 13)
+texture = ExtResource("4_j1lbm")
+
+[node name="Diamond2" type="Sprite2D" parent="."]
+position = Vector2(-59, -76)
+texture = ExtResource("4_j1lbm")
+
+[node name="Diamond3" type="Sprite2D" parent="."]
+position = Vector2(-59, -62)
+texture = ExtResource("4_j1lbm")
+
+[node name="Circle4" type="Sprite2D" parent="."]
+position = Vector2(-59, -40)
+texture = ExtResource("5_4vkfg")
+
+[node name="Shield" type="Sprite2D" parent="."]
+position = Vector2(-60, -2)
+texture = ExtResource("6_7mlkf")
+
+[node name="Shield" type="Sprite2D" parent="Shield"]
+position = Vector2(37, -14)
+texture = ExtResource("6_7mlkf")
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("6_ev75u")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("6_jqpqg")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
