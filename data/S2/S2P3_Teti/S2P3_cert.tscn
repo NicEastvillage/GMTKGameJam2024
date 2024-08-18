@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://l3epybon0i5w"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_mrgyd"]
+[ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_wj5mk"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_hjmxv"]
+[ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="4_efcfn"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="5_a11b3"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="6_hy2xs"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-84, -72, -85, -27, -81, 1, -83, 26, -35, 30, 29, 30, 30, -30, 28, -77, 32, -134, 8, -135, -35, -135, -63, -132, -84, -135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(131.467, 178.533)
+
+[node name="S2P3_cert" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_mrgyd")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(25, 53)
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.266304, -0.266304)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-1.2663, 0.733696)
+rotation = 3.14159
+texture = ExtResource("2_wj5mk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -80.0
+offset_right = 53.0
+offset_bottom = 83.0
+theme = ExtResource("3_hjmxv")
+text = "    Death CERTIFICATE
+
+NAME: Pharao Teti of the 6th dynasty
+
+GENDER: Male
+
+PARENTS: Unas & Jamila
+
+PROFESSION: Pharao
+
+AGE AT DEATH: 34
+
+CAUSE OF DEATH:
+Murdered by his advisor"
+label_settings = ExtResource("4_efcfn")
+autowrap_mode = 3
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("5_a11b3")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("6_hy2xs")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

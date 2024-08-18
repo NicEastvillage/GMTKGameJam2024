@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://eg7fjbpaityr"]
+[gd_scene load_steps=17 format=3 uid="uid://eg7fjbpaityr"]
 
 [ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://data/S1/S1_doc_2.tscn" id="1_juxc3"]
 [ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="2_g1r0t"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cxn5b86fiunw8" path="res://data/S2/S2_doc_mod_S1_2.tscn" id="10_ap2pa"]
 [ext_resource type="PackedScene" uid="uid://deli4xte8d53o" path="res://data/S2/S2P1_Eman/S2P1_cert.tscn" id="11_1swsh"]
 [ext_resource type="PackedScene" uid="uid://nhh0dl7w5jiu" path="res://data/S2/S2P1_Eman/S2P1_life.tscn" id="12_pxbqb"]
+[ext_resource type="PackedScene" uid="uid://chbd8tybprtst" path="res://data/S2/S2P2_Imhotep/S2P2_cert.tscn" id="13_pwt3u"]
+[ext_resource type="PackedScene" uid="uid://cylw25p6vqxvt" path="res://data/S2/S2P2_Imhotep/S2P2_life.tscn" id="14_pdd7n"]
+[ext_resource type="PackedScene" uid="uid://l3epybon0i5w" path="res://data/S2/S2P3_Teti/S2P3_cert.tscn" id="15_kd0eg"]
+[ext_resource type="PackedScene" uid="uid://c2j821jx4effq" path="res://data/S2/S2P3_Teti/S2P3_life.tscn" id="16_0uu3j"]
 
 [node name="ContentPreview" type="Node2D"]
 
@@ -57,3 +61,15 @@ position = Vector2(429, 479)
 
 [node name="S2P1_cert" parent="Stage2_Egyptian" instance=ExtResource("11_1swsh")]
 position = Vector2(282, 478)
+
+[node name="S2P2_cert" parent="Stage2_Egyptian" instance=ExtResource("13_pwt3u")]
+position = Vector2(281, 683)
+
+[node name="S2P2_life" parent="Stage2_Egyptian" instance=ExtResource("14_pdd7n")]
+position = Vector2(427, 684)
+
+[node name="S2P3_cert" parent="Stage2_Egyptian" instance=ExtResource("15_kd0eg")]
+position = Vector2(280, 892)
+
+[node name="S2P3_life" parent="Stage2_Egyptian" instance=ExtResource("16_0uu3j")]
+position = Vector2(426, 893)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=5 format=3 uid="uid://dpblm70h7wjsx"]
+
+[ext_resource type="PackedScene" uid="uid://l3epybon0i5w" path="res://data/S2/S2P3_Teti/S2P3_cert.tscn" id="1_6exvf"]
+[ext_resource type="PackedScene" uid="uid://c2j821jx4effq" path="res://data/S2/S2P3_Teti/S2P3_life.tscn" id="2_i6m4v"]
+[ext_resource type="Texture2D" uid="uid://rfyxpkbqj10a" path="res://sprites/Portraits/PortraitSesostris.png" id="3_sdq2f"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="4_33ug8"]
+
+[resource]
+script = ExtResource("4_33ug8")
+name = "Pharao Teti"
+portrait = ExtResource("3_sdq2f")
+verdict_sinner = false
+person_documents = Array[PackedScene]([ExtResource("1_6exvf"), ExtResource("2_i6m4v")])

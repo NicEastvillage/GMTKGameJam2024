@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=5 format=3 uid="uid://bchwse443aql5"]
+
+[ext_resource type="PackedScene" uid="uid://chbd8tybprtst" path="res://data/S2/S2P2_Imhotep/S2P2_cert.tscn" id="1_eceo7"]
+[ext_resource type="PackedScene" uid="uid://cylw25p6vqxvt" path="res://data/S2/S2P2_Imhotep/S2P2_life.tscn" id="2_xi4m7"]
+[ext_resource type="Texture2D" uid="uid://bp2vl1hvogh0g" path="res://sprites/Portraits/PortraitSomeOtherBigShotEgyptian.png" id="3_nfcc2"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="4_uoxko"]
+
+[resource]
+script = ExtResource("4_uoxko")
+name = "Imhotep"
+portrait = ExtResource("3_nfcc2")
+verdict_sinner = true
+person_documents = Array[PackedScene]([ExtResource("1_eceo7"), ExtResource("2_xi4m7")])

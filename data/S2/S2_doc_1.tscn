@@ -60,7 +60,7 @@ label_settings = ExtResource("4_ntkv8")
 autowrap_mode = 3
 
 [node name="Diamond" type="Sprite2D" parent="."]
-position = Vector2(-60, 13)
+position = Vector2(-60, 14)
 texture = ExtResource("4_j1lbm")
 
 [node name="Diamond2" type="Sprite2D" parent="."]
@@ -72,7 +72,7 @@ position = Vector2(-59, -62)
 texture = ExtResource("4_j1lbm")
 
 [node name="Circle4" type="Sprite2D" parent="."]
-position = Vector2(-59, -40)
+position = Vector2(-59, -39)
 texture = ExtResource("5_4vkfg")
 
 [node name="Shield" type="Sprite2D" parent="."]
@@ -84,7 +84,7 @@ position = Vector2(-23, -16)
 texture = ExtResource("6_7mlkf")
 
 [node name="Shield3" type="Sprite2D" parent="."]
-position = Vector2(-59, 44)
+position = Vector2(-59, 46)
 texture = ExtResource("6_7mlkf")
 
 [node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
