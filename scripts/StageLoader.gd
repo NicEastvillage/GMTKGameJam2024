@@ -75,13 +75,16 @@ func end_game():
 func end_stage():
 	# Clean up rule documents
 	for child in documents_node.get_children():
-		child.queue_free()
+		if child != documents_personal_node:
+			child.queue_free()
 	
 	# Next?
 	current_person_index = 0
 	current_stage_index += 1
-	if current_stage == null or current_person:
+	if current_stage == null or current_person == null:
 		end_game()
+	else:
+		load_stage()
 
 func end_person(sinner: bool):
 	# Clean up personal documents
