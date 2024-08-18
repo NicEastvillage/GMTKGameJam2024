@@ -104,7 +104,7 @@ func end_stage():
 	# Clean up rule documents
 	for child in documents_node.get_children():
 		if child != documents_personal_node:
-			child.queue_free()
+			child.queue_free()  # TODO Timer
 	
 	# Next?
 	current_person_index = 0
@@ -163,7 +163,7 @@ func _on_pickable_clicked(object):
 		held_object.pickup()
 		grabber_joint.node_a = held_object.get_path()
 		grabber_joint.node_b = grabber.get_path()
-		
+			
 func _on_hammer(object):
 	print("Hammer recorded")
 	if held_object != null:
