@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqema0uu6t4bq"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_efgpw"]
+[ext_resource type="Texture2D" uid="uid://d14ewt7kd2cj8" path="res://sprites/Tablet2_Fragment3.png" id="2_ekt0v"]
+[ext_resource type="PackedScene" uid="uid://dcoooornaymev" path="res://data/S1/S1P3_Ulla/S1P3_desc_visual.tscn" id="3_f0fmw"]
+[ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="4_j4aqt"]
+[ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="5_7bpnh"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-49, -46, -49, -37, -50, -30, -46, -28, -30, -28, -24, -23, -14, -23, -8, -29, 1, -60, 2, -69, 4, -77, 3, -80, 0, -82, -18, -77, -24, -75, -54, -70, -50, -56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(57, 55)
+
+[node name="S1P3_desc_frag3" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_efgpw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(25, 53)
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(36, -32)
+texture = ExtResource("2_ekt0v")
+
+[node name="S1P3_desc_visual" parent="Mask" instance=ExtResource("3_f0fmw")]
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("4_j4aqt")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("5_7bpnh")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

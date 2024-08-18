@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://l6hbyoxgjpr1"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_ukvhr"]
+[ext_resource type="Texture2D" uid="uid://dss5dqnybiyan" path="res://sprites/Tablet2_Fragment1.png" id="2_jiowb"]
+[ext_resource type="PackedScene" uid="uid://dcoooornaymev" path="res://data/S1/S1P3_Ulla/S1P3_desc_visual.tscn" id="2_mh6e5"]
+[ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="4_b7hwf"]
+[ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="5_73q75"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
+polygon = PackedVector2Array(-57, -64, -53, -46, -54, -31, -53, -18, -45, -18, -26, -22, -12, -24, 6, -29, 6, -41, 5, -48, 6, -55, 6, -79, 2, -83, -21, -88, -31, -85, -45, -85, -52, -83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(64.5326, 68.5326)
+
+[node name="S1P3_desc_frag1" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_ukvhr")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(25, 53)
+occluder = SubResource("OccluderPolygon2D_n02qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.266304, -0.266304)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(36, 30)
+texture = ExtResource("2_jiowb")
+
+[node name="S1P3_desc_visual" parent="Mask" instance=ExtResource("2_mh6e5")]
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("4_b7hwf")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("5_73q75")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

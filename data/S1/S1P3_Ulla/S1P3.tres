@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=7 format=3 uid="uid://kgc64i5pctwl"]
+
+[ext_resource type="PackedScene" uid="uid://l6hbyoxgjpr1" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag1.tscn" id="1_k2fjx"]
+[ext_resource type="PackedScene" uid="uid://c6ngl7f4a4kye" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag2.tscn" id="2_ikht0"]
+[ext_resource type="Texture2D" uid="uid://ccmj4vvplg5w" path="res://sprites/Portraits/PortraitAdaLovelace2.png" id="2_s24e6"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="3_rovbv"]
+[ext_resource type="PackedScene" uid="uid://dqema0uu6t4bq" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag3.tscn" id="3_xwu6j"]
+[ext_resource type="PackedScene" uid="uid://chai53wwo7lb3" path="res://data/S1/S1P3_Ulla/S1P3_desc_frag4.tscn" id="4_rarey"]
+
+[resource]
+script = ExtResource("3_rovbv")
+name = "Ulla"
+portrait = ExtResource("2_s24e6")
+verdict_sinner = true
+person_documents = Array[PackedScene]([ExtResource("1_k2fjx"), ExtResource("2_ikht0"), ExtResource("3_xwu6j"), ExtResource("4_rarey")])

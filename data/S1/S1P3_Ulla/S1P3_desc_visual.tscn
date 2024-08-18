@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcoooornaymev"]
+
+[ext_resource type="Texture2D" uid="uid://co8qbvw18sq2" path="res://sprites/Tablet2.png" id="2_26k62"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_rwwl8"]
+
+[node name="S1P3_desc_visual" type="Node2D"]
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-1.2663, 0.733696)
+texture = ExtResource("2_26k62")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -59.0
+offset_top = -53.0
+offset_right = 54.0
+offset_bottom = 50.0
+theme = ExtResource("3_rwwl8")
+text = "BORN DURING THUNDERSTORM UNLUCKY
+
+BEAUTIFUL VOICE LIKE BIRD
+
+SAVE SISTER FROM GORILLA
+
+NO LISTEN TO LEADER
+
+DROWN IN RIVER VERY YOUNG"
+autowrap_mode = 3
