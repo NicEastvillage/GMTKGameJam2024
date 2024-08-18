@@ -8,6 +8,10 @@
 [resource]
 script = ExtResource("4_uoxko")
 name = "Imhotep"
+correct_verdict = "Correct! Another Sinner. A lot of sinners now.
+He did eat vegetables and gave gifts to the pharaoh, which is good. But he also mocked the gods by trying to surpass their splendor. Shoudn't do that."
+wrong_verdict = "So close! Actually a sinner. A lot of sinners now.
+He did eat vegetables and gave gifts to the pharaoh, which is good. But he also mocked the gods by trying to surpass their splendor. Shoudn't do that."
 portrait = ExtResource("3_nfcc2")
 verdict_sinner = true
 person_documents = Array[PackedScene]([ExtResource("1_eceo7"), ExtResource("2_xi4m7")])
