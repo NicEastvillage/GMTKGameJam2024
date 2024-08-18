@@ -1,41 +1,53 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsoexd6xmlnte"]
+[gd_scene load_steps=13 format=3 uid="uid://d4c0gduv2xwc2"]
 
-[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_5vbxh"]
-[ext_resource type="Texture2D" uid="uid://blbdgyvj8ix44" path="res://sprites/ScrollOpen.png" id="2_y2vr4"]
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_3w2qw"]
+[ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="2_id8r2"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="3_dxpaq"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_hrinj"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="4_82t6w"]
 [ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="4_n30if"]
+[ext_resource type="Texture2D" uid="uid://blbdgyvj8ix44" path="res://sprites/ScrollOpen.png" id="5_6cwbb"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_uv4f1"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="6_pjwxo"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="7_e53oy"]
-[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="8_h5cj5"]
-[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="9_pfen8"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
-polygon = PackedVector2Array(-81, -65, -86, -57, -87, -15, -83, -5, -88, 14, -100, 14, -100, 26, 52, 26, 52, 14, 36, 14, 33, -22, 29, -31, 32, -39, 30, -57, 23, -61, 30, -71, 32, -119, 50, -119, 50, -129, -102, -129, -102, -119, -86, -119, -84, -105, -87, -100, -86, -75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
+size = Vector2(140, 35)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
-size = Vector2(129.733, 162)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj6eq"]
+size = Vector2(140, 160)
 
-[node name="S3_doc_virtuology" type="CharacterBody2D"]
+[node name="Draggable" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 0
 input_pickable = true
-script = ExtResource("1_5vbxh")
+script = ExtResource("1_3w2qw")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="sprite_closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_id8r2")
+
+[node name="shape_closed" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_2jh7o")
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_dxpaq")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("4_82t6w")
+
+[node name="shape_open" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_yj6eq")
+disabled = true
+
+[node name="sprite_open" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(25, 53)
-occluder = SubResource("OccluderPolygon2D_n02qm")
+texture = ExtResource("5_6cwbb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.866749, 1)
-shape = SubResource("RectangleShape2D_fy7mq")
-
-[node name="Tablet" type="Sprite2D" parent="."]
-rotation = 3.14159
-texture = ExtResource("2_y2vr4")
-
-[node name="Label" type="Label" parent="."]
+[node name="Label2" type="Label" parent="sprite_open"]
 offset_left = -52.0
 offset_top = -59.0
 offset_right = 56.0
@@ -56,29 +68,21 @@ Every day is holy"
 label_settings = ExtResource("4_n30if")
 autowrap_mode = 3
 
-[node name="Diamond" type="Sprite2D" parent="."]
+[node name="Diamond" type="Sprite2D" parent="sprite_open"]
 position = Vector2(-57, -35.5)
 texture = ExtResource("5_uv4f1")
 
-[node name="Diamond3" type="Sprite2D" parent="."]
+[node name="Diamond3" type="Sprite2D" parent="sprite_open"]
 position = Vector2(-57, 13.5)
 texture = ExtResource("5_uv4f1")
 
-[node name="Circle7" type="Sprite2D" parent="."]
+[node name="Circle7" type="Sprite2D" parent="sprite_open"]
 position = Vector2(-57, -18)
 texture = ExtResource("6_pjwxo")
 
-[node name="Shield" type="Sprite2D" parent="."]
+[node name="Shield" type="Sprite2D" parent="sprite_open"]
 position = Vector2(-57, -4)
 texture = ExtResource("7_e53oy")
-
-[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-1, -1)
-stream = ExtResource("8_h5cj5")
-
-[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-1, -2)
-stream = ExtResource("9_pfen8")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
