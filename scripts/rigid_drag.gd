@@ -57,3 +57,6 @@ func _on_body_entered(body: Node) -> void:
 		play_sfx(collision_sound)
 		bongs = bongs + 1
 	
+func remove():
+	queue_free()
+	pass
