@@ -25,6 +25,7 @@ window/stretch/mode="canvas_items"
 
 rigid_dragable=""
 remove_on_verdict="Every object that should be removed when a verdict is made"
+doc_remove_on_verdict=""
 
 [rendering]
 
