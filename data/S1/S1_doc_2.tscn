@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6xxkfcetn3m4"]
+[gd_scene load_steps=12 format=3 uid="uid://c6xxkfcetn3m4"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_24uc2"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="2_m5en6"]
 [ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_oojug"]
+[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_6bjwv"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="4_rhavm"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_f5v7k"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="6_34j6m"]
@@ -47,6 +48,7 @@ Kill man
 Take thing from friend
 
 Eat yellow snow"
+label_settings = ExtResource("4_6bjwv")
 autowrap_mode = 3
 
 [node name="Shield" type="Sprite2D" parent="."]
