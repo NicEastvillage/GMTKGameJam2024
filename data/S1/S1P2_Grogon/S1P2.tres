@@ -12,5 +12,5 @@ Grogon sacrificed an animal to the gods and had children."
 wrong_verdict = "Wrong!
 Grogon sacrificed an animal to the gods and had children."
 portrait = ExtResource("2_inm6l")
-verdict_sinner = true
+verdict_sinner = false
 person_documents = Array[PackedScene]([ExtResource("1_cumhf")])

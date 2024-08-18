@@ -67,12 +67,6 @@ func start_game():
 		"They didn't give you a mouth, so just hammer on the brass thing when you're ready."
 		, "This thing?")
 	stagetimer.start_stage()
-	stagetimer.spawn_godly_message(
-		"I'm Limfjordsporter by the way, the (lesser) god of strong beer. Nice to meet you.\n\n" +
-		"I sent you the gods lists of deeds and sins. Read the material about the apes that come through, and put their weights on the correct side of the scale.\n\n" +
-		"Honestly pretty easy. I'm sure even the apes could do it lol\n\n" +
-		""
-		, "Let's go")
 
 func spawn_polaroid(person):
 	var pol = spawn_doc(polaroid)
@@ -112,7 +106,8 @@ func start_stage():
 	print("LOADING STAGE ", current_stage_index)
 	for doc in current_stage.rule_documents:
 		stagetimer.spawn_stage_doc(doc)
-		
+	for msg in current_stage.intro_dialog:
+		stagetimer.spawn_godly_message(msg.narrator, msg.reponse)
 	stagetimer.start_person(current_person, 6)
 
 
@@ -126,7 +121,8 @@ func start_person(person):
 	stagetimer.ready_for_verdict()
 
 func end_game():
-	spawn_godly_message("That was all :)", "Bye :D")
+	stagetimer.spawn_godly_message("That was all :)", "Bye :D")
+	stagetimer.quit()
 	# TODO: Load end screen?
 
 func end_stage():

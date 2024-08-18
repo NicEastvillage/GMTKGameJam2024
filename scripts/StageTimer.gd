@@ -10,7 +10,8 @@ enum Type {
 	SPAWN_STAGE_DOC,
 	SPAWN_PERSONAL_PIC,
 	SPAWN_GODLY_MESSAGE,
-	READY_FOR_VERDICT
+	READY_FOR_VERDICT,
+	QUIT
 	}
 
 class TimerObject:
@@ -52,6 +53,8 @@ func _on_timeout():
 		loader.spawn_godly_message(action.object[0], action.object[1])
 	elif action.type == Type.READY_FOR_VERDICT:
 		loader.person_active = true
+	elif action.type == Type.QUIT:
+		get_tree().change_scene_to_packed(load("res://scenes/outro.tscn"))
 
 func spawn_stage_doc(doc, delay = 0.5):
 	queue.append(TimerObject.new(Type.SPAWN_STAGE_DOC, delay, doc))
@@ -76,3 +79,6 @@ func spawn_godly_message(msg, answer, delay = 1):
 
 func ready_for_verdict():
 	queue.append(TimerObject.new(Type.READY_FOR_VERDICT, 0))
+	
+func quit():
+	queue.append(TimerObject.new(Type.QUIT))
