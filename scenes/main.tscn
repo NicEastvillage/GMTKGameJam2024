@@ -37,7 +37,6 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_nv33c")]([ExtResource("3_mct4a"), ExtResource("4_ej3e6"), ExtResource("5_kpjva")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
