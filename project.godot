@@ -25,7 +25,9 @@ window/stretch/mode="canvas_items"
 
 rigid_dragable=""
 remove_on_verdict="Every object that should be removed when a verdict is made"
+doc_remove_on_verdict=""
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

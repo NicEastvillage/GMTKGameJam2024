@@ -10,7 +10,6 @@ class_name StageLoader
 var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @onready var documents_node = $Documents
-@onready var documents_personal_node = $Documents/Personal
 @onready var scale_arms = $scale/arms
 @onready var hammer_target = $HammerTarget
 @onready var hell_sound = $HellSound
@@ -61,11 +60,13 @@ func spawn_polaroid(person):
 	var pol = spawn_doc(polaroid)
 	pol.find_child("Portrait").texture = person.portrait
 	pol.find_child("Name").text = person.name
-	documents_personal_node.add_child(pol)
+	documents_node.add_child(pol)
+	pol.add_to_group("doc_remove_on_verdict")
 
 func spawn_personal_doc(doc):
 	var inst = spawn_doc(doc)
-	documents_personal_node.add_child(inst)
+	inst.add_to_group("doc_remove_on_verdict")
+	documents_node.add_child(inst)
 
 func spawn_stage_doc(doc):
 	var inst = spawn_doc(doc)
@@ -89,10 +90,10 @@ func start_stage():
 
 func start_person(person):
 	print("LOADING PERSON ", person.name)
-	spawn_polaroid(person)
 	# Create personal documents
 	for doc in person.person_documents:
 		stagetimer.spawn_personal_doc(doc)
+	spawn_polaroid(person)
 	
 	stagetimer.ready_for_verdict()
 
@@ -103,8 +104,8 @@ func end_game():
 func end_stage():
 	# Clean up rule documents
 	for child in documents_node.get_children():
-		if child != documents_personal_node:
-			child.queue_free()  # TODO Timer
+		child.queue_free()  # TODO Timer
+
 	
 	# Next?
 	current_person_index = 0
@@ -120,7 +121,7 @@ func end_person(sinner: bool):
 	for node in get_tree().get_nodes_in_group("remove_on_verdict"):
 		var timer = find_child("RemoveTimer")
 		timer.remove_queue.append(node)
-	for child in documents_personal_node.get_children():
+	for child in get_tree().get_nodes_in_group("doc_remove_on_verdict"):
 		var effect = despawn_effect.instantiate()
 		child.add_child(effect)
 		effect.direction = 1

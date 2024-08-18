@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=3 format=3 uid="uid://cxwxuan1xamf8"]
+
+[ext_resource type="Texture2D" uid="uid://dctkbdex7x6nh" path="res://sprites/Portraits/PortraitEaNasir.png" id="1_6eftd"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_scweb"]
+
+[resource]
+script = ExtResource("1_scweb")
+name = "Ea Nasir"
+portrait = ExtResource("1_6eftd")
+verdict_sinner = true
+person_documents = Array[PackedScene]([])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://eg7fjbpaityr"]
+[gd_scene load_steps=19 format=3 uid="uid://eg7fjbpaityr"]
 
 [ext_resource type="PackedScene" uid="uid://c6xxkfcetn3m4" path="res://data/S1/S1_doc_2.tscn" id="1_juxc3"]
 [ext_resource type="PackedScene" uid="uid://d33wmdbfkyvso" path="res://data/S1/S1_doc_1.tscn" id="2_g1r0t"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cylw25p6vqxvt" path="res://data/S2/S2P2_Imhotep/S2P2_life.tscn" id="14_pdd7n"]
 [ext_resource type="PackedScene" uid="uid://l3epybon0i5w" path="res://data/S2/S2P3_Teti/S2P3_cert.tscn" id="15_kd0eg"]
 [ext_resource type="PackedScene" uid="uid://c2j821jx4effq" path="res://data/S2/S2P3_Teti/S2P3_life.tscn" id="16_0uu3j"]
+[ext_resource type="PackedScene" uid="uid://bsoexd6xmlnte" path="res://data/S3/S3_doc_virtuology.tscn" id="17_12nal"]
+[ext_resource type="PackedScene" uid="uid://dhgbdbaodso6l" path="res://data/S3/S3_doc_restrictalism.tscn" id="18_a458g"]
 
 [node name="ContentPreview" type="Node2D"]
 
@@ -73,3 +75,20 @@ position = Vector2(280, 892)
 
 [node name="S2P3_life" parent="Stage2_Egyptian" instance=ExtResource("16_0uu3j")]
 position = Vector2(426, 893)
+
+[node name="Stage3_Reformation" type="Node2D" parent="."]
+
+[node name="S1_doc_1" parent="Stage3_Reformation" instance=ExtResource("2_g1r0t")]
+position = Vector2(716, 47)
+
+[node name="S2_doc_mod_S1_2" parent="Stage3_Reformation" instance=ExtResource("10_ap2pa")]
+position = Vector2(716, 130)
+
+[node name="S2_doc_1" parent="Stage3_Reformation" instance=ExtResource("9_u3c8l")]
+position = Vector2(631, 273)
+
+[node name="S3_doc_virtuology" parent="Stage3_Reformation" instance=ExtResource("17_12nal")]
+position = Vector2(787, 274)
+
+[node name="S3_doc_restrictalism" parent="Stage3_Reformation" instance=ExtResource("18_a458g")]
+position = Vector2(959, 274)
