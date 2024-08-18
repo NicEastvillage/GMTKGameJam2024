@@ -44,9 +44,9 @@ position = Vector2(1, 100)
 shape = SubResource("RectangleShape2D_owe8w")
 
 [node name="Sprite2D" type="Sprite2D" parent="body"]
-visible = false
 z_index = -1
-position = Vector2(0, 105)
+position = Vector2(0, -367)
+rotation = 3.14159
 texture = ExtResource("1_65p5n")
 
 [node name="arms" type="RigidBody2D" parent="."]
