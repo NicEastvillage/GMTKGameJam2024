@@ -2,7 +2,15 @@ extends Timer
 
 class_name StageTimer
 
-enum Type { WAIT, START_STAGE, START_PERSON, SPAWN_PERSONAL_DOC, SPAWN_STAGE_DOC, SPAWN_PERSONAL_PIC }
+enum Type {
+	WAIT,
+	START_STAGE,
+	START_PERSON,
+	SPAWN_PERSONAL_DOC,
+	SPAWN_STAGE_DOC,
+	SPAWN_PERSONAL_PIC,
+	READY_FOR_VERDICT
+	}
 
 class TimerObject:
 	var type : Type
@@ -39,6 +47,8 @@ func _on_timeout():
 		loader.spawn_personal_doc(action.object)
 	elif action.type == Type.SPAWN_PERSONAL_PIC:
 		loader.spawn_polaroid(action.object)
+	elif action.type == Type.READY_FOR_VERDICT:
+		loader.person_active = true
 
 func spawn_stage_doc(doc, delay = 0.5):
 	queue.append(TimerObject.new(Type.SPAWN_STAGE_DOC, delay, doc))
@@ -57,3 +67,6 @@ func start_stage(delay = 1):
 	
 func start_person(person, delay = 3):
 	queue.append(TimerObject.new(Type.START_PERSON, delay, person))
+
+func ready_for_verdict():
+	queue.append(TimerObject.new(Type.READY_FOR_VERDICT, 0))

@@ -26,6 +26,8 @@ var stagetimer : StageTimer
 var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
 var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
 
+var person_active : bool = false
+
 func play_sfx(sound):
 	if sound != null:
 		sound.pitch_scale = rng.randf_range(1 - scream_pitch_variance, 1 + scream_pitch_variance)
@@ -92,6 +94,8 @@ func start_person(person):
 	# Create personal documents
 	for doc in person.person_documents:
 		stagetimer.spawn_personal_doc(doc)
+	
+	stagetimer.ready_for_verdict()
 
 func end_game():
 	print("GAME OVER")
@@ -112,6 +116,7 @@ func end_stage():
 		stagetimer.start_stage()
 
 func end_person(sinner: bool):
+	person_active = false
 	# Clean up personal documents
 	for node in get_tree().get_nodes_in_group("remove_on_verdict"):
 		var timer = find_child("RemoveTimer")
@@ -166,7 +171,8 @@ func _on_hammer(object):
 		held_object.drop(Input.get_last_mouse_velocity())
 	held_object = null
 	grabber_joint.node_a = NodePath()
-	give_verdict()
+	if person_active:
+		give_verdict()
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
