@@ -52,8 +52,9 @@ texture = ExtResource("1_65p5n")
 position = Vector2(0, -270)
 collision_layer = 0
 collision_mask = 0
-max_contacts_reported = 10
+can_sleep = false
 contact_monitor = true
+max_contacts_reported = 10
 linear_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arms"]
@@ -75,8 +76,8 @@ softness = 1.0
 [node name="cup_right" type="RigidBody2D" parent="."]
 position = Vector2(232, -165)
 collision_mask = 3
-max_contacts_reported = 10
 contact_monitor = true
+max_contacts_reported = 10
 linear_damp = 10.0
 script = ExtResource("3_e4oe1")
 
@@ -108,8 +109,8 @@ color_ramp = SubResource("Gradient_30q8x")
 [node name="cup_left" type="RigidBody2D" parent="."]
 position = Vector2(-233, -165)
 collision_mask = 3
-max_contacts_reported = 10
 contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("3_e4oe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="cup_left"]
