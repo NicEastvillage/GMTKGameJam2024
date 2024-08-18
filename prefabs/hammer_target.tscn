@@ -55,7 +55,6 @@ offset_left = -38.0
 offset_right = 40.0
 offset_bottom = 9.0
 theme = ExtResource("4_h67kp")
-text = "SINNER"
 horizontal_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 1

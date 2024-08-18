@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf65ymkqp6bgh"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_3pmjs"]
+[ext_resource type="Texture2D" uid="uid://umqyiqjxna8f" path="res://sprites/Marble.png" id="2_u5fw4"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_q3lv0"]
+[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_myr48"]
+[ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="5_lsckc"]
+[ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="6_5o5o7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7mq"]
+size = Vector2(129, 213)
+
+[node name="GodlyMessage" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_3pmjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.500004)
+shape = SubResource("RectangleShape2D_fy7mq")
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(-1.2663, 0.733696)
+texture = ExtResource("2_u5fw4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -100.0
+offset_right = 55.0
+offset_bottom = 100.0
+size_flags_vertical = 1
+theme = ExtResource("3_q3lv0")
+label_settings = ExtResource("4_myr48")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("5_lsckc")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("6_5o5o7")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
