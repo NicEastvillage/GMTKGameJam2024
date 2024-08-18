@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=13 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
-[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_jtdm5"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
 [ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
@@ -17,7 +16,7 @@
 
 [node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_jtdm5")]([ExtResource("3_mct4a")])
+stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
@@ -67,8 +66,8 @@ shape = SubResource("WorldBoundaryShape2D_g2q2f")
 position = Vector2(318, 350)
 
 [node name="hammer" parent="." instance=ExtResource("11_dpue7")]
-position = Vector2(492, 334)
-rotation = -1.57079
+position = Vector2(483, 355)
+rotation = -1.31992
 
 [node name="WeightLarge" parent="." instance=ExtResource("13_gqy1f")]
 position = Vector2(70, 178)
