@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=25 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
 [ext_resource type="PackedScene" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
+[ext_resource type="PackedScene" uid="uid://dfxitsqbpgvks" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
 [ext_resource type="PackedScene" uid="uid://c01tdpda04fu6" path="res://prefabs/hammer.tscn" id="11_dpue7"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 [ext_resource type="PackedScene" uid="uid://c0h654ovo1bp5" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
@@ -20,7 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
 [ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weights/weight_medium_rigid.tscn" id="18_dme1b"]
-[ext_resource type="PackedScene" uid="uid://bvxg2qd7u5x0o" path="res://prefabs/scroll.tscn" id="19_iyqss"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
@@ -141,9 +140,6 @@ angular_velocity_max = 10.0
 scale_amount_min = 10.0
 scale_amount_max = 30.0
 color_ramp = SubResource("Gradient_ft0c1")
-
-[node name="Scroll" parent="." instance=ExtResource("19_iyqss")]
-position = Vector2(519, 297)
 
 [node name="WeightLarge2" parent="." instance=ExtResource("18_dme1b")]
 position = Vector2(560, 129)

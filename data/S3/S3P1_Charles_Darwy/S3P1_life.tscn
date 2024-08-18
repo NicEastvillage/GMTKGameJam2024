@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg6qhpnhqmfxi"]
+
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_hg1s0"]
+[ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="2_dmd2k"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="3_k2h7a"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="4_e6gic"]
+[ext_resource type="Texture2D" uid="uid://blbdgyvj8ix44" path="res://sprites/ScrollOpen.png" id="5_g8a0n"]
+[ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="6_2hjtc"]
+[ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="7_k4vtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
+size = Vector2(140, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj6eq"]
+size = Vector2(140, 160)
+
+[node name="Draggable" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_hg1s0")
+
+[node name="sprite_closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_dmd2k")
+
+[node name="shape_closed" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_2jh7o")
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_k2h7a")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("4_e6gic")
+
+[node name="shape_open" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_yj6eq")
+disabled = true
+
+[node name="sprite_open" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_g8a0n")
+
+[node name="Label2" type="Label" parent="sprite_open"]
+offset_left = -52.0
+offset_top = -59.0
+offset_right = 56.0
+offset_bottom = 64.0
+theme = ExtResource("6_2hjtc")
+text = "         Memoir
+
+Terrible sailor
+
+Formulated a theory of how life evolves through natural selection
+
+Wrote a book and gifted copies to family and friends
+
+Had a huge crush on Taylor Swift
+
+Never married"
+label_settings = ExtResource("7_k4vtg")
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

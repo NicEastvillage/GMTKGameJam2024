@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PersonData" load_steps=5 format=3 uid="uid://cxwxuan1xamf8"]
+
+[ext_resource type="PackedScene" uid="uid://c7h06enm2isy5" path="res://data/S3/S3P1_Charles_Darwy/S3P1_cert.tscn" id="1_ddgrc"]
+[ext_resource type="PackedScene" uid="uid://dg6qhpnhqmfxi" path="res://data/S3/S3P1_Charles_Darwy/S3P1_life.tscn" id="2_bq4d0"]
+[ext_resource type="Texture2D" uid="uid://d36mmhda7klo4" path="res://sprites/Portraits/PortraitDarwin.png" id="3_p18s6"]
+[ext_resource type="Script" path="res://scripts/PersonData.gd" id="4_xwgy7"]
+
+[resource]
+script = ExtResource("4_xwgy7")
+name = "Charles Darwy"
+portrait = ExtResource("3_p18s6")
+verdict_sinner = true
+person_documents = Array[PackedScene]([ExtResource("1_ddgrc"), ExtResource("2_bq4d0")])

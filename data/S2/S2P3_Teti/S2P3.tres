@@ -8,6 +8,12 @@
 [resource]
 script = ExtResource("4_33ug8")
 name = "Pharao Teti"
+correct_verdict = "Yes! Good job!
+Mocking the gods doesn't count if you're a pharaoh! Neither does killing those beneath you :3 
+And he had children, which makes him a saint!"
+wrong_verdict = "Nope!
+Mocking the gods doesn't count if you're a pharaoh! Neither does killing those beneath you :3 
+And he had children, which makes him a saint!"
 portrait = ExtResource("3_sdq2f")
 verdict_sinner = false
 person_documents = Array[PackedScene]([ExtResource("1_6exvf"), ExtResource("2_i6m4v")])

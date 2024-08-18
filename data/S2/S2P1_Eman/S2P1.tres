@@ -8,6 +8,12 @@
 [resource]
 script = ExtResource("1_cb5gh")
 name = "Eman"
+correct_verdict = "Correct! she was a sinner!
+Stealing is wrong now, no matter who from!
+And selling something to the pharaoh doesn't count as a gift. "
+wrong_verdict = "Nope, she was a sinner!
+Stealing is wrong now, no matter who from!
+And selling something to the pharaoh doesn't count as a gift. "
 portrait = ExtResource("3_fdltv")
 verdict_sinner = true
 person_documents = Array[PackedScene]([ExtResource("1_sh7ss"), ExtResource("2_304n8")])

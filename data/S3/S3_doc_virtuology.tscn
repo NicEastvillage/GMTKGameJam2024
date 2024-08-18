@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4c0gduv2xwc2"]
+[gd_scene load_steps=13 format=3 uid="uid://bsoexd6xmlnte"]
 
 [ext_resource type="Script" path="res://scripts/scroll.gd" id="1_3w2qw"]
 [ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="2_id8r2"]
@@ -44,7 +44,6 @@ shape = SubResource("RectangleShape2D_yj6eq")
 disabled = true
 
 [node name="sprite_open" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("5_6cwbb")
 
 [node name="Label2" type="Label" parent="sprite_open"]

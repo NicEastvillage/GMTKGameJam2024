@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="StageData" load_steps=9 format=3 uid="uid://dlw3atx42ecxt"]
+[gd_resource type="Resource" script_class="StageData" load_steps=10 format=3 uid="uid://dlw3atx42ecxt"]
 
 [ext_resource type="Script" path="res://scripts/PersonData.gd" id="1_5qw5g"]
+[ext_resource type="Script" path="res://scripts/StageIntroData.gd" id="1_anuqn"]
 [ext_resource type="PackedScene" uid="uid://cgivppnhhmvv8" path="res://data/S2/S2_doc_1.tscn" id="2_gcen3"]
 [ext_resource type="Resource" uid="uid://chagbty05oiqk" path="res://data/S2/S2P1_Eman/S2P1.tres" id="2_p2kqa"]
 [ext_resource type="Script" path="res://scripts/StageData.gd" id="2_rwdhk"]
@@ -13,3 +14,4 @@
 script = ExtResource("2_rwdhk")
 people = Array[ExtResource("1_5qw5g")]([ExtResource("2_p2kqa"), ExtResource("3_j1khh"), ExtResource("4_0kaqj")])
 rule_documents = Array[PackedScene]([ExtResource("2_gcen3"), ExtResource("3_qxfmv"), ExtResource("4_5i24x")])
+intro_dialog = Array[ExtResource("1_anuqn")]([])
