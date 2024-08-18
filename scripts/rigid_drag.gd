@@ -58,5 +58,8 @@ func _on_body_entered(body: Node) -> void:
 		bongs = bongs + 1
 	
 func remove():
+	var particles = find_child("AwayParticles")
+	particles.reparent(get_parent())
+	particles.emitting = true
+	
 	queue_free()
-	pass

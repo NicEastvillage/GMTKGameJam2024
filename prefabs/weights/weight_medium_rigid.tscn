@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://whoap6ax7f3a"]
+[gd_scene load_steps=8 format=3 uid="uid://whoap6ax7f3a"]
 
 [ext_resource type="Script" path="res://scripts/rigid_drag.gd" id="1_1yiro"]
 [ext_resource type="Texture2D" uid="uid://c7pw7dyuqhiyt" path="res://sprites/Weight Medium.png" id="2_h2s7h"]
@@ -11,13 +11,17 @@ size = Vector2(133.333, 199.068)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8pc4j"]
 polygon = PackedVector2Array(-7, -19, -7, -2, 8, -2, 8, -19, 3, -19, 3, -23, -2, -23, -2, -19)
 
+[sub_resource type="Curve" id="Curve_xy05f"]
+_data = [Vector2(0, 1), 0.0, 2.32511, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="WeightLarge" type="RigidBody2D" groups=["remove_on_verdict", "rigid_dragable"]]
 collision_layer = 2
 input_pickable = true
 mass = 3.0
 freeze_mode = 1
-contact_monitor = true
 max_contacts_reported = 2
+contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_1yiro")
 
@@ -45,6 +49,20 @@ stream = ExtResource("4_fmj0s")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_8pc4j")
 
+[node name="AwayParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -15)
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(6, 14)
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 10.4
+scale_amount_curve = SubResource("Curve_xy05f")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="finished" from="AwayParticles" to="AwayParticles" method="queue_free"]
