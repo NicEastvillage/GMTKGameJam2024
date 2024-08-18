@@ -11,6 +11,7 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 @onready var documents_personal_node = $Documents/Personal
 @onready var spawn_person_timer = $SpawnPersonTimer
 @onready var scale_arms = $scale/arms
+@onready var hammer_target = $HammerTarget
 @onready var hell_sound = $HellSound
 @onready var heaven_sound = $HeavenSound
 @onready var rng = RandomNumberGenerator.new()
@@ -132,6 +133,12 @@ var held_object = null
 
 func _process(delta: float) -> void:
 	grabber_joint.global_position = get_viewport().get_mouse_position()
+	if spawn_person_timer.is_stopped():
+		var verdict = get_verdict()
+		verdict = "" if verdict == Verdict.no_verdict else "SINNER" if verdict == Verdict.sinner else "SAINT"
+		hammer_target.set_text(verdict)
+	else:
+		hammer_target.set_text("")
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -162,3 +169,14 @@ func _unhandled_input(event):
 func _on_weight_spawned(event):
 	for node in get_tree().get_nodes_in_group("rigid_dragable"):
 		node.connect("clicked", _on_pickable_clicked)
+
+enum Verdict { sinner, do_gooder, no_verdict }
+
+func get_verdict() ->  Verdict:
+	if abs(scale_arms.rotation_degrees) > 2.0: 
+		if scale_arms.rotation_degrees < 0:
+			return Verdict.sinner
+		else:
+			return Verdict.do_gooder
+	else:
+		return Verdict.no_verdict
