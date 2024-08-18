@@ -9,6 +9,7 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
 @onready var spawn_person_timer = $SpawnPersonTimer
+@onready var scale_arms = $scale/arms
 
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
@@ -99,8 +100,12 @@ func end_person(sinner: bool):
 		load_person()
 
 func give_verdict():
-	var sinner = randi() % 2 == 0  # TODO: Read scale
+	var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
 	# TODO: Check if correct
+	if current_person.verdict_sinner == sinner:
+		print("VERDICT: sinner=", sinner, " (CORRECT)")
+	else:
+		print("VERDICT: sinner=", sinner, " (INCORRECT)")
 	
 	end_person(sinner)
 
