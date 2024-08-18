@@ -14,7 +14,6 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 @onready var hammer_target = $HammerTarget
 @onready var hell_sound = $HellSound
 @onready var heaven_sound = $HeavenSound
-@onready var pop_sound = $PopSound
 @onready var rng = RandomNumberGenerator.new()
 
 @export var grabber : StaticBody2D
@@ -75,7 +74,6 @@ func _spawn_person():
 		var inst = spawn_doc(doc)
 		documents_personal_node.add_child(inst)
 	var pol = spawn_doc(polaroid)
-	play_sfx(pop_sound)
 	pol.find_child("Portrait").texture = current_person.portrait
 	pol.find_child("Name").text = current_person.name
 	documents_personal_node.add_child(pol)

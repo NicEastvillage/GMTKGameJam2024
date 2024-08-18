@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=18 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://scripts/RemoveTimer.gd" id="13_pbv4f"]
 [ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
-[ext_resource type="AudioStream" uid="uid://djospad2pi0ea" path="res://sounds/pop2.wav" id="17_4x1wv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
@@ -93,10 +92,6 @@ stream = ExtResource("15_yx1tn")
 [node name="HeavenSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(5, -1)
 stream = ExtResource("16_0o8dg")
-
-[node name="PopSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-2, -4)
-stream = ExtResource("17_4x1wv")
 
 [connection signal="timeout" from="SpawnPersonTimer" to="." method="_spawn_person"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
