@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name StageLoader
+
 @export var stages: Array[StageData] = []
 @export var current_stage_index: int = 0
 @export var current_person_index: int = 0
@@ -13,6 +15,8 @@ var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
 
 @export var grabber : StaticBody2D
 @export var grabber_joint : PinJoint2D
+
+var stagetimer : StageTimer
 
 var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
 var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
@@ -34,9 +38,27 @@ func _ready():
 		node.connect("clicked", _on_pickable_clicked)
 		node.connect("hammer", _on_hammer)
 	if current_stage == null or current_person == null:
-		end_game()
-	else:
-		load_stage()
+		push_error("Something went wrong: current stage is " + str(current_stage) + " and current person is " + str(current_person))
+	stagetimer = find_child("StageTimer")
+	start_game()
+
+func start_game():
+	stagetimer.add_pause(2)
+	stagetimer.start_stage()
+
+func spawn_polaroid(person):
+	var pol = spawn_doc(polaroid)
+	pol.find_child("Portrait").texture = person.portrait
+	pol.find_child("Name").text = person.name
+	documents_personal_node.add_child(pol)
+
+func spawn_personal_doc(doc):
+	var inst = spawn_doc(doc)
+	documents_personal_node.add_child(inst)
+
+func spawn_stage_doc(doc):
+	var inst = spawn_doc(doc)
+	documents_node.add_child(inst)
 
 func spawn_doc(doc):
 	var inst = doc.instantiate()
@@ -47,26 +69,19 @@ func spawn_doc(doc):
 	inst.move_child(effect, 0)
 	return inst
 
-func load_stage():
+func start_stage():
 	print("LOADING STAGE ", current_stage_index)
 	for doc in current_stage.rule_documents:
-		var inst = spawn_doc(doc)
-		documents_node.add_child(inst)
-	load_person()
-	
-func load_person():
-	print("LOADING PERSON ", current_stage_index, ".", current_person_index, " ", current_person.name)
-	spawn_person_timer.start()  # Calls _spawn_person() after some time
+		stagetimer.spawn_stage_doc(doc)
+	stagetimer.start_person(current_person, 6)
 
-func _spawn_person():
+
+func start_person(person):
+	print("LOADING PERSON ", person.name)
+	spawn_polaroid(person)
 	# Create personal documents
-	for doc in current_person.person_documents:
-		var inst = spawn_doc(doc)
-		documents_personal_node.add_child(inst)
-	var pol = spawn_doc(polaroid)
-	pol.find_child("Portrait").texture = current_person.portrait
-	pol.find_child("Name").text = current_person.name
-	documents_personal_node.add_child(pol)
+	for doc in person.person_documents:
+		stagetimer.spawn_personal_doc(doc)
 
 func end_game():
 	print("GAME OVER")
@@ -100,7 +115,7 @@ func end_person(sinner: bool):
 	if current_person == null:
 		end_stage()
 	else:
-		load_person()
+		stagetimer.start_person(current_person)
 
 func give_verdict():
 	if abs(scale_arms.rotation_degrees) > 2.0:
@@ -131,8 +146,7 @@ func _on_hammer(object):
 		held_object.drop(Input.get_last_mouse_velocity())
 	held_object = null
 	grabber_joint.node_a = NodePath()
-	if spawn_person_timer.is_stopped():
-		give_verdict()
+	give_verdict()
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
