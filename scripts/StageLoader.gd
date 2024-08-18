@@ -126,7 +126,8 @@ func start_person(person):
 	stagetimer.ready_for_verdict()
 
 func end_game():
-	spawn_godly_message("That was all :)", "Bye :D")
+	stagetimer.spawn_godly_message("That was all :)", "Bye :D")
+	stagetimer.quit()
 	# TODO: Load end screen?
 
 func end_stage():
