@@ -102,14 +102,14 @@ func end_person(sinner: bool):
 		load_person()
 
 func give_verdict():
-	var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
-	# TODO: Check if correct
-	if current_person.verdict_sinner == sinner:
-		print("VERDICT: sinner=", sinner, " (CORRECT)")
-	else:
-		print("VERDICT: sinner=", sinner, " (INCORRECT)")
-	
-	end_person(sinner)
+	if abs(scale_arms.rotation_degrees) > 2.0:
+		var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
+		# TODO: Check if correct
+		if current_person.verdict_sinner == sinner:
+			print("VERDICT: sinner=", sinner, " (CORRECT)")
+		else:
+			print("VERDICT: sinner=", sinner, " (INCORRECT)")
+		end_person(sinner)
 
 var held_object = null
 
