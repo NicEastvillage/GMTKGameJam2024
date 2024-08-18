@@ -47,7 +47,7 @@ func _input(event: InputEvent):
 			dragging = false
 			adjust_pos()
 			play_sfx(dropped_sound)
-	elif event is InputEventMouseMotion and hovered:
+	elif event is InputEventMouseMotion:
 		# Mouse moved
 		if waiting_unpress and Time.get_ticks_msec() - timestamp > click_limit:
 			dragging = true
