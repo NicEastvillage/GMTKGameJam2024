@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cynpough26aai"]
+
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="1_b3siy"]
+[ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="1_ggvba"]
+[ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="3_wi8qe"]
+[ext_resource type="AudioStream" uid="uid://b3yglo6ubp644" path="res://sounds/paper.wav" id="4_56g2v"]
+[ext_resource type="Texture2D" uid="uid://blbdgyvj8ix44" path="res://sprites/ScrollOpen.png" id="5_m5fh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jh7o"]
+size = Vector2(140, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj6eq"]
+size = Vector2(140, 160)
+
+[node name="Draggable" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_b3siy")
+
+[node name="sprite_closed" type="Sprite2D" parent="."]
+texture = ExtResource("1_ggvba")
+
+[node name="shape_closed" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_2jh7o")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+text = "TEST"
+
+[node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -1)
+stream = ExtResource("3_wi8qe")
+
+[node name="DroppedSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -2)
+stream = ExtResource("4_56g2v")
+
+[node name="shape_open" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_yj6eq")
+disabled = true
+
+[node name="sprite_open" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_m5fh5")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

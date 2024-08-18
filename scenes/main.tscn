@@ -140,6 +140,8 @@ angular_velocity_max = 10.0
 scale_amount_min = 10.0
 scale_amount_max = 30.0
 color_ramp = SubResource("Gradient_ft0c1")
+[node name="Scroll" parent="." instance=ExtResource("19_iyqss")]
+position = Vector2(519, 297)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="hammer" from="HammerTarget" to="." method="_on_hammer"]
