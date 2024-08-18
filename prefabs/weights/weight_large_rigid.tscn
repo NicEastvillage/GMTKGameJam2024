@@ -11,14 +11,14 @@ polygon = PackedVector2Array(-10, -22, -10, -3, 11, -3, 11, -22, 7, -22, 7, -27,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhlkn"]
 size = Vector2(186.667, 212.402)
 
-[node name="WeightLarge" type="RigidBody2D" groups=["rigid_dragable"]]
+[node name="WeightLarge" type="RigidBody2D" groups=["remove_on_verdict", "rigid_dragable"]]
 collision_layer = 2
 input_pickable = true
 mass = 5.0
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 2
-linear_damp = 3.0
+linear_damp = 2.0
 script = ExtResource("1_e2o25")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

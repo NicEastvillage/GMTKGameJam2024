@@ -85,6 +85,8 @@ func end_stage():
 
 func end_person(sinner: bool):
 	# Clean up personal documents
+	for node in get_tree().get_nodes_in_group("remove_on_verdict"):
+		node.remove()
 	for child in documents_personal_node.get_children():
 		var effect = despawn_effect.instantiate()
 		child.add_child(effect)
@@ -100,14 +102,14 @@ func end_person(sinner: bool):
 		load_person()
 
 func give_verdict():
-	var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
-	# TODO: Check if correct
-	if current_person.verdict_sinner == sinner:
-		print("VERDICT: sinner=", sinner, " (CORRECT)")
-	else:
-		print("VERDICT: sinner=", sinner, " (INCORRECT)")
-	
-	end_person(sinner)
+	if abs(scale_arms.rotation_degrees) > 2.0:
+		var sinner = scale_arms.rotation_degrees < 1.0  # Tiny bias
+		# TODO: Check if correct
+		if current_person.verdict_sinner == sinner:
+			print("VERDICT: sinner=", sinner, " (CORRECT)")
+		else:
+			print("VERDICT: sinner=", sinner, " (INCORRECT)")
+		end_person(sinner)
 
 var held_object = null
 
@@ -133,7 +135,8 @@ func _on_hammer(object):
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if held_object and !event.pressed:
+		if held_object and !event.pressed and !event.is_canceled():
+			print_debug("Unhandle event: unpressed: ", event.as_text(), event.is_canceled())
 			if held_object != null:
 				held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null

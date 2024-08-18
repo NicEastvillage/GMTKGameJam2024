@@ -11,7 +11,7 @@ size = Vector2(133.333, 199.068)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8pc4j"]
 polygon = PackedVector2Array(-7, -19, -7, -2, 8, -2, 8, -19, 3, -19, 3, -23, -2, -23, -2, -19)
 
-[node name="WeightLarge" type="RigidBody2D" groups=["rigid_dragable"]]
+[node name="WeightLarge" type="RigidBody2D" groups=["remove_on_verdict", "rigid_dragable"]]
 collision_layer = 2
 input_pickable = true
 mass = 3.0
