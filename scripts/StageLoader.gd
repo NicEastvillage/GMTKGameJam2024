@@ -85,6 +85,8 @@ func end_stage():
 
 func end_person(sinner: bool):
 	# Clean up personal documents
+	for node in get_tree().get_nodes_in_group("remove_on_verdict"):
+		node.remove()
 	for child in documents_personal_node.get_children():
 		var effect = despawn_effect.instantiate()
 		child.add_child(effect)
