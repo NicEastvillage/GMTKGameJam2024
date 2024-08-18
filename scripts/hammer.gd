@@ -11,6 +11,7 @@ var max_vel = 10
 
 var pause_count : float
 var pause_limit = 1
+var hover = false
 
 func _ready() -> void:
 	default_pos = global_position
@@ -26,10 +27,17 @@ func _process(delta: float) -> void:
 	linear_velocity = direction * (lerp(dist, 0.0, 0.5) * max_vel)
 	angular_velocity = lerp(default_angle - global_rotation, 0.0, 0.5) * max_vel
 
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
+func _input(event):
+	if event is InputEventMouseButton and hover:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			emit_signal("clicked", self)
+			event.canceled = true
+
+func _on_mouse_entered():
+	hover = true
+
+func _on_mouse_exited():
+	hover = false
 
 func _physics_process(delta):
 		pass
