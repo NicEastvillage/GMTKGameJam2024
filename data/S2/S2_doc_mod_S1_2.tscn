@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_yxsvx"]
 [ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_5gmid"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_ku5vt"]
-[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_o5jea"]
+[ext_resource type="LabelSettings" path="res://Fonts/font_cavemen.tres" id="4_o5jea"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="4_vs263"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_jd33l"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="6_ugxmt"]
@@ -25,6 +25,7 @@ input_pickable = true
 script = ExtResource("1_yxsvx")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(25, 53)
 occluder = SubResource("OccluderPolygon2D_n02qm")
 

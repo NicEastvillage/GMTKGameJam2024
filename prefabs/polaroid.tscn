@@ -47,6 +47,7 @@ position = Vector2(-1, -2)
 stream = ExtResource("6_ml6yq")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource("OccluderPolygon2D_nfmus")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -19,6 +19,7 @@ input_pickable = true
 script = ExtResource("1_ukvhr")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(25, 53)
 occluder = SubResource("OccluderPolygon2D_n02qm")
 

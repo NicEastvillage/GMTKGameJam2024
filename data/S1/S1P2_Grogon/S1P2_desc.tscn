@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://co8qbvw18sq2" path="res://sprites/Tablet2.png" id="2_rodxq"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_7nq0a"]
 [ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="4_0oey3"]
-[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_he2re"]
+[ext_resource type="LabelSettings" path="res://Fonts/font_cavemen.tres" id="4_he2re"]
 [ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="5_8nebn"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
@@ -20,6 +20,7 @@ input_pickable = true
 script = ExtResource("1_4jsjp")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(25, 53)
 occluder = SubResource("OccluderPolygon2D_n02qm")
 
