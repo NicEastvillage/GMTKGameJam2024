@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
+[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_jtdm5"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
 [ext_resource type="PackedScene" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
@@ -17,7 +18,7 @@
 
 [node name="Main2D" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a")])
+stages = Array[ExtResource("2_jtdm5")]([ExtResource("3_mct4a")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
@@ -51,6 +52,10 @@ position = Vector2(264, -74)
 [node name="grab_joint" type="PinJoint2D" parent="."]
 bias = 0.9
 
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(314, 400)
+texture = ExtResource("13_6j3kh")
+
 [node name="WeightSupply" parent="." instance=ExtResource("10_k81j6")]
 position = Vector2(211, 340)
 
@@ -72,10 +77,6 @@ rotation = -1.57079
 
 [node name="WeightLarge" parent="." instance=ExtResource("13_gqy1f")]
 position = Vector2(70, 178)
-
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(314, 404)
-texture = ExtResource("13_6j3kh")
 
 [connection signal="timeout" from="SpawnPersonTimer" to="." method="_spawn_person"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
