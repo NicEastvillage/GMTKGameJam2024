@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d33wmdbfkyvso"]
+[gd_scene load_steps=11 format=3 uid="uid://d33wmdbfkyvso"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_6poeg"]
 [ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_luvm4"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_d26b8"]
+[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_b3dy0"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_d1qma"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="6_lptn7"]
 [ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="7_v5g4n"]
@@ -46,6 +47,7 @@ Have kids
 Sacrifice animal on holy day
 
 Eat vegetables"
+label_settings = ExtResource("4_b3dy0")
 autowrap_mode = 3
 
 [node name="Diamond" type="Sprite2D" parent="."]

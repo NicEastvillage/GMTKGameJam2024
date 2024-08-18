@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxn5b86fiunw8"]
+[gd_scene load_steps=14 format=3 uid="uid://cxn5b86fiunw8"]
 
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="1_yxsvx"]
 [ext_resource type="Texture2D" uid="uid://dkndyse1aprcl" path="res://sprites/Tablet.png" id="2_5gmid"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_ku5vt"]
+[ext_resource type="LabelSettings" uid="uid://buk3oum4ur8ys" path="res://Fonts/font_cavemen.tres" id="4_o5jea"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="4_vs263"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="5_jd33l"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="6_ugxmt"]
 [ext_resource type="AudioStream" uid="uid://ctvmxmd8f7n1d" path="res://sounds/rock_slide.wav" id="7_pg3yx"]
 [ext_resource type="Texture2D" uid="uid://nj733200dvc7" path="res://sprites/ScratchedOut.png" id="7_phcnk"]
 [ext_resource type="AudioStream" uid="uid://cl4hwvcn5elk7" path="res://sounds/rock_drop.wav" id="8_et2bo"]
+[ext_resource type="Texture2D" uid="uid://da5qh83d1xttw" path="res://sprites/ScratchedOutSmall.png" id="8_r8kcr"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n02qm"]
 polygon = PackedVector2Array(-97, -83, -100, -73, -96, -50, -101, -39, -94, -23, -76, -20, -61, -23, -42, -20, -15, -22, 15, -18, 39, -22, 47, -29, 43, -42, 48, -64, 41, -82, 23, -88, -9, -84, -51, -85, -82, -90)
@@ -48,6 +50,17 @@ Kill man
 Take thing from friend
 
 Eat yellow snow"
+label_settings = ExtResource("4_o5jea")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 25.0
+offset_right = 194.0
+offset_bottom = 74.0
+theme = ExtResource("3_ku5vt")
+text = "ANYONE"
 autowrap_mode = 3
 
 [node name="Shield" type="Sprite2D" parent="."]
@@ -62,9 +75,13 @@ texture = ExtResource("5_jd33l")
 position = Vector2(-54, 5)
 texture = ExtResource("6_ugxmt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Scratch" type="Sprite2D" parent="."]
 position = Vector2(-7, -8)
 texture = ExtResource("7_phcnk")
+
+[node name="Scratch2" type="Sprite2D" parent="."]
+position = Vector2(48, 5)
+texture = ExtResource("8_r8kcr")
 
 [node name="SelectedSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1, -1)

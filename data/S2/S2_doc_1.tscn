@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bw1k0tacnuwh" path="res://sprites/Sheet2.png" id="2_nnrgs"]
 [ext_resource type="Theme" uid="uid://buyb8v1ge6h0c" path="res://Fonts/Stone Age.tres" id="3_k55i8"]
 [ext_resource type="Texture2D" uid="uid://crxg2np84jiel" path="res://sprites/Diamond.png" id="4_j1lbm"]
-[ext_resource type="LabelSettings" uid="uid://68yv14anvw22" path="res://Fonts/font_egyptian.tres" id="4_ntkv8"]
+[ext_resource type="LabelSettings" path="res://Fonts/font_egyptian.tres" id="4_ntkv8"]
 [ext_resource type="Texture2D" uid="uid://bcuanw0r63ce8" path="res://sprites/Circle.png" id="5_4vkfg"]
 [ext_resource type="Texture2D" uid="uid://bg13rcap4d682" path="res://sprites/Shield.png" id="6_7mlkf"]
 [ext_resource type="AudioStream" uid="uid://dm2w7djhevvd4" path="res://sounds/paper4.wav" id="6_ev75u"]
