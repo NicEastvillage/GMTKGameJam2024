@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/StageTimer.gd" id="14_orrtv"]
 [ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
+[ext_resource type="PackedScene" uid="uid://bolsk2auxmv4r" path="res://prefabs/scroll.tscn" id="19_iyqss"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
