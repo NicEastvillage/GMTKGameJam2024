@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://i2h4y2ycv3q1"]
+[gd_scene load_steps=6 format=3 uid="uid://i2h4y2ycv3q1"]
 
 [ext_resource type="Script" path="res://scripts/IntroManager.gd" id="1_f1304"]
 [ext_resource type="VideoStream" path="res://intro.ogv" id="1_lbqq4"]
 [ext_resource type="Script" path="res://scripts/OutFader.gd" id="2_fvaft"]
 [ext_resource type="AudioStream" uid="uid://b2hc3t2gxbvvv" path="res://music/187625_EdirolHeaven_town2ndversio.mp3" id="2_iagib"]
+[ext_resource type="AudioStream" uid="uid://bffv5owtrtcem" path="res://music/1278483_Jamurary-Track-2.mp3" id="5_tsm3x"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_f1304")
@@ -27,5 +28,10 @@ stream = ExtResource("2_iagib")
 volume_db = -8.0
 autoplay = true
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tsm3x")
+volume_db = -6.0
+
 [connection signal="loaded" from="." to="Fader" method="_on_fade_start"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

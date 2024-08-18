@@ -18,3 +18,7 @@ func _on_video_stream_player_finished():
 	var node = game.instantiate()
 	add_child(node)
 	emit_signal("loaded")
+
+
+func _on_audio_stream_player_finished():
+	find_child("AudioStreamPlayer2").play()
