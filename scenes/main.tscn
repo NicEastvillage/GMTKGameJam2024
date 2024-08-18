@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dsdchgqwhnrb1"]
+[gd_scene load_steps=25 format=3 uid="uid://dsdchgqwhnrb1"]
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
@@ -20,7 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
 [ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weights/weight_medium_rigid.tscn" id="18_dme1b"]
-[ext_resource type="PackedScene" uid="uid://bvxg2qd7u5x0o" path="res://prefabs/scroll.tscn" id="19_iyqss"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
@@ -39,6 +38,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1
 [node name="Main" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
 stages = Array[ExtResource("2_nv33c")]([ExtResource("3_mct4a"), ExtResource("4_ej3e6"), ExtResource("5_kpjva")])
+current_stage_index = 2
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
@@ -141,9 +141,6 @@ angular_velocity_max = 10.0
 scale_amount_min = 10.0
 scale_amount_max = 30.0
 color_ramp = SubResource("Gradient_ft0c1")
-
-[node name="Scroll" parent="." instance=ExtResource("19_iyqss")]
-position = Vector2(519, 297)
 
 [node name="WeightLarge2" parent="." instance=ExtResource("18_dme1b")]
 position = Vector2(560, 129)

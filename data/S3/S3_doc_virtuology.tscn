@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4c0gduv2xwc2"]
+[gd_scene load_steps=13 format=3 uid="uid://bsoexd6xmlnte"]
 
 [ext_resource type="Script" path="res://scripts/scroll.gd" id="1_3w2qw"]
 [ext_resource type="Texture2D" uid="uid://cmkaf1xpr2372" path="res://sprites/ScrollFolded.png" id="2_id8r2"]
