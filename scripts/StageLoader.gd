@@ -8,6 +8,7 @@ class_name StageLoader
 @export var document_spawn_radius: float = 120
 @export var scream_pitch_variance = 0.4
 var polaroid: PackedScene = preload("res://prefabs/polaroid.tscn")
+var godly_message = preload("res://prefabs/godly_message.tscn")
 
 @onready var documents_node = $Documents
 @onready var documents_personal_node = $Documents/Personal
@@ -26,6 +27,10 @@ var spawn_effect = preload("res://prefabs/spawn_effect.tscn")
 var despawn_effect = preload("res://prefabs/DocumentRemover.tscn")
 
 var person_active : bool = false
+var active_godly_message = null
+
+func is_awaiting_user():
+	return active_godly_message != null
 
 func play_sfx(sound):
 	if sound != null:
@@ -55,7 +60,20 @@ func _ready():
 
 func start_game():
 	stagetimer.add_pause(2)
+	stagetimer.spawn_godly_message(
+		"Welcome to your new job as the GATEKEEPER OF HEAVEN AND HELL. Or rather, welcome as their secretary.\n\n" +
+		"Lesser gods as us, do most of the actual work around here, but whatever.\n\n" +
+		"While drinking yesterday, one of the gods tinkered with the apes and gave some of them sentience. What a mess.\n\n" +
+		"Now they want us to start sorting them into the right kind of afterlife, because sentient things can be evil, and the gods think they should be punished.\n\n" +
+		"They didn't give you a mouth, so just hammer on the brass thing when you're ready."
+		, "This thing?")
 	stagetimer.start_stage()
+	stagetimer.spawn_godly_message(
+		"I'm Limfjordsporter by the way, the (lesser) god of strong beer. Nice to meet you.\n\n" +
+		"I sent you the gods lists of deeds and sins. Read the material about the apes that come through, and put their weights on the right side of the scale.\n\n" +
+		"Honestly pretty easy. I'm sure even the apes could do it lol\n\n" +
+		""
+		, "Let's go")
 
 func spawn_polaroid(person):
 	var pol = spawn_doc(polaroid)
@@ -66,10 +84,12 @@ func spawn_polaroid(person):
 func spawn_personal_doc(doc):
 	var inst = spawn_doc(doc)
 	documents_personal_node.add_child(inst)
+	return inst
 
 func spawn_stage_doc(doc):
 	var inst = spawn_doc(doc)
 	documents_node.add_child(inst)
+	return inst
 
 func spawn_doc(doc):
 	var inst = doc.instantiate()
@@ -80,10 +100,18 @@ func spawn_doc(doc):
 	inst.move_child(effect, 0)
 	return inst
 
+func spawn_godly_message(txt, response):
+	var inst = spawn_stage_doc(godly_message)
+	inst.position = Vector2(0,0)
+	inst.find_child("Label").text = txt
+	active_godly_message = inst
+	hammer_target.set_text(response)
+
 func start_stage():
 	print("LOADING STAGE ", current_stage_index)
 	for doc in current_stage.rule_documents:
 		stagetimer.spawn_stage_doc(doc)
+		
 	stagetimer.start_person(current_person, 6)
 
 
@@ -97,7 +125,7 @@ func start_person(person):
 	stagetimer.ready_for_verdict()
 
 func end_game():
-	print("GAME OVER")
+	spawn_godly_message("That was all :)", "Bye :D")
 	# TODO: Load end screen?
 
 func end_stage():
@@ -154,7 +182,8 @@ func _process(delta: float) -> void:
 	grabber_joint.global_position = get_viewport().get_mouse_position()
 	var verdict = get_verdict()
 	verdict = "" if verdict == Verdict.no_verdict else "SINNER" if verdict == Verdict.sinner else "SAINT"
-	hammer_target.set_text(verdict)
+	if not is_awaiting_user() and person_active:
+		hammer_target.set_text(verdict)
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -170,7 +199,10 @@ func _on_hammer(object):
 		held_object.drop(Input.get_last_mouse_velocity())
 	held_object = null
 	grabber_joint.node_a = NodePath()
-	if person_active:
+	if active_godly_message != null:
+		active_godly_message.queue_free()
+		hammer_target.set_text("")
+	elif person_active:
 		give_verdict()
 
 func _unhandled_input(event):

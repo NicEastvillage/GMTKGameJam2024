@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ckoty6tqe6fqk" path="res://prefabs/background.tscn" id="1_fdc0o"]
 [ext_resource type="Script" path="res://scripts/StageLoader.gd" id="1_j62sn"]
-[ext_resource type="Script" path="res://scripts/StageData.gd" id="2_nv33c"]
 [ext_resource type="Resource" uid="uid://bbdnhmtor6i7r" path="res://data/S1/S1.tres" id="3_mct4a"]
 [ext_resource type="Resource" uid="uid://dlw3atx42ecxt" path="res://data/S2/S2.tres" id="4_ej3e6"]
 [ext_resource type="PackedScene" uid="uid://c8jkuwbeqr6so" path="res://prefabs/scale_rigid.tscn" id="8_kxt04"]
-[ext_resource type="PackedScene" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
+[ext_resource type="PackedScene" uid="uid://dxgmff50hns5n" path="res://prefabs/grabber.tscn" id="9_ra1dw"]
 [ext_resource type="Script" path="res://scripts/Killzone.gd" id="10_eq26k"]
-[ext_resource type="PackedScene" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
+[ext_resource type="PackedScene" uid="uid://dfxitsqbpgvks" path="res://prefabs/weight_supply.tscn" id="10_k81j6"]
 [ext_resource type="PackedScene" uid="uid://c01tdpda04fu6" path="res://prefabs/hammer.tscn" id="11_dpue7"]
 [ext_resource type="Texture2D" uid="uid://bwv7y3gn4qam3" path="res://sprites/Light.png" id="11_ikrsq"]
 [ext_resource type="PackedScene" uid="uid://c0h654ovo1bp5" path="res://prefabs/hammer_target.tscn" id="12_ysws8"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/StageTimer.gd" id="14_orrtv"]
 [ext_resource type="AudioStream" uid="uid://bgnjbwnwexha2" path="res://sounds/hell1.wav" id="15_yx1tn"]
 [ext_resource type="AudioStream" uid="uid://b3iunf1xxl23m" path="res://sounds/heaven.wav" id="16_0o8dg"]
+[ext_resource type="PackedScene" uid="uid://whoap6ax7f3a" path="res://prefabs/weights/weight_medium_rigid.tscn" id="18_dme1b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g2q2f"]
 
@@ -35,7 +35,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.764706, 1, 1, 1, 0.756863, 1, 1
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("grabber", "grabber_joint")]
 script = ExtResource("1_j62sn")
-stages = Array[ExtResource("2_nv33c")]([ExtResource("3_mct4a"), ExtResource("4_ej3e6")])
+stages = Array[Resource("res://scripts/StageData.gd")]([ExtResource("3_mct4a"), ExtResource("4_ej3e6")])
 grabber = NodePath("Grabber")
 grabber_joint = NodePath("grab_joint")
 
@@ -140,6 +140,9 @@ angular_velocity_max = 10.0
 scale_amount_min = 10.0
 scale_amount_max = 30.0
 color_ramp = SubResource("Gradient_ft0c1")
+
+[node name="WeightLarge2" parent="." instance=ExtResource("18_dme1b")]
+position = Vector2(560, 129)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="hammer" from="HammerTarget" to="." method="_on_hammer"]

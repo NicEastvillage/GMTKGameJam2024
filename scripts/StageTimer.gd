@@ -9,6 +9,7 @@ enum Type {
 	SPAWN_PERSONAL_DOC,
 	SPAWN_STAGE_DOC,
 	SPAWN_PERSONAL_PIC,
+	SPAWN_GODLY_MESSAGE,
 	READY_FOR_VERDICT
 	}
 
@@ -29,7 +30,7 @@ func _ready():
 	loader = get_parent()
 
 func _process(delta):
-	if is_stopped() and not queue.is_empty():
+	if not loader.is_awaiting_user() and is_stopped() and not queue.is_empty():
 		start(queue[0].delay)
 
 func _on_timeout():
@@ -47,6 +48,8 @@ func _on_timeout():
 		loader.spawn_personal_doc(action.object)
 	elif action.type == Type.SPAWN_PERSONAL_PIC:
 		loader.spawn_polaroid(action.object)
+	elif action.type == Type.SPAWN_GODLY_MESSAGE:
+		loader.spawn_godly_message(action.object[0], action.object[1])
 	elif action.type == Type.READY_FOR_VERDICT:
 		loader.person_active = true
 
@@ -67,6 +70,9 @@ func start_stage(delay = 1):
 	
 func start_person(person, delay = 3):
 	queue.append(TimerObject.new(Type.START_PERSON, delay, person))
+	
+func spawn_godly_message(msg, answer, delay = 1):
+	queue.append(TimerObject.new(Type.SPAWN_GODLY_MESSAGE, delay, [msg, answer]))
 
 func ready_for_verdict():
 	queue.append(TimerObject.new(Type.READY_FOR_VERDICT, 0))
